@@ -38,7 +38,7 @@ export const ClipboardImage = () => {
       ref={imageCallback}
       alt="Image"
       quality={100}
-      className="w-fit max-h-full object-contain rounded-md shadow-2xl"
+      className="w-fit object-contain rounded-md shadow-2xl"
       priority={true}
     />
   );

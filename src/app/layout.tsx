@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-neutral-100`}>
-        <main className="min-h-screen grid place-items-center mx-auto overflow-scroll px-4">
+        <main className="min-h-screen flex flex-col justify-center w-full items-center px-4">
           {children}
         </main>
       </body>

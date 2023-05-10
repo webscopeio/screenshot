@@ -12,35 +12,47 @@ import {
 import { ClipboardImage } from "@components/ClipboardImage";
 import { useImageRenderer } from "@hooks/useImageRenderer";
 import { ActionButton } from "@components/ActionButton";
+import { cn } from "@utils/cn";
 
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
-  const [value, setValue] = React.useState("16:9");
+  const [value, setValue] = React.useState("aspect-video");
   const clipboard = useImageRenderer();
   const download = useImageRenderer();
 
   return (
-    <div className="space-y-3 flex flex-col items-center w-full max-w-6xl">
-      <div className="flex w-full gap-2 justify-between">
+    <section className="h-[70vh] flex w-full gap-6">
+      <div className="flex w-full h-full justify-center items-center">
+        <div
+          ref={clipboardRef}
+          className={`${cn(
+            "h-fit max-h-[70hv] flex items-center justify-center p-12 rounded-md bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%",
+            value
+          )}`}
+        >
+          <ClipboardImage />
+        </div>
+      </div>
+      <div className="gap-4 h-full flex flex-col justify-between border-l pl-6 min-w-[300px]">
         <div>
           <Select value={value} onValueChange={setValue}>
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger>
               <SelectValue aria-label="default">{value}</SelectValue>
             </SelectTrigger>
             <SelectContent>
-              <SelectItem defaultChecked value="16:9">
+              <SelectItem defaultChecked value="aspect-video">
                 16:9
               </SelectItem>
-              <SelectItem disabled value="box">
-                4:3
+              <SelectItem disabled value="aspect-[3/4]">
+                3:4
               </SelectItem>
-              <SelectItem disabled value="square">
+              <SelectItem disabled value="aspect-square">
                 1:1
               </SelectItem>
             </SelectContent>
           </Select>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-col gap-4">
           <ActionButton
             variant="secondary"
             state={clipboard.state}
@@ -62,12 +74,6 @@ export default function Home() {
           </ActionButton>
         </div>
       </div>
-      <div
-        ref={clipboardRef}
-        className="h-full aspect-video flex items-center justify-center p-12 rounded-md bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
-      >
-        <ClipboardImage />
-      </div>
-    </div>
+    </section>
   );
 }
