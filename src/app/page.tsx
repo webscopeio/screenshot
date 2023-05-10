@@ -64,11 +64,9 @@ export default function Home() {
       </div>
       <div
         ref={clipboardRef}
-        className="w-full aspect-video relative rounded-md bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
+        className="h-full aspect-video flex items-center justify-center p-12 rounded-md bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"
       >
-        <div className="absolute inset-0 flex items-center justify-center p-12">
-          <ClipboardImage />
-        </div>
+        <ClipboardImage />
       </div>
     </div>
   );
