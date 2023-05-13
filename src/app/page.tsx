@@ -33,6 +33,10 @@ export default function Home() {
     React.useState<AspectRatio>("aspect-video");
   const [padding, setPadding] = React.useState(4);
   const [isDark, setIsDark] = React.useState(false);
+
+  const [insetColor, setInsetColor] = React.useState("#000000");
+  const [insetPadding, setInsetPadding] = React.useState(0);
+
   const clipboard = useImageRenderer();
   const download = useImageRenderer();
 
@@ -53,7 +57,7 @@ export default function Home() {
             !isDark ? BG_THEMES.LIGHT : BG_THEMES.DARK
           )}`}
         >
-          <ClipboardImage />
+          <ClipboardImage insetColor={insetColor} insetPadding={insetPadding} />
         </div>
       </div>
       <div className="gap-4 w-fit h-full flex flex-col justify-between border-l pl-6 min-w-[300px]">
@@ -105,6 +109,39 @@ export default function Home() {
                   setPadding(value);
                 }}
               />
+            </div>
+          </div>
+          <div className="space-y-3">
+            <Label htmlFor="inset">Inset padding</Label>
+            <div className="flex flex-col space-y-2">
+              <Input
+                id="inset"
+                type="color"
+                value={insetColor}
+                onChange={(e) => setInsetColor(e.target.value)}
+              />
+              <div className="flex gap-x-2 items-center">
+                <Slider
+                  onValueChange={(value) => setInsetPadding(value[0])}
+                  value={[insetPadding]}
+                  max={10}
+                  step={1}
+                />
+                <Input
+                  className="w-16"
+                  type="number"
+                  placeholder="4"
+                  min={0}
+                  max={10}
+                  value={insetPadding}
+                  onChange={(e) => {
+                    let value = parseInt(e.target.value);
+                    value = value > 10 ? 10 : value;
+                    value = value < 0 ? 0 : value;
+                    setInsetPadding(value);
+                  }}
+                />
+              </div>
             </div>
           </div>
           <div className="flex items-center space-x-3">

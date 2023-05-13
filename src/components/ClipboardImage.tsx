@@ -27,7 +27,13 @@ const pasteImage = async (ref: HTMLImageElement) => {
   }
 };
 
-export const ClipboardImage = () => {
+export const ClipboardImage = ({
+  insetColor,
+  insetPadding,
+}: {
+  insetColor: string;
+  insetPadding: number;
+}) => {
   const imageCallback = React.useCallback((ref: HTMLImageElement | null) => {
     ref?.addEventListener("click", () => pasteImage(ref));
   }, []);
@@ -40,6 +46,11 @@ export const ClipboardImage = () => {
       quality={100}
       className="w-auto min-h-fit max-h-full object-contain rounded-md shadow-2xl"
       priority={true}
+      style={{
+        paddingInline: `${insetPadding}%`,
+        paddingBlock: `${insetPadding * 0.8}%`,
+        background: insetPadding ? insetColor : "transparent",
+      }}
     />
   );
 };
