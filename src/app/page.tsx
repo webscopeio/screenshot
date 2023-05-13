@@ -11,15 +11,15 @@ import { RadioGroup, RadioGroupItem } from "@components/RadioGroup";
 import { Label } from "@components/Label";
 import { Switch } from "@components/Switch";
 
-export const SUPPORTED_ASPECT_RATIOS = {
+const SUPPORTED_ASPECT_RATIOS = {
   VIDEO: "aspect-video",
   AUTO: "aspect-auto",
 } as const;
 
-export type AspectRatio =
+type AspectRatio =
   (typeof SUPPORTED_ASPECT_RATIOS)[keyof typeof SUPPORTED_ASPECT_RATIOS];
 
-export const BG_THEMES = {
+const BG_THEMES = {
   LIGHT:
     "bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%",
   DARK: "bg-gradient-to-br from-indigo-700 from-10% via-purple-700 via-30% to-pink-700 to-90%",
