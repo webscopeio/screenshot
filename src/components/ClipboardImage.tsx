@@ -17,7 +17,6 @@ export const ClipboardImage = ({
   setInsetPadding: (input: number) => void;
   setIsDark: (input: boolean) => void;
 }) => {
-  const ref = React.useRef<HTMLImageElement | null>(null);
   const imageCallback = React.useCallback(
     (ref: HTMLImageElement | null) => {
       ref?.addEventListener("click", () => pasteImage(ref));
