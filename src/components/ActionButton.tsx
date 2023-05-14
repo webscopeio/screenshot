@@ -1,5 +1,5 @@
 import { Check, Loader2, X } from "lucide-react";
-import { Button, ButtonProps } from "./Button";
+import { Button, ButtonProps } from "./ui/Button";
 import { ImageRendererState } from "@hooks/useImageRenderer";
 
 export const ActionButton = ({

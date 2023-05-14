@@ -1,17 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { Clipboard, Download } from "lucide-react";
-
 import { ClipboardImage } from "@components/ClipboardImage";
-import { useImageRenderer } from "@hooks/useImageRenderer";
-import { ActionButton } from "@components/ActionButton";
 import { cn } from "@utils/cn";
-import { RadioGroup, RadioGroupItem } from "@components/RadioGroup";
-import { Label } from "@components/Label";
-import { Switch } from "@components/Switch";
-import { Slider } from "@components/Slider";
-import { Input } from "@components/Input";
+import { RadioGroup, RadioGroupItem } from "@components/ui/RadioGroup";
+import { Label } from "@components/ui/Label";
+import { Switch } from "@components/ui/Switch";
+import { Slider } from "@components/ui/Slider";
+import { Input } from "@components/ui/Input";
+import { ActionPanel } from "@components/ActionsPanel";
 
 const SUPPORTED_ASPECT_RATIOS = {
   VIDEO: "aspect-video",
@@ -29,16 +26,13 @@ const BG_THEMES = {
 
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
+
   const [aspectRatio, setAspectRatio] =
     React.useState<AspectRatio>("aspect-video");
   const [padding, setPadding] = React.useState(4);
-  const [isDark, setIsDark] = React.useState(false);
-
   const [insetColor, setInsetColor] = React.useState("#000000");
   const [insetPadding, setInsetPadding] = React.useState(0);
-
-  const clipboard = useImageRenderer();
-  const download = useImageRenderer();
+  const [isDark, setIsDark] = React.useState(false);
 
   return (
     <section className="h-[648px] grid grid-cols-[1fr_auto] gap-6 w-full place-items-end">
@@ -158,27 +152,7 @@ export default function Home() {
             <Label htmlFor="color-theme">Dark mode</Label>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <ActionButton
-            variant="secondary"
-            state={clipboard.state}
-            onClick={() =>
-              clipboardRef.current && clipboard.copy(clipboardRef.current)
-            }
-            icon={<Clipboard className="h-5 w-5 opacity-80" />}
-          >
-            Copy to Clipboard
-          </ActionButton>
-          <ActionButton
-            state={download.state}
-            onClick={() =>
-              clipboardRef.current && download.download(clipboardRef.current)
-            }
-            icon={<Download className="h-5 w-5" />}
-          >
-            Download
-          </ActionButton>
-        </div>
+        <ActionPanel clipboardRef={clipboardRef} />
       </div>
     </section>
   );
