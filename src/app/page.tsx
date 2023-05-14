@@ -50,6 +50,7 @@ export default function Home() {
           }}
           className={`${cn(
             "max-w-6xl max-h-[648px] grid place-items-center",
+            padding === 0 && "[&>img]:rounded-none",
             aspectRatio,
             aspectRatio === "aspect-video" && "w-full",
             !isDark ? BG_THEMES.LIGHT : BG_THEMES.DARK
