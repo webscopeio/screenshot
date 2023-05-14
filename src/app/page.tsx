@@ -40,8 +40,6 @@ export default function Home() {
   const clipboard = useImageRenderer();
   const download = useImageRenderer();
 
-  console.log(padding);
-
   return (
     <section className="h-[648px] grid grid-cols-[1fr_auto] gap-6 w-full place-items-end">
       <div className="grid w-full place-items-center h-full">
@@ -57,7 +55,13 @@ export default function Home() {
             !isDark ? BG_THEMES.LIGHT : BG_THEMES.DARK
           )}`}
         >
-          <ClipboardImage insetColor={insetColor} insetPadding={insetPadding} />
+          <ClipboardImage
+            insetColor={insetColor}
+            insetPadding={insetPadding}
+            setInsetColor={setInsetColor}
+            setInsetPadding={setInsetPadding}
+            setIsDark={setIsDark}
+          />
         </div>
       </div>
       <div className="gap-4 w-fit h-full flex flex-col justify-between border-l pl-6 min-w-[300px]">
@@ -146,6 +150,7 @@ export default function Home() {
           </div>
           <div className="flex items-center space-x-3">
             <Switch
+              checked={isDark}
               onCheckedChange={() => setIsDark(!isDark)}
               id="color-theme"
             />
