@@ -10,7 +10,7 @@ export const ImageRendererState = {
   LOADING: "LOADING",
 } as const;
 
-const SCALE = 2;
+const SCALE = 3;
 
 /**
  * Uses `html-to-image`
