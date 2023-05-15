@@ -1,5 +1,7 @@
 # Screenshot
 
+![Screenshot web-app](/home.png "Screenshot")
+
 ## Description
 
 Screenshot is an open-source tool that provides users with granular controls to frame their screenshots and offers options to customize settings such as aspect ratio, padding, inset color, inset padding, and frame background.
