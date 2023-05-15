@@ -1,6 +1,6 @@
 # Screenshot
 
-![Screenshot web-app](/home.png "Screenshot")
+![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
 
 ## Description
 
