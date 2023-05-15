@@ -10,3 +10,54 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  @apply bg-violet-300 rounded-full h-3.5 w-3.5 absolute top-8;
+}
+.lds-ellipsis div:nth-child(1) {
+  animation: lds-ellipsis1 0.6s infinite;
+  @apply left-2;
+}
+.lds-ellipsis div:nth-child(2) {
+  animation: lds-ellipsis2 0.6s infinite;
+  @apply left-2;
+}
+.lds-ellipsis div:nth-child(3) {
+  animation: lds-ellipsis2 0.6s infinite;
+  @apply left-8;
+}
+.lds-ellipsis div:nth-child(4) {
+  animation: lds-ellipsis3 0.6s infinite;
+  @apply left-14;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
