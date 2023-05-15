@@ -26,7 +26,7 @@ export const ClipboardImage = ({
           const hexColor = rgbToHex(backgroundColor);
           if (hexColor) {
             setInsetColor(hexColor);
-            setInsetPadding(2);
+            setInsetPadding(1);
           }
           const isDark = isColorDark(backgroundColor);
           if (isDark !== undefined) {
