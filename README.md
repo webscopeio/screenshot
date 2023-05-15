@@ -4,9 +4,13 @@
 
 Screenshot is an open-source tool that provides users with granular controls to frame their screenshots and offers options to customize settings such as aspect ratio, padding, inset color, inset padding, and frame background.
 
-This web-application is built with React, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and styled with Tailwind CSS and Radix UI components.
+## How to use
+
+Using Screenshot is easy, visit [screenshot-ekqt.vercel.app/](https://screenshot-ekqt.vercel.app/), click on the frame to paste your clipboard's image and then adjust the settings as needed.
 
 ## Installation
+
+This web-application is built with React, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and styled with Tailwind CSS and Radix UI components.
 
 To install and run the Screenshot tool locally, follow these steps:
 
