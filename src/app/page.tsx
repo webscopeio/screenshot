@@ -26,8 +26,8 @@ export default function Home() {
   } = useSettings(defaultSettings);
 
   return (
-    <section className="h-[648px] grid grid-cols-[1fr_auto] gap-6 w-full place-items-end">
-      <div className="grid w-full place-items-center h-full">
+    <section className="grid grid-cols-[1fr_auto] w-full max-w-[90rem] place-items-end border-8 rounded-md border-slate-900/50 ">
+      <div className="grid w-full place-items-center h-full bg-[#020617] bg-[length:15px_15px] [background-image:radial-gradient(#64748b_0.75px,_transparent_0)] p-12">
         <div
           ref={clipboardRef}
           style={{
@@ -50,7 +50,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="gap-4 w-fit h-full flex flex-col justify-between border-l pl-6 min-w-[300px]">
+      <div className="gap-4 w-fit h-full flex flex-col justify-between p-6 min-w-[300px] bg-slate-900 text-slate-100 relative">
         <Settings
           settings={settings}
           setAspectRatio={setAspectRatio}

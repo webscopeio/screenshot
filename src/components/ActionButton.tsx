@@ -23,8 +23,8 @@ export const ActionButton = ({
       onClick={onClick}
     >
       {state === "LOADING" && <Loader2 className="h-5 w-5 animate-spin" />}
-      {state === "SUCCESS" && <Check className="h-5 w-5 text-green-500" />}
-      {state === "ERROR" && <X className="h-5 w-5 text-red-500" />}
+      {state === "SUCCESS" && <Check className="h-5 w-5 text-green-700" />}
+      {state === "ERROR" && <X className="h-5 w-5 text-red-700" />}
       {state === "READY" && icon}
       {children}
     </Button>

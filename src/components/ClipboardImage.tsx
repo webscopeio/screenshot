@@ -29,7 +29,7 @@ export const ClipboardImage = ({
             setInsetPadding(2);
           }
           const isDark = isColorDark(backgroundColor);
-          if (isDark) {
+          if (isDark !== undefined) {
             setIsDark(isDark);
           }
         }

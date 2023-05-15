@@ -19,5 +19,5 @@ export const defaultSettings: Settings = {
   padding: 4,
   insetColor: "#000000",
   insetPadding: 0,
-  isDark: false,
+  isDark: true,
 };

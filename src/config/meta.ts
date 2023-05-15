@@ -7,6 +7,7 @@ export const baseMetadata: Metadata = {
   openGraph: {
     title: "Screenshot",
     description: "Build engaging screenshots faster",
+    images: ["/home.png"],
     url: "https://screenshot-ekqt.vercel.app/",
     siteName: "Screenshot",
     locale: "en-US",
