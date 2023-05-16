@@ -3,6 +3,15 @@
 ![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
 
 <div>
+<a href="https://github.com/ekqt/screenshot">
+  <img src="https://flat.badgen.net/badge/built%20by/Open%20Source/red?icon=heart" />
+</a>
+<a href="https://github.com/ekqt/screenshot">
+  <img src="https://flat.badgen.net/badge/built%20with/TypeScript/blue?icon=GitHub" />
+</a>
+</div>
+
+<div>
 <a href="https://github.com/ekqt/screenshot/stargazers" target="_blank">
   <img src="https://flat.badgen.net/github/stars/ekqt/screenshot" />
 </a>
@@ -17,15 +26,6 @@
 </a>
 <a href="https://github.com/ekqt/screenshot/commits/main" target="_blank">
   <img src="https://flat.badgen.net/github/last-commit/ekqt/screenshot/main" />
-</a>
-</div>
-
-<div>
-<a href="https://github.com/ekqt/screenshot">
-  <img src="https://flat.badgen.net/badge/Built%20by/Open%20Source/red?icon=heart" />
-</a>
-<a href="https://github.com/ekqt/screenshot">
-  <img src="https://flat.badgen.net/badge/Built%20with/TypeScript/blue?icon=GitHub" />
 </a>
 </div>
 
@@ -74,4 +74,6 @@ Provide as much detail as possible about the issue, including any error messages
 
 Explain the proposed feature, what it should do, why it is useful, how users should use it. Give us as much info as possible so it will be easier to discuss, access and implement the proposed feature. If you’re unsure about a certain aspect of the feature, feel free to leave it open for others to discuss and find an appropriate solution.
 
+<a href="https://screenshot-ekqt.vercel.app/" target="_blank">
 <img src="https://screenshot-ekqt.vercel.app/web-app-badge.png" alt="Use it on your Web Browser" width="150px" height="auto">
+</a>
