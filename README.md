@@ -8,7 +8,7 @@ Screenshot is an open-source tool that provides users with granular controls to 
 
 ## How to use
 
-Using Screenshot is easy, visit [screenshot-ekqt.vercel.app/](https://screenshot-ekqt.vercel.app/), click on the frame to paste your clipboard's image and then adjust the settings as needed.
+It is easy to use Screenshot, (a) visit [screenshot-ekqt.vercel.app/](https://screenshot-ekqt.vercel.app/), (b) click on the frame to paste your clipboard's image and then (c) adjust the settings as needed.
 
 ## Installation
 
@@ -34,3 +34,17 @@ npm instal
 ```bash
 npm run dev
 ```
+
+## Contributing
+
+Want to contribute? That's great! Issues, PRs and Discussions are welcomed!
+
+### Report an issue
+
+Provide as much detail as possible about the issue, including any error messages or steps to reproduce the problem. We'll review the issue together and work to resolve it as quickly as possible.
+
+### Suggesting features
+
+Explain the proposed feature, what it should do, why it is useful, how users should use it. Give us as much info as possible so it will be easier to discuss, access and implement the proposed feature. If you’re unsure about a certain aspect of the feature, feel free to leave it open for others to discuss and find an appropriate solution.
+
+<img src="https://screenshot-ekqt.vercel.app/web-app-badge.png" alt= “Use it on your Web Browser” width="150px" height="auto">
