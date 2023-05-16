@@ -15,6 +15,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         )}
         ref={ref}
         {...props}
+        style={{cursor: 'pointer'}}
       />
     );
   }
