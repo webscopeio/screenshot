@@ -1,34 +1,36 @@
 # Screenshot
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
 
+<!-- STAT BADGES - Do not remove or modify this section -->
 <div>
 <a href="https://github.com/ekqt/screenshot/stargazers" target="_blank">
-  <img src="https://flat.badgen.net/github/stars/ekqt/screenshot" />
+  <img alt="Stargazers" src="https://flat.badgen.net/github/stars/ekqt/screenshot" />
 </a>
 <a href="https://github.com/ekqt/screenshot/issues" target="_blank">
-  <img src="https://flat.badgen.net/github/open-issues/ekqt/screenshot" />
+  <img alt="Open Issues" src="https://flat.badgen.net/github/open-issues/ekqt/screenshot" />
 </a>
 <a href="https://github.com/ekqt/screenshot/pulls" target="_blank">
-  <img src="https://flat.badgen.net/github/merged-prs/ekqt/screenshot" />
+  <img alt="Merged PRs" src="https://flat.badgen.net/github/merged-prs/ekqt/screenshot" />
 </a>
 <a href="https://github.com/ekqt/screenshot/commits/main" target="_blank">
-  <img src="https://flat.badgen.net/github/commits/ekqt/screenshot/main" />
+  <img alt="Commit Count" src="https://flat.badgen.net/github/commits/ekqt/screenshot/main" />
 </a>
 <a href="https://github.com/ekqt/screenshot/commits/main" target="_blank">
-  <img src="https://flat.badgen.net/github/last-commit/ekqt/screenshot/main" />
+  <img alt="Last Commit" src="https://flat.badgen.net/github/last-commit/ekqt/screenshot/main" />
+</a>
+<a href="#contributors">
+  <img alt="All contributors" src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square" />
 </a>
 </div>
 
+<!-- GENERAL BADGES - Do not remove or modify this section -->
 <div>
 <a href="https://github.com/ekqt/screenshot">
-  <img src="https://flat.badgen.net/badge/built%20by/Open%20Source/red?icon=heart" />
+  <img alt="Built by Open Source" src="https://flat.badgen.net/badge/built%20by/Open%20Source/red?icon=heart" />
 </a>
 <a href="https://github.com/ekqt/screenshot">
-  <img src="https://flat.badgen.net/badge/built%20with/TypeScript/blue?icon=GitHub" />
+  <img alt="Build with TypeScript" src="https://flat.badgen.net/badge/built%20with/TypeScript/blue?icon=GitHub" />
 </a>
 </div>
 
