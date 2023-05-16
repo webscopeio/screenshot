@@ -29,6 +29,8 @@
 </a>
 </div>
 
+<br/>
+
 <a href="https://screenshot-ekqt.vercel.app/" target="_blank">
 <img src="https://screenshot-ekqt.vercel.app/web-app-badge.png" alt="Use it on your Web Browser" width="150px" height="auto">
 </a>
