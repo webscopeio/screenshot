@@ -4,16 +4,28 @@
 
 <div>
 <a href="https://github.com/ekqt/screenshot/stargazers" target="_blank">
-  <img src="https://badgen.net/github/stars/ekqt/screenshot" />
+  <img src="https://flat.badgen.net/github/stars/ekqt/screenshot" />
 </a>
 <a href="https://github.com/ekqt/screenshot/issues" target="_blank">
-  <img src="https://badgen.net/github/open-issues/ekqt/screenshot" />
+  <img src="https://flat.badgen.net/github/open-issues/ekqt/screenshot" />
 </a>
 <a href="https://github.com/ekqt/screenshot/pulls" target="_blank">
-  <img src="https://badgen.net/github/merged-prs/ekqt/screenshot" />
+  <img src="https://flat.badgen.net/github/merged-prs/ekqt/screenshot" />
 </a>
 <a href="https://github.com/ekqt/screenshot/commits/main" target="_blank">
-  <img src="https://badgen.net/github/commits/ekqt/screenshot/main" />
+  <img src="https://flat.badgen.net/github/commits/ekqt/screenshot/main" />
+</a>
+<a href="https://github.com/ekqt/screenshot/commits/main" target="_blank">
+  <img src="https://flat.badgen.net/github/last-commit/ekqt/screenshot/main" />
+</a>
+</div>
+
+<div>
+<a href="https://github.com/ekqt/screenshot">
+  <img src="https://flat.badgen.net/badge/Built%20by/Open%20Source/red?icon=heart" />
+</a>
+<a href="https://github.com/ekqt/screenshot">
+  <img src="https://flat.badgen.net/badge/Built%20with/TypeScript/blue?icon=GitHub" />
 </a>
 </div>
 
