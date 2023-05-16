@@ -3,15 +3,6 @@
 ![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
 
 <div>
-<a href="https://github.com/ekqt/screenshot">
-  <img src="https://flat.badgen.net/badge/built%20by/Open%20Source/red?icon=heart" />
-</a>
-<a href="https://github.com/ekqt/screenshot">
-  <img src="https://flat.badgen.net/badge/built%20with/TypeScript/blue?icon=GitHub" />
-</a>
-</div>
-
-<div>
 <a href="https://github.com/ekqt/screenshot/stargazers" target="_blank">
   <img src="https://flat.badgen.net/github/stars/ekqt/screenshot" />
 </a>
@@ -26,6 +17,15 @@
 </a>
 <a href="https://github.com/ekqt/screenshot/commits/main" target="_blank">
   <img src="https://flat.badgen.net/github/last-commit/ekqt/screenshot/main" />
+</a>
+</div>
+
+<div>
+<a href="https://github.com/ekqt/screenshot">
+  <img src="https://flat.badgen.net/badge/built%20by/Open%20Source/red?icon=heart" />
+</a>
+<a href="https://github.com/ekqt/screenshot">
+  <img src="https://flat.badgen.net/badge/built%20with/TypeScript/blue?icon=GitHub" />
 </a>
 </div>
 
