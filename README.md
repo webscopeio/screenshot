@@ -2,14 +2,19 @@
 
 ![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
 
-<div
- align="center"
- style="display: flex; gap: 12px; width: 100%; justify-content: center;"
->
+<div>
+<a href="https://github.com/ekqt/screenshot/stargazers" target="_blank">
   <img src="https://badgen.net/github/stars/ekqt/screenshot" />
-  <img src="https://badgen.net/github/commits/ekqt/screenshot/main" />
-  <img src="https://badgen.net/github/merged-prs/ekqt/screenshot" />
+</a>
+<a href="https://github.com/ekqt/screenshot/issues" target="_blank">
   <img src="https://badgen.net/github/open-issues/ekqt/screenshot" />
+</a>
+<a href="https://github.com/ekqt/screenshot/pulls" target="_blank">
+  <img src="https://badgen.net/github/merged-prs/ekqt/screenshot" />
+</a>
+<a href="https://github.com/ekqt/screenshot/commits/main" target="_blank">
+  <img src="https://badgen.net/github/commits/ekqt/screenshot/main" />
+</a>
 </div>
 
 ## Description
