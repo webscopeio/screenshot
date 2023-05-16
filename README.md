@@ -3,6 +3,7 @@
 ![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
 
 <div
+ align="center"
  style="display: flex; gap: 12px; width: 100%; justify-content: center;"
 >
   <img src="https://badgen.net/github/stars/ekqt/screenshot" />
