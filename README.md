@@ -2,6 +2,15 @@
 
 ![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
 
+<div
+ style="display: flex; gap: 12px; width: 100%; justify-content: center;"
+>
+  <img src="https://badgen.net/github/stars/ekqt/screenshot" />
+  <img src="https://badgen.net/github/commits/ekqt/screenshot/main" />
+  <img src="https://badgen.net/github/merged-prs/ekqt/screenshot" />
+  <img src="https://badgen.net/github/open-issues/ekqt/screenshot" />
+</div>
+
 ## Description
 
 Screenshot is an open-source tool that provides users with granular controls to frame their screenshots and offers options to customize settings such as aspect ratio, padding, inset color, inset padding, and frame background.
