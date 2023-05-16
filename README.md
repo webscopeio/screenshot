@@ -29,6 +29,10 @@
 </a>
 </div>
 
+<a href="https://screenshot-ekqt.vercel.app/" target="_blank">
+<img src="https://screenshot-ekqt.vercel.app/web-app-badge.png" alt="Use it on your Web Browser" width="150px" height="auto">
+</a>
+
 ## Description
 
 Screenshot is an open-source tool that provides users with granular controls to frame their screenshots and offers options to customize settings such as aspect ratio, padding, inset color, inset padding, and frame background.
@@ -68,12 +72,19 @@ Want to contribute? That's great! Issues, PRs and Discussions are welcomed!
 
 ### Report an issue
 
-Provide as much detail as possible about the issue, including any error messages or steps to reproduce the problem. We'll review the issue together and work to resolve it as quickly as possible.
+Open a [GitHub Issue](https://github.com/ekqt/screenshot/issues/new) and provide as much detail as possible about the issue, including any error messages or steps to reproduce the problem. We'll review the issue together and work to resolve it as quickly as possible.
 
 ### Suggesting features
 
-Explain the proposed feature, what it should do, why it is useful, how users should use it. Give us as much info as possible so it will be easier to discuss, access and implement the proposed feature. If you’re unsure about a certain aspect of the feature, feel free to leave it open for others to discuss and find an appropriate solution.
+Open a [GitHub Discussion](https://github.com/ekqt/screenshot/discussions/new/choose) and explain the proposed feature, what it should do, why it is useful, how users should use it. Give us as much info as possible so it will be easier to discuss, access and implement the proposed feature. If you’re unsure about a certain aspect of the feature, feel free to leave it open for others to discuss and find an appropriate solution.
 
-<a href="https://screenshot-ekqt.vercel.app/" target="_blank">
-<img src="https://screenshot-ekqt.vercel.app/web-app-badge.png" alt="Use it on your Web Browser" width="150px" height="auto">
-</a>
+## Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
