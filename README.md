@@ -81,8 +81,7 @@ npm run dev
 turbo run dev
 ```
 
-> Note: If you encounter a "Failed to Contact turbod" error, this
-> ongoing issue can be ignored by running without the daemon process by passing `--no-daemon`. Refer to issue [here](https://github.com/ekqt/screenshot/issues/17)
+> Note: If you encounter a `Failed to Contact turbod` error, this ongoing issue can be bypassed by running without the daemon process by passing `--no-daemon`. Refer to issue [here](https://github.com/vercel/turbo/issues/2034)
 
 ```bash
 turbo run dev --no-daemon
