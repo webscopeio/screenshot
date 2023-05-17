@@ -69,8 +69,23 @@ npm instal
 
 3. Start the development server, open your web browser and visit http://localhost:3000
 
+Using NPM:
+
 ```bash
 npm run dev
+```
+
+Using Turbo:
+
+```bash
+turbo run dev
+```
+
+> Note: If you encounter a "Failed to Contact turbod" error, this
+> ongoing issue can be ignored by running without the daemon process by passing `--no-daemon`. Refer to issue [here](https://github.com/ekqt/screenshot/issues/17)
+
+```bash
+turbo run dev --no-daemon
 ```
 
 ## Contributing
