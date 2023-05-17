@@ -3,6 +3,7 @@ import {
   SUPPORTED_ASPECT_RATIOS,
   Settings as SettingsType,
 } from "@config/defaults";
+import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Label } from "./ui/Label";
 import { RadioGroup, RadioGroupItem } from "./ui/RadioGroup";
@@ -24,6 +25,14 @@ export const Settings = ({
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setIsDark: (v: SettingsType["isDark"]) => void;
 }) => {
+  const handleReset = () => {
+    setAspectRatio(SUPPORTED_ASPECT_RATIOS.VIDEO);
+    setPadding(4);
+    setInsetColor("#686868");
+    setInsetPadding(1);
+    setIsDark(false);
+  };
+
   return (
     <div className="space-y-6">
       <div className="space-y-3">
@@ -115,6 +124,10 @@ export const Settings = ({
           id="color-theme"
         />
         <Label htmlFor="color-theme">Dark mode</Label>
+      </div>
+
+      <div className="flex items-center space-x-3">
+        <Button onClick={handleReset}>Reset</Button>
       </div>
     </div>
   );
