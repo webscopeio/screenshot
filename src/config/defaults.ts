@@ -18,6 +18,6 @@ export const defaultSettings: Settings = {
   aspectRatio: "aspect-video",
   padding: 4,
   insetColor: "#000000",
-  insetPadding: 0,
+  insetPadding: 1,
   isDark: true,
 };
