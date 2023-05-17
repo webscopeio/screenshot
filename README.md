@@ -20,7 +20,7 @@
   <img alt="Last Commit" src="https://flat.badgen.net/github/last-commit/ekqt/screenshot/main" />
 </a>
 <a href="#contributors">
-  <img alt="All contributors" src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square" />
+  <img alt="All contributors" src="https://flat.badgen.net/github/contributors/ekqt/screenshot" />
 </a>
 </div>
 
@@ -69,8 +69,22 @@ npm instal
 
 3. Start the development server, open your web browser and visit http://localhost:3000
 
+- Using NPM:
+
 ```bash
 npm run dev
+```
+
+- Using Turbo:
+
+```bash
+turbo run dev
+```
+
+> Note: If you encounter a `Failed to Contact turbod` warning, this can be bypassed by running the command without the daemon process by passing the `--no-daemon` flag. More on this issue here: [Turbo Issues](https://github.com/vercel/turbo/issues/2034)
+
+```bash
+turbo run dev --no-daemon
 ```
 
 ## Contributing
@@ -94,6 +108,8 @@ Open a [GitHub Discussion](https://github.com/ekqt/screenshot/discussions/new/ch
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/alefDev-prog"><img src="https://avatars.githubusercontent.com/u/114575583?v=4?s=100" width="100px;" alt="alefProg"/><br /><sub><b>alefProg</b></sub></a><br /><a href="https://github.com/ekqt/screenshot/commits?author=alefDev-prog" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://kodbilen.com"><img src="https://avatars.githubusercontent.com/u/7461799?v=4?s=100" width="100px;" alt="Çağatay Karahan"/><br /><sub><b>Çağatay Karahan</b></sub></a><br /><a href="#ideas-kodbilenadam" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/ekqt/screenshot/commits?author=kodbilenadam" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://mateusabelli.github.io/"><img src="https://avatars.githubusercontent.com/u/43862225?v=4?s=100" width="100px;" alt="Mateus Abelli"/><br /><sub><b>Mateus Abelli</b></sub></a><br /><a href="#ideas-mateusabelli" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
