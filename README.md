@@ -46,7 +46,7 @@ Screenshot is an open-source tool that provides users with granular controls to 
 
 ## How to use
 
-It is easy to use Screenshot, (a) visit [screenshot-ekqt.vercel.app/](https://screenshot-ekqt.vercel.app/), (b) click on the frame to paste your clipboard's image and then (c) adjust the settings as needed.
+To use Screenshot, (a) visit [screenshot-ekqt.vercel.app/](https://screenshot-ekqt.vercel.app/), (b) click on the frame to paste your clipboard's image and then (c) adjust the settings as needed.
 
 ## Installation
 
