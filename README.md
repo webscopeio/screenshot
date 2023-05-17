@@ -20,7 +20,7 @@
   <img alt="Last Commit" src="https://flat.badgen.net/github/last-commit/ekqt/screenshot/main" />
 </a>
 <a href="#contributors">
-  <img alt="All contributors" src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square" />
+  <img alt="All contributors" src="https://flat.badgen.net/github/contributors/ekqt/screenshot" />
 </a>
 </div>
 
