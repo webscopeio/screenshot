@@ -4,6 +4,7 @@ import {
   Settings as SettingsType,
   defaultSettings,
 } from "@config/defaults";
+import { RotateCcw } from "lucide-react";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Label } from "./ui/Label";
@@ -33,7 +34,19 @@ export const Settings = ({
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-3">
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-semibold leading-none text-slate-100 peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+          Settings
+        </h2>
+        <Button
+          variant="ghost"
+          className="hover:bg-red-800/90"
+          onClick={() => handleReset()}
+        >
+          <RotateCcw className="m-1 h-4 w-4" />
+        </Button>
+      </div>
       <div className="space-y-3">
         <Label htmlFor="aspect-settings">Aspect Ratio</Label>
         <RadioGroup
@@ -124,10 +137,6 @@ export const Settings = ({
           id="color-theme"
         />
         <Label htmlFor="color-theme">Dark mode</Label>
-      </div>
-
-      <div className="flex items-center space-x-3">
-        <Button onClick={handleReset}>Reset</Button>
       </div>
     </div>
   );
