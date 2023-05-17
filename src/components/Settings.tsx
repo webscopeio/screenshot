@@ -30,7 +30,7 @@ export const Settings = ({
   const handleReset = () => {
     setAspectRatio(defaultSettings.aspectRatio);
     setPadding(defaultSettings.padding);
-    setInsetPadding(defaultSettings.insetPadding);
+    setInsetPadding(2);
   };
 
   return (
