@@ -2,6 +2,7 @@ import {
   AspectRatio,
   SUPPORTED_ASPECT_RATIOS,
   Settings as SettingsType,
+  defaultSettings,
 } from "@config/defaults";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
@@ -26,11 +27,9 @@ export const Settings = ({
   setIsDark: (v: SettingsType["isDark"]) => void;
 }) => {
   const handleReset = () => {
-    setAspectRatio(SUPPORTED_ASPECT_RATIOS.VIDEO);
-    setPadding(4);
-    setInsetColor("#686868");
-    setInsetPadding(1);
-    setIsDark(false);
+    setAspectRatio(defaultSettings.aspectRatio);
+    setPadding(defaultSettings.padding);
+    setInsetPadding(defaultSettings.insetPadding);
   };
 
   return (
@@ -40,6 +39,7 @@ export const Settings = ({
         <RadioGroup
           id="aspect-settings"
           defaultValue="aspect-video"
+          value={settings.aspectRatio}
           onValueChange={(value) => setAspectRatio(value as AspectRatio)}
         >
           <div className="flex items-center space-x-2">
