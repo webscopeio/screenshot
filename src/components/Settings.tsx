@@ -2,7 +2,10 @@ import {
   AspectRatio,
   SUPPORTED_ASPECT_RATIOS,
   Settings as SettingsType,
+  defaultSettings,
 } from "@config/defaults";
+import { RotateCcw } from "lucide-react";
+import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Label } from "./ui/Label";
 import { RadioGroup, RadioGroupItem } from "./ui/RadioGroup";
@@ -24,13 +27,28 @@ export const Settings = ({
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setIsDark: (v: SettingsType["isDark"]) => void;
 }) => {
+  const handleReset = () => {
+    setAspectRatio(defaultSettings.aspectRatio);
+    setPadding(defaultSettings.padding);
+    setInsetPadding(2);
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-3">
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-semibold leading-none text-slate-100 peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+          Settings
+        </h2>
+        <Button variant="ghost" className="px-3" onClick={() => handleReset()}>
+          <RotateCcw className="h-4 w-4" />
+        </Button>
+      </div>
       <div className="space-y-3">
         <Label htmlFor="aspect-settings">Aspect Ratio</Label>
         <RadioGroup
           id="aspect-settings"
           defaultValue="aspect-video"
+          value={settings.aspectRatio}
           onValueChange={(value) => setAspectRatio(value as AspectRatio)}
         >
           <div className="flex items-center space-x-2">
