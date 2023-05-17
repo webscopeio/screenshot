@@ -94,6 +94,7 @@ Open a [GitHub Discussion](https://github.com/ekqt/screenshot/discussions/new/ch
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/alefDev-prog"><img src="https://avatars.githubusercontent.com/u/114575583?v=4?s=100" width="100px;" alt="alefProg"/><br /><sub><b>alefProg</b></sub></a><br /><a href="https://github.com/ekqt/screenshot/commits?author=alefDev-prog" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://mateusabelli.github.io/"><img src="https://avatars.githubusercontent.com/u/43862225?v=4?s=100" width="100px;" alt="Mateus Abelli"/><br /><sub><b>Mateus Abelli</b></sub></a><br /><a href="#ideas-mateusabelli" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
