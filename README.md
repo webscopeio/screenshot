@@ -52,7 +52,7 @@ To use Screenshot, (a) visit [screenshot-ekqt.vercel.app/](https://screenshot-ek
 
 This web-application is built with React, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and styled with Tailwind CSS and Radix UI components.
 
-To install and run the Screenshot tool locally, follow these steps:
+To install and run locally, follow these steps:
 
 1. Clone the repository
 
