@@ -69,13 +69,13 @@ npm instal
 
 3. Start the development server, open your web browser and visit http://localhost:3000
 
-Using NPM:
+- Using NPM:
 
 ```bash
 npm run dev
 ```
 
-Using Turbo:
+- Using Turbo:
 
 ```bash
 turbo run dev
