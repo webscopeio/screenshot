@@ -2,7 +2,7 @@ import * as React from "react";
 import { useOS } from "@hooks/useOS";
 import { useTimeout } from "@hooks/useTimeout";
 
-export const Loader = ({ children }: { children: React.ReactNode }) => {
+export const LoadProvider = ({ children }: { children: React.ReactNode }) => {
   const os = useOS();
 
   const [isReady, setIsReady] = React.useState(false);

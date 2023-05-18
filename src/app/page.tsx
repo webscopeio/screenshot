@@ -7,10 +7,9 @@ import { defaultSettings } from "@config/defaults";
 import { cn } from "@utils/cn";
 import { useSettings } from "@hooks/useSettings";
 import { Settings } from "@components/Settings";
-import { Loader } from "@components/Loader";
-import { Toaster } from "@components/ui/toast/toaster";
 
-
+import { LoadProvider } from "@components/providers/LoadProvider";
+import { ToastProvider } from "@components/providers/ToastProvider";
 
 const background = {
   light:
@@ -30,8 +29,8 @@ export default function Home() {
   } = useSettings(defaultSettings);
 
   return (
-    <>
-      <Loader>
+    <LoadProvider>
+      <ToastProvider>
         <section className="grid grid-cols-[1fr_auto] w-full max-w-[90rem] place-items-end border-8 rounded-md border-slate-900/50">
           <div className="grid w-full place-items-center h-full bg-[#020617] bg-[length:15px_15px] [background-image:radial-gradient(#64748b_0.75px,_transparent_0)] p-12">
             <div
@@ -68,8 +67,7 @@ export default function Home() {
             <ActionPanel clipboardRef={clipboardRef} />
           </div>
         </section>
-      </Loader>
-      <Toaster />
-    </>
+      </ToastProvider>
+    </LoadProvider>
   );
 }
