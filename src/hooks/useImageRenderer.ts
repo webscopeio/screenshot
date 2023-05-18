@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTimeout } from "@hooks/useTimeout";
 import { toBlob, toPng } from "html-to-image";
 import { useClipboard } from "./useClipboard";
+import { IMAGE_EXPORT_SCALE } from "@config/defaults";
 
 export const ImageRendererState = {
   READY: "READY",
@@ -9,8 +10,6 @@ export const ImageRendererState = {
   ERROR: "ERROR",
   LOADING: "LOADING",
 } as const;
-
-const SCALE = 2;
 
 /**
  * Uses `html-to-image`
@@ -29,7 +28,7 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
 
   function copy(node: HTMLDivElement) {
     const style = {
-      transform: `scale(${SCALE})`,
+      transform: `scale(${IMAGE_EXPORT_SCALE})`,
       "transform-origin": "top left",
       width: node.offsetWidth + "px",
       height: node.offsetHeight + "px",
@@ -39,8 +38,8 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
 
     try {
       toBlob(node, {
-        height: node.offsetHeight * SCALE,
-        width: node.offsetWidth * SCALE,
+        height: node.offsetHeight * IMAGE_EXPORT_SCALE,
+        width: node.offsetWidth * IMAGE_EXPORT_SCALE,
         style,
       })
         .then(async (blob) => {
@@ -62,7 +61,7 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
 
   function download(node: HTMLDivElement) {
     const style = {
-      transform: `scale(${SCALE})`,
+      transform: `scale(${IMAGE_EXPORT_SCALE})`,
       "transform-origin": "top left",
       width: node.offsetWidth + "px",
       height: node.offsetHeight + "px",
@@ -72,8 +71,8 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
 
     try {
       toPng(node, {
-        height: node.offsetHeight * SCALE,
-        width: node.offsetWidth * SCALE,
+        height: node.offsetHeight * IMAGE_EXPORT_SCALE,
+        width: node.offsetWidth * IMAGE_EXPORT_SCALE,
         style,
       })
         .then((toDataURL) => {

@@ -3,6 +3,7 @@ import {
   SUPPORTED_ASPECT_RATIOS,
   Settings as SettingsType,
   defaultSettings,
+  suggestedSettings,
 } from "@config/defaults";
 import { RotateCcw } from "lucide-react";
 import { Button } from "./ui/Button";
@@ -30,7 +31,7 @@ export const Settings = ({
   const handleReset = () => {
     setAspectRatio(defaultSettings.aspectRatio);
     setPadding(defaultSettings.padding);
-    setInsetPadding(2);
+    setInsetPadding(suggestedSettings.insetPadding);
   };
 
   return (
