@@ -18,7 +18,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-gradient-to-br from-indigo-900 from-10% via-purple-900 via-30% to-pink-900 to-90% relative`}
       >
-        <main className="min-h-screen flex flex-col justify-center w-full items-center px-8">
+        <main className="h-screen w-screen grid place-content-center px-8">
           <Noise />
           {children}
         </main>
