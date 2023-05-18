@@ -6,6 +6,7 @@ export const pasteImage = async (ref: HTMLImageElement) => {
     });
     if (permission.state === "denied") {
       throw new Error("Not allowed to read clipboard.");
+
     }
     const clipboardContents = await navigator.clipboard.read();
     for (const item of clipboardContents) {
@@ -15,10 +16,17 @@ export const pasteImage = async (ref: HTMLImageElement) => {
       const blob = await item.getType("image/png");
       const src = URL.createObjectURL(blob);
       ref.src = src;
+      
+      
     }
   } catch (error) {
+    
     if (error instanceof Error) {
-      console.error(error.message);
+      const message:string = error.message;
+      console.log(error);
+      return error;
+      
     }
+    
   }
 };

@@ -3,6 +3,10 @@ import Image from "next/image";
 import placeholder from "../app/placeholder.svg";
 import { getBackgroundColor, isColorDark, rgbToHex } from "@utils/color";
 import { pasteImage } from "@utils/clipboard";
+import { useToast } from "./ui/toast/use-toast";
+
+
+
 
 export const ClipboardImage = ({
   insetColor,
@@ -17,9 +21,18 @@ export const ClipboardImage = ({
   setInsetPadding: (input: number) => void;
   setIsDark: (input: boolean) => void;
 }) => {
+
+  const {toast} = useToast();
+
+
+
   const imageCallback = React.useCallback(
     (ref: HTMLImageElement | null) => {
-      ref?.addEventListener("click", () => pasteImage(ref));
+      ref?.addEventListener("click", async () => {
+        const result:any = await pasteImage(ref)
+        if (result instanceof Error) toast({title: result.message, variant:"destructive"});
+        else toast({title: "Image uploaded"});
+      });
       ref?.addEventListener("load", () => {
         const backgroundColor = getBackgroundColor(ref);
         if (backgroundColor) {
@@ -39,6 +52,7 @@ export const ClipboardImage = ({
   );
 
   return (
+
     <Image
       src={placeholder}
       ref={imageCallback}
@@ -51,5 +65,6 @@ export const ClipboardImage = ({
         background: insetPadding ? insetColor : "transparent",
       }}
     />
+
   );
 };
