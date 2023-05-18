@@ -1,6 +1,6 @@
 # Screenshot
 
-![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png "Screenshot")
+![Screenshot web-app](https://screenshot-ekqt.vercel.app/home.png)
 
 <!-- STAT BADGES - Do not remove or modify this section -->
 <div>
