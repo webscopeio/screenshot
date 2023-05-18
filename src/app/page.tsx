@@ -31,7 +31,7 @@ export default function Home() {
   return (
     <LoadProvider>
       <ToastProvider>
-        <section className="flex items-center w-screen gap-5 h-screen p-5">
+        <section className="flex items-center w-screen gap-4 h-screen p-4">
           <div className="border-8 w-full h-fit rounded-md border-slate-900/50">
             <div className="grid w-full place-items-center bg-[#020617] bg-[length:15px_15px] [background-image:radial-gradient(#64748b_0.75px,_transparent_0)] p-12">
               <div
@@ -57,16 +57,18 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="h-full min-w-[300px] flex flex-col justify-between bg-slate-900 text-slate-100 p-5 rounded-md">
-            <Settings
-              settings={settings}
-              setAspectRatio={setAspectRatio}
-              setPadding={setPadding}
-              setInsetColor={setInsetColor}
-              setInsetPadding={setInsetPadding}
-              setIsDark={setIsDark}
-            />
-            <ActionPanel clipboardRef={clipboardRef} />
+          <div className="border-8 h-full min-w-[320px] rounded-md border-slate-900/50">
+            <div className="h-full flex flex-col justify-between bg-slate-900 text-slate-100 p-5">
+              <Settings
+                settings={settings}
+                setAspectRatio={setAspectRatio}
+                setPadding={setPadding}
+                setInsetColor={setInsetColor}
+                setInsetPadding={setInsetPadding}
+                setIsDark={setIsDark}
+              />
+              <ActionPanel clipboardRef={clipboardRef} />
+            </div>
           </div>
         </section>
       </ToastProvider>
