@@ -51,7 +51,7 @@ export const ClipboardImage = ({
         if (result === "SUCCESS") {
           toast({
             title: (
-              <span className="flex gap-2 items-center">
+              <span className="flex items-center gap-2">
                 <Check />
                 Image uploaded successfully
               </span>
@@ -61,7 +61,7 @@ export const ClipboardImage = ({
         if (result instanceof Error)
           toast({
             title: (
-              <span className="flex gap-2 items-center">
+              <span className="flex items-center gap-2">
                 <XCircle />
                 {result.message}
               </span>
@@ -78,7 +78,7 @@ export const ClipboardImage = ({
       ref={imageRef}
       alt="Image"
       quality={100}
-      className="w-auto min-h-fit max-h-full object-contain rounded-md shadow-2xl"
+      className="max-h-full min-h-fit w-auto rounded-md object-contain shadow-2xl"
       priority={true}
       style={{
         padding: `${insetPadding}%`,

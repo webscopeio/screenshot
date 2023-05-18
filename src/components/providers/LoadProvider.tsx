@@ -23,7 +23,7 @@ export const LoadProvider = ({ children }: { children: React.ReactNode }) => {
 
   if (os === "android" || os === "ios") {
     return (
-      <h2 className="text-3xl font-bold text-violet-300 text-center">
+      <h2 className="text-center text-3xl font-bold text-violet-300">
         Sorry! Screenshot doesn&apos;t have support for mobile view.
       </h2>
     );

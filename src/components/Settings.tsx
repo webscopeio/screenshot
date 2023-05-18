@@ -36,7 +36,7 @@ export const Settings = ({
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between border-b pb-2 border-slate-700">
+      <div className="flex items-center justify-between border-b border-slate-700 pb-2">
         <h2 className="text-lg font-semibold leading-none text-slate-100 peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
           Settings
         </h2>
@@ -74,7 +74,7 @@ export const Settings = ({
       </div>
       <div>
         <Label htmlFor="padding">Padding</Label>
-        <div className="flex gap-x-2 items-center">
+        <div className="flex items-center gap-x-2">
           <Slider
             id="padding"
             onValueChange={(value) => setPadding(value[0])}
@@ -107,7 +107,7 @@ export const Settings = ({
             value={settings.insetColor}
             onChange={(e) => setInsetColor(e.target.value)}
           />
-          <div className="flex gap-x-2 items-center">
+          <div className="flex items-center gap-x-2">
             <Slider
               onValueChange={(value) => setInsetPadding(value[0])}
               value={[settings.insetPadding]}
