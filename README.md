@@ -89,7 +89,7 @@ turbo run dev --no-daemon
 
 ## Contributing
 
-Want to contribute? That's great! Issues, PRs and Discussions are welcomed!
+Want to contribute? That's great news! Issues, PRs and Discussions are welcomed!
 
 ### Report an issue
 
