@@ -21,3 +21,10 @@ export const defaultSettings: Settings = {
   insetPadding: 0,
   isDark: true,
 };
+
+export const suggestedSettings: Settings = {
+  ...defaultSettings,
+  insetPadding: 1,
+};
+
+export const IMAGE_EXPORT_SCALE = 2;

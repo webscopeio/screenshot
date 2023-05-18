@@ -5,6 +5,7 @@ import { getBackgroundColor, isColorDark, rgbToHex } from "@utils/color";
 import { pasteImage } from "@utils/clipboard";
 import { useToast } from "@hooks/useToast";
 import { Check, XCircle } from "lucide-react";
+import { suggestedSettings } from "@config/defaults";
 
 export const ClipboardImage = ({
   insetColor,
@@ -20,11 +21,33 @@ export const ClipboardImage = ({
   setIsDark: (input: boolean) => void;
 }) => {
   const { toast } = useToast();
+  const imageRef = React.useRef<HTMLImageElement | null>(null);
 
-  const imageCallback = React.useCallback(
-    (ref: HTMLImageElement | null) => {
-      ref?.addEventListener("click", async () => {
-        const result = await pasteImage(ref);
+  React.useEffect(() => {
+    if (imageRef.current) {
+      const currentImage = imageRef.current;
+      currentImage.onload = () => {
+        const backgroundColor = getBackgroundColor(currentImage);
+        if (backgroundColor) {
+          const hexColor = rgbToHex(backgroundColor);
+          if (hexColor) {
+            setInsetColor(hexColor);
+            setInsetPadding(suggestedSettings.insetPadding);
+          }
+          const isDark = isColorDark(backgroundColor);
+          if (isDark !== undefined) {
+            setIsDark(isDark);
+          }
+        }
+      };
+    }
+  }, [setInsetColor, setInsetPadding, setIsDark]);
+
+  React.useEffect(() => {
+    if (imageRef.current) {
+      const currentImage = imageRef.current;
+      currentImage.onclick = async () => {
+        const result = await pasteImage(currentImage);
         if (result === "SUCCESS") {
           toast({
             title: (
@@ -45,29 +68,14 @@ export const ClipboardImage = ({
             ),
             variant: "destructive",
           });
-      });
-      ref?.addEventListener("load", () => {
-        const backgroundColor = getBackgroundColor(ref);
-        if (backgroundColor) {
-          const hexColor = rgbToHex(backgroundColor);
-          if (hexColor) {
-            setInsetColor(hexColor);
-            setInsetPadding(1);
-          }
-          const isDark = isColorDark(backgroundColor);
-          if (isDark !== undefined) {
-            setIsDark(isDark);
-          }
-        }
-      });
-    },
-    [setInsetColor, setInsetPadding, setIsDark, toast]
-  );
+      };
+    }
+  }, [setInsetColor, setInsetPadding, setIsDark, toast]);
 
   return (
     <Image
       src={placeholder}
-      ref={imageCallback}
+      ref={imageRef}
       alt="Image"
       quality={100}
       className="w-auto min-h-fit max-h-full object-contain rounded-md shadow-2xl"
