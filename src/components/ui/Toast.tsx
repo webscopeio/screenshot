@@ -5,6 +5,9 @@ import { X } from "lucide-react";
 
 import { cn } from "@utils/cn";
 
+/** If actions are introduced, we will have to update this */
+const TOAST_DURATION = 2000;
+
 const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef<
@@ -44,6 +47,7 @@ const Toast = React.forwardRef<
 >(({ className, variant, ...props }, ref) => {
   return (
     <ToastPrimitives.Root
+      duration={TOAST_DURATION}
       ref={ref}
       className={cn(toastVariants({ variant }), className)}
       {...props}
