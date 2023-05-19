@@ -5,13 +5,14 @@ import {
   defaultSettings,
   suggestedSettings,
 } from "@config/defaults";
-import { RotateCcw } from "lucide-react";
+import { RotateCcw, Info } from "lucide-react";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Label } from "./ui/Label";
 import { RadioGroup, RadioGroupItem } from "./ui/RadioGroup";
 import { Slider } from "./ui/Slider";
 import { Switch } from "./ui/Switch";
+import { Tooltip } from "./ui/Tooltip";
 
 export const Settings = ({
   settings,
@@ -40,16 +41,23 @@ export const Settings = ({
         <h2 className="text-lg font-semibold leading-none text-slate-100 peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
           Settings
         </h2>
-        <Button
-          variant="ghost"
-          className="px-3 hover:bg-red-800/90"
-          onClick={() => handleReset()}
-        >
-          <RotateCcw className="h-4 w-4" />
-        </Button>
+        <Tooltip content={<p>Reset settings</p>} side="left">
+          <Button
+            variant="ghost"
+            className="px-3 hover:bg-red-800/90"
+            onClick={() => handleReset()}
+          >
+            <RotateCcw className="h-4 w-4" />
+          </Button>
+        </Tooltip>
       </div>
       <div className="space-y-3">
-        <Label htmlFor="aspect-settings">Aspect Ratio</Label>
+        <Label className="flex items-center gap-2" htmlFor="aspect-settings">
+          <span>Aspect Ratio</span>
+          <Tooltip content={<p>Width and height ratio</p>} side="top">
+            <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
+          </Tooltip>
+        </Label>
         <RadioGroup
           id="aspect-settings"
           defaultValue="aspect-video"
@@ -73,7 +81,15 @@ export const Settings = ({
         </RadioGroup>
       </div>
       <div>
-        <Label htmlFor="padding">Padding</Label>
+        <Label className="flex items-center gap-2" htmlFor="padding">
+          <span>Padding</span>{" "}
+          <Tooltip
+            content={<p>Space between the image and frame</p>}
+            side="top"
+          >
+            <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
+          </Tooltip>
+        </Label>
         <div className="flex items-center gap-x-2">
           <Slider
             id="padding"
@@ -99,7 +115,15 @@ export const Settings = ({
         </div>
       </div>
       <div className="space-y-3">
-        <Label htmlFor="inset">Inset padding</Label>
+        <Label className="flex items-center gap-2" htmlFor="inset">
+          <span>Inset padding</span>
+          <Tooltip
+            content={<p>Space between original image and padding</p>}
+            side="top"
+          >
+            <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
+          </Tooltip>
+        </Label>
         <div className="flex flex-col space-y-2">
           <Input
             id="inset"
