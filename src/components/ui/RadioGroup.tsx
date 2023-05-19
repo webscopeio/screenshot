@@ -40,4 +40,22 @@ const RadioGroupItem = React.forwardRef<
 });
 RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
 
-export { RadioGroup, RadioGroupItem };
+const RadioGroupItemCustom = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
+>(({ className, children, ...props }, ref) => {
+  return (
+    <RadioGroupPrimitive.Item
+      ref={ref}
+      className={cn(
+        "h-14 rounded-md ring-offset-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-100/25 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      )}
+      {...props}
+    />
+  );
+});
+
+RadioGroupItemCustom.displayName = "RadioGroupItemCustom";
+
+export { RadioGroup, RadioGroupItem, RadioGroupItemCustom };

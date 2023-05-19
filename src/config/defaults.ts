@@ -11,6 +11,7 @@ export type Settings = {
   padding: number;
   insetColor: string;
   insetPadding: number;
+  backgroundColor: string;
   isDark: boolean;
 };
 
@@ -20,6 +21,8 @@ export const defaultSettings: Settings = {
   insetColor: "#000000",
   insetPadding: 0,
   isDark: true,
+  backgroundColor:
+    "bg-gradient-to-br from-indigo-700 from-10% via-purple-700 via-30% to-pink-700 to-90% saturate-[125%]",
 };
 
 export const suggestedSettings: Settings = {
