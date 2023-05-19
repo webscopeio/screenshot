@@ -12,12 +12,6 @@ import { LoadProvider } from "@components/providers/LoadProvider";
 import { ToastProvider } from "@components/providers/ToastProvider";
 import { TooltipProviders } from "@components/providers/TooltipProvider";
 
-const background = {
-  light:
-    "bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%",
-  dark: "bg-gradient-to-br from-indigo-700 from-10% via-purple-700 via-30% to-pink-700 to-90%",
-};
-
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
   const {
@@ -26,6 +20,7 @@ export default function Home() {
     setPadding,
     setInsetColor,
     setInsetPadding,
+    setBackgroundColor,
     setIsDark,
   } = useSettings(defaultSettings);
 
@@ -46,7 +41,7 @@ export default function Home() {
                     settings.padding === 0 && "[&>img]:rounded-none",
                     settings.aspectRatio,
                     settings.aspectRatio === "aspect-video" && "w-full",
-                    !settings.isDark ? background.light : background.dark
+                    settings.backgroundColor
                   )}`}
                 >
                   <ClipboardImage
@@ -66,6 +61,7 @@ export default function Home() {
                 setPadding={setPadding}
                 setInsetColor={setInsetColor}
                 setInsetPadding={setInsetPadding}
+                setBackgroundColor={setBackgroundColor}
                 setIsDark={setIsDark}
               />
               <ActionPanel clipboardRef={clipboardRef} />
