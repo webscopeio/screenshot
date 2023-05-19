@@ -15,7 +15,6 @@ import {
   RadioGroupItemCustom,
 } from "./ui/RadioGroup";
 import { Slider } from "./ui/Slider";
-import { Switch } from "./ui/Switch";
 import { Tooltip } from "./ui/Tooltip";
 
 const backgroundColors = [
@@ -187,6 +186,7 @@ export const Settings = ({
       <div className="space-y-3">
         <Label>Background</Label>
         <RadioGroup
+          aria-label="Background Colors"
           className="grid grid-cols-3 gap-2"
           value={settings.backgroundColor}
           onValueChange={(value) => setBackgroundColor(value)}
