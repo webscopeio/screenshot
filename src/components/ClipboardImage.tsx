@@ -1,7 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 import placeholder from "../app/placeholder.svg";
-import { getBackgroundColor, isColorDark, rgbToHex } from "@utils/color";
+import { getBackgroundColor, rgbToHex } from "@utils/color";
 import { pasteImage } from "@utils/clipboard";
 import { useToast } from "@hooks/useToast";
 import { Check, XCircle } from "lucide-react";
@@ -12,13 +12,11 @@ export const ClipboardImage = ({
   insetPadding,
   setInsetColor,
   setInsetPadding,
-  setIsDark,
 }: {
   insetColor: string;
   insetPadding: number;
   setInsetColor: (input: string) => void;
   setInsetPadding: (input: number) => void;
-  setIsDark: (input: boolean) => void;
 }) => {
   const { toast } = useToast();
   const imageRef = React.useRef<HTMLImageElement | null>(null);
@@ -34,14 +32,10 @@ export const ClipboardImage = ({
             setInsetColor(hexColor);
             setInsetPadding(suggestedSettings.insetPadding);
           }
-          const isDark = isColorDark(backgroundColor);
-          if (isDark !== undefined) {
-            setIsDark(isDark);
-          }
         }
       };
     }
-  }, [setInsetColor, setInsetPadding, setIsDark]);
+  }, [setInsetColor, setInsetPadding]);
 
   React.useEffect(() => {
     if (imageRef.current) {
@@ -70,7 +64,7 @@ export const ClipboardImage = ({
           });
       };
     }
-  }, [setInsetColor, setInsetPadding, setIsDark, toast]);
+  }, [toast]);
 
   return (
     <Image

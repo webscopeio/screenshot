@@ -55,18 +55,3 @@ export const rgbToHex = (color: string) => {
     return `#${hex}`;
   }
 };
-
-export const isColorDark = (color: string) => {
-  const rgbValues = color.match(/\d+/g);
-  if (rgbValues) {
-    const r = parseInt(rgbValues[0], 10);
-    const g = parseInt(rgbValues[1], 10);
-    const b = parseInt(rgbValues[2], 10);
-
-    // Calculate luminance using the formula: L = (0.299*R + 0.587*G + 0.114*B)
-    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
-
-    // Determine if the color is dark or light based on the luminance threshold
-    return luminance <= 0.5; // Adjust the threshold as needed
-  }
-};

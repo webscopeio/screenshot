@@ -19,10 +19,6 @@ type SettingActions =
       value: Settings["insetPadding"];
     }
   | {
-      type: "SET_IS_DARK";
-      value: Settings["isDark"];
-    }
-  | {
       type: "SET_BACKGROUND_COLOR";
       value: Settings["backgroundColor"];
     };
@@ -58,12 +54,6 @@ const settingsReducer = (
         backgroundColor: value,
       };
     }
-    case "SET_IS_DARK": {
-      return {
-        ...prevState,
-        isDark: value,
-      };
-    }
   }
 };
 
@@ -82,8 +72,6 @@ export const useSettings = (defaultSettings: Settings) => {
       dispatch({ type: "SET_INSET_COLOR", value }),
     setInsetPadding: (value: Settings["insetPadding"]) =>
       dispatch({ type: "SET_INSET_PADDING", value }),
-    setIsDark: (value: Settings["isDark"]) =>
-      dispatch({ type: "SET_IS_DARK", value }),
     setBackgroundColor: (value: Settings["backgroundColor"]) =>
       dispatch({ type: "SET_BACKGROUND_COLOR", value }),
   };

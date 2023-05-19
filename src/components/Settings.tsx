@@ -1,4 +1,3 @@
-/* eslint-disable tailwindcss/no-custom-classname */
 import {
   AspectRatio,
   SUPPORTED_ASPECT_RATIOS,
@@ -22,33 +21,28 @@ import { Tooltip } from "./ui/Tooltip";
 const backgroundColors = [
   {
     name: "Tailwind Dark",
-    isDark: true,
     className:
-      "bg-gradient-to-br from-indigo-700 from-10% via-purple-700 via-30% to-pink-700 to-90% saturate-[125%]",
+      "bg-gradient-to-br from-indigo-700 from-10% via-purple-600 via-30% to-pink-600 to-90% saturate-[125%]",
   },
   {
     name: "Orange Hibiscus",
-    isDark: true,
     className:
       "bg-gradient-to-br from-fuchsia-700 from-0% to-orange-600 to-100% saturate-[125%]",
   },
   {
-    name: "Tailwind Light",
-    isDark: false,
+    name: "Purple Blast",
     className:
-      "bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% saturate-[125%]",
+      "bg-gradient-to-tl from-fuchsia-500 from-0% to-blue-500 to-100% saturate-[125%]",
   },
   {
     name: "Summer Breeze",
-    isDark: false,
     className:
       "bg-gradient-to-br from-yellow-400 from-0% to-pink-500 to-100% saturate-[125%]",
   },
   {
-    name: "Purple Blast",
-    isDark: false,
+    name: "Tailwind Light",
     className:
-      "bg-gradient-to-tl from-fuchsia-500 from-0% to-blue-500 to-100% saturate-[125%]",
+      "bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% saturate-[125%]",
   },
 ];
 
@@ -58,7 +52,6 @@ export const Settings = ({
   setPadding,
   setInsetColor,
   setInsetPadding,
-  setIsDark,
   setBackgroundColor,
 }: {
   settings: SettingsType;
@@ -67,7 +60,6 @@ export const Settings = ({
   setInsetColor: (v: SettingsType["insetColor"]) => void;
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
-  setIsDark: (v: SettingsType["isDark"]) => void;
 }) => {
   const handleReset = () => {
     setAspectRatio(defaultSettings.aspectRatio);
@@ -192,14 +184,6 @@ export const Settings = ({
           </div>
         </div>
       </div>
-      <div className="flex items-center space-x-3">
-        <Switch
-          checked={settings.isDark}
-          onCheckedChange={() => setIsDark(!settings.isDark)}
-          id="color-theme"
-        />
-        <Label htmlFor="color-theme">Show dark backgrounds</Label>
-      </div>
       <div className="space-y-3">
         <Label>Background</Label>
         <RadioGroup
@@ -207,16 +191,14 @@ export const Settings = ({
           value={settings.backgroundColor}
           onValueChange={(value) => setBackgroundColor(value)}
         >
-          {backgroundColors
-            .filter(({ isDark }) => isDark === settings.isDark)
-            .map(({ name, className }, key) => (
-              <RadioGroupItemCustom
-                key={key}
-                aria-label={name}
-                className={className}
-                value={className}
-              />
-            ))}
+          {backgroundColors.map(({ name, className }, key) => (
+            <RadioGroupItemCustom
+              key={key}
+              aria-label={name}
+              className={className}
+              value={className}
+            />
+          ))}
         </RadioGroup>
       </div>
     </div>

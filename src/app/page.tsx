@@ -21,7 +21,6 @@ export default function Home() {
     setInsetColor,
     setInsetPadding,
     setBackgroundColor,
-    setIsDark,
   } = useSettings(defaultSettings);
 
   return (
@@ -49,7 +48,6 @@ export default function Home() {
                     insetPadding={settings.insetPadding}
                     setInsetColor={setInsetColor}
                     setInsetPadding={setInsetPadding}
-                    setIsDark={setIsDark}
                   />
                 </div>
               </div>
@@ -62,7 +60,6 @@ export default function Home() {
                 setInsetColor={setInsetColor}
                 setInsetPadding={setInsetPadding}
                 setBackgroundColor={setBackgroundColor}
-                setIsDark={setIsDark}
               />
               <ActionPanel clipboardRef={clipboardRef} />
             </div>
