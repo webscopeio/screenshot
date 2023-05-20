@@ -77,8 +77,8 @@ export const Settings = ({
   };
 
   return (
-    <div className="space-y-4">
-      <header className="flex items-center justify-between border-b border-slate-700/90 pb-2">
+    <div className="space-y-3">
+      <header className="flex items-center justify-between">
         <h2 className="text-lg font-semibold leading-none text-slate-100 peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
           Settings
         </h2>

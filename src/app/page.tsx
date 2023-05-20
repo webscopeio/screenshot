@@ -12,6 +12,10 @@ import { LoadProvider } from "@components/providers/LoadProvider";
 import { ToastProvider } from "@components/providers/ToastProvider";
 import { TooltipProviders } from "@components/providers/TooltipProvider";
 
+import { Inspect, GithubIcon, TwitterIcon } from "lucide-react";
+import { Button } from "@components/ui/Button";
+import Link from "next/link";
+
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
   const {
@@ -53,16 +57,32 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex h-full min-w-[340px] flex-col justify-between rounded-md bg-slate-900/90 p-5 text-slate-100 shadow-3xl">
-              <Settings
-                settings={settings}
-                setAspectRatio={setAspectRatio}
-                setPadding={setPadding}
-                setInsetColor={setInsetColor}
-                setInsetPadding={setInsetPadding}
-                setBackgroundColor={setBackgroundColor}
-              />
-              <ActionPanel clipboardRef={clipboardRef} />
+            <div className="flex h-full min-w-[340px] flex-col justify-between gap-1">
+              <div className="flex items-center justify-between gap-2 rounded-md bg-slate-900/90 p-5 py-3 text-slate-100 shadow-3xl">
+                <header className="flex items-center gap-[5px]">
+                  <Inspect className="h-6 w-6 stroke-2" />
+                  <div className="relative text-xl font-bold tracking-tight">
+                    <h1>Screenshot</h1>
+                    <span className="absolute bottom-[3px] right-[-14px] h-[8.5px] w-[8.5px] rounded-full bg-slate-100"></span>
+                  </div>
+                </header>
+                <Link href="https://github.com/ekqt/screenshot">
+                  <Button variant="ghost" className="px-2">
+                    <GithubIcon className="h-6 w-6 stroke-[1.75px]" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="flex h-full flex-col justify-between overflow-scroll rounded-md bg-slate-900/90 p-5 pb-4 pt-3 text-slate-100 shadow-3xl">
+                <Settings
+                  settings={settings}
+                  setAspectRatio={setAspectRatio}
+                  setPadding={setPadding}
+                  setInsetColor={setInsetColor}
+                  setInsetPadding={setInsetPadding}
+                  setBackgroundColor={setBackgroundColor}
+                />
+                <ActionPanel clipboardRef={clipboardRef} />
+              </div>
             </div>
           </section>
         </TooltipProviders>
