@@ -12,7 +12,7 @@ import { LoadProvider } from "@components/providers/LoadProvider";
 import { ToastProvider } from "@components/providers/ToastProvider";
 import { TooltipProviders } from "@components/providers/TooltipProvider";
 
-import { Inspect, GithubIcon, TwitterIcon } from "lucide-react";
+import { Inspect, GithubIcon } from "lucide-react";
 import { Button } from "@components/ui/Button";
 import Link from "next/link";
 
@@ -32,8 +32,8 @@ export default function Home() {
       <ToastProvider>
         <TooltipProviders>
           <section className="flex h-screen w-screen items-center gap-2 p-5">
-            <div className="m-9 h-fit w-full rounded-md border-8 border-slate-900/50 shadow-3xl">
-              <div className="grid w-full place-items-center bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
+            <div className="m-9 h-fit w-full rounded-md shadow-3xl ring-8 ring-slate-900/50">
+              <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
                 <div
                   ref={clipboardRef}
                   style={{
@@ -63,7 +63,7 @@ export default function Home() {
                   <Inspect className="h-6 w-6 stroke-2" />
                   <div className="relative text-xl font-bold tracking-tight">
                     <h1>Screenshot</h1>
-                    <span className="absolute bottom-[3px] right-[-14px] h-[8.5px] w-[8.5px] rounded-full bg-slate-100"></span>
+                    <span className="absolute bottom-[3px] right-[-14px] h-[9px] w-[9px] rounded-full bg-slate-100"></span>
                   </div>
                 </header>
                 <Link href="https://github.com/ekqt/screenshot">
