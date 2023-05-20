@@ -1,5 +1,6 @@
 export const SUPPORTED_ASPECT_RATIOS = {
   VIDEO: "aspect-video",
+  PHONE: "aspect-[3/4]",
   AUTO: "aspect-auto",
 } as const;
 

@@ -5,7 +5,7 @@ import {
   defaultSettings,
   suggestedSettings,
 } from "@config/defaults";
-import { RotateCcw, Info } from "lucide-react";
+import { RotateCcw, Info, Check } from "lucide-react";
 import { Button } from "./ui/Button";
 import { Input } from "./ui/Input";
 import { Label } from "./ui/Label";
@@ -19,7 +19,7 @@ import { Tooltip } from "./ui/Tooltip";
 
 const backgroundColors = [
   {
-    name: "Tailwind Dark",
+    name: "Indigo Pink",
     className:
       "bg-gradient-to-br from-indigo-700 from-10% via-purple-600 via-30% to-pink-600 to-90% saturate-[125%]",
   },
@@ -39,9 +39,19 @@ const backgroundColors = [
       "bg-gradient-to-br from-yellow-400 from-0% to-pink-500 to-100% saturate-[125%]",
   },
   {
-    name: "Tailwind Light",
+    name: "Carribean Sea",
     className:
       "bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% saturate-[125%]",
+  },
+  {
+    name: "Rose Gold",
+    className:
+      "bg-gradient-to-tl from-rose-900 from-0% via-pink-500 via-50% to-rose-700 to-100% saturate-[125%]",
+  },
+  {
+    name: "Intense Blues",
+    className:
+      "bg-gradient-to-br from-[#6e01e9] from-0% via-[#3358ff] via-45% to-[#022D9B] to-100% saturate-[125%]",
   },
 ];
 
@@ -68,7 +78,7 @@ export const Settings = ({
 
   return (
     <div className="space-y-4">
-      <header className="flex items-center justify-between border-b border-slate-700 pb-2">
+      <header className="flex items-center justify-between border-b border-slate-700/90 pb-2">
         <h2 className="text-lg font-semibold leading-none text-slate-100 peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
           Settings
         </h2>
@@ -99,6 +109,13 @@ export const Settings = ({
               id={SUPPORTED_ASPECT_RATIOS.VIDEO}
             />
             <Label htmlFor={SUPPORTED_ASPECT_RATIOS.VIDEO}>16:9</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem
+              value={SUPPORTED_ASPECT_RATIOS.PHONE}
+              id={SUPPORTED_ASPECT_RATIOS.PHONE}
+            />
+            <Label htmlFor={SUPPORTED_ASPECT_RATIOS.PHONE}>3:4</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem
@@ -184,12 +201,21 @@ export const Settings = ({
         </div>
       </div>
       <div className="space-y-3">
-        <Label>Background</Label>
+        <Label>
+          {" "}
+          <span>Background</span>
+          <Tooltip
+            content={<p>Quickly toggle using your arrow keys</p>}
+            side="top"
+          >
+            <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
+          </Tooltip>
+        </Label>
         <RadioGroup
           aria-label="Background Colors"
           className="grid grid-cols-3 gap-2"
           value={settings.backgroundColor}
-          onValueChange={(value) => setBackgroundColor(value)}
+          onValueChange={(value: string) => setBackgroundColor(value)}
         >
           {backgroundColors.map(({ name, className }, key) => (
             <RadioGroupItemCustom
@@ -197,7 +223,9 @@ export const Settings = ({
               aria-label={name}
               className={className}
               value={className}
-            />
+            >
+              <Check className="h-5 w-5" />
+            </RadioGroupItemCustom>
           ))}
         </RadioGroup>
       </div>

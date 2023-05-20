@@ -39,6 +39,7 @@ export default function Home() {
                     "max-w-6xl max-h-[648px] grid place-items-center",
                     settings.padding === 0 && "[&>img]:rounded-none",
                     settings.aspectRatio,
+                    settings.aspectRatio === "aspect-[3/4]" && "h-fit",
                     settings.aspectRatio === "aspect-video" && "w-full",
                     settings.backgroundColor
                   )}`}
@@ -52,7 +53,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex h-full min-w-[340px] flex-col justify-between rounded-md bg-slate-900 p-5 text-slate-100 shadow-3xl">
+            <div className="flex h-full min-w-[340px] flex-col justify-between rounded-md bg-slate-900/90 p-5 text-slate-100 shadow-3xl">
               <Settings
                 settings={settings}
                 setAspectRatio={setAspectRatio}
