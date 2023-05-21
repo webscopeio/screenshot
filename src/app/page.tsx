@@ -3,7 +3,7 @@
 import * as React from "react";
 import { ClipboardImage } from "@components/ClipboardImage";
 import { ActionPanel } from "@components/ActionsPanel";
-import { PreviewPanel } from "@components/PreviewPanel";
+import { HistoryPanel } from "@components/HistoryPanel";
 import { defaultSettings } from "@config/defaults";
 import { cn } from "@utils/cn";
 import { useSettings } from "@hooks/useSettings";
@@ -19,8 +19,6 @@ import Link from "next/link";
 
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
-  const [images, setImages] = React.useState<string[]>([]);
-  const [selectImage, setSelectImage] = React.useState("")
   const {
     settings,
     setAspectRatio,
@@ -30,14 +28,27 @@ export default function Home() {
     setBackgroundColor,
   } = useSettings(defaultSettings);
 
+  /** History Panel Shared State Setup **
+   *
+   * The "setImagesHistoryUrl" useState hook holds a blob URL array to
+   * manage the history of clipboard pastes.
+   * Sample data: ["blob:http://localhost:3000/73c51e5e...", "..."]
+   *
+   * The "setSelectedImageUrl" useState hook holds the blob URL of the
+   * current selected image from the history panel
+   * Sample data: "blob:http://localhost:3000/73c51e5e..."
+   */
+  const [imagesHistoryUrl, setImagesHistoryUrl] = React.useState<string[]>([]);
+  const [selectedImageUrl, setSelectedImageUrl] = React.useState("")
+
   return (
     <LoadProvider>
       <ToastProvider>
         <TooltipProviders>
           <section className="flex h-screen w-screen items-center gap-2 p-5">
-            {/* Editing box container */}
+            {/* Editing container */}
             <div className="m-9 grid h-fit w-full gap-8">
-              {/* Editing panel */}
+              {/* Clipboard image panel */}
               <div className="h-fit w-full rounded-md shadow-3xl ring-8 ring-slate-900/50">
                 <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
                   <div
@@ -59,20 +70,21 @@ export default function Home() {
                       insetPadding={settings.insetPadding}
                       setInsetColor={setInsetColor}
                       setInsetPadding={setInsetPadding}
-                      setImage={setImages}
-                      images={images}
-                      selectImage={selectImage}
+                      selectedImageUrl={selectedImageUrl}
+                      imagesHistoryUrl={imagesHistoryUrl}
+                      setImagesHistoryUrl={setImagesHistoryUrl}
                     />
                   </div>
                 </div>
               </div>
-              {/* Preview panel */}
-              <PreviewPanel
-                setImages={setImages}
-                setSelectImage={setSelectImage}
-                images={images}
+              {/* Clipboard images history panel */}
+              <HistoryPanel
+                setImagesHistoryUrl={setImagesHistoryUrl}
+                setSelectedImageUrl={setSelectedImageUrl}
+                imagesHistoryUrl={imagesHistoryUrl}
               />
             </div>
+            {/* Sidebar container */}
             <div className="flex h-full min-w-[340px] flex-col justify-between gap-1">
               <div className="flex items-center justify-between gap-2 rounded-md bg-slate-900/90 p-5 py-3 text-slate-100 shadow-3xl">
                 <header className="flex items-center gap-[5px]">

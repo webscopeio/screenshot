@@ -12,17 +12,17 @@ export const ClipboardImage = ({
   insetPadding,
   setInsetColor,
   setInsetPadding,
-  setImage,
-  images,
-  selectImage
+  setImagesHistoryUrl,
+  imagesHistoryUrl,
+  selectedImageUrl,
 }: {
   insetColor: string;
   insetPadding: number;
   setInsetColor: (input: string) => void;
   setInsetPadding: (input: number) => void;
-  setImage: React.Dispatch<React.SetStateAction<string[]>>
-  images: string[]
-  selectImage: string
+  setImagesHistoryUrl: React.Dispatch<React.SetStateAction<string[]>>
+  imagesHistoryUrl: string[]
+  selectedImageUrl: string
 }) => {
   const { toast } = useToast();
   const imageRef = React.useRef<HTMLImageElement | null>(null);
@@ -44,17 +44,21 @@ export const ClipboardImage = ({
   }, [setInsetColor, setInsetPadding]);
 
   React.useEffect(() => {
-    if (imageRef.current && selectImage) {
+    // Checks if there are selected images from the shared state
+    if (imageRef.current && selectedImageUrl) {
+      // If there are, set the "src" of the ref to the selected image
       const currentImage = imageRef.current;
-      currentImage.src = selectImage;
+      currentImage.src = selectedImageUrl;
     }
     if (imageRef.current) {
       const currentImage = imageRef.current;
       currentImage.onclick = async () => {
         const result = await pasteImage(currentImage);
         if (result === "SUCCESS") {
-          // Adds the images to the preview panel
-          images.length < 10 && setImage((prev) => [currentImage.src, ...prev])
+          // Adds the images to the shared history state, only if there are less than 10.
+          imagesHistoryUrl.length < 10 && (
+            setImagesHistoryUrl((prevUrl) => [currentImage.src, ...prevUrl])
+          );
           toast({
             title: (
               <span className="flex items-center gap-2">
@@ -76,7 +80,7 @@ export const ClipboardImage = ({
           });
       };
     }
-  }, [toast, setImage, selectImage, images.length]);
+  }, [toast, setImagesHistoryUrl, selectedImageUrl, imagesHistoryUrl.length]);
 
   return (
     <Image
