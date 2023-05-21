@@ -12,11 +12,17 @@ export const ClipboardImage = ({
   insetPadding,
   setInsetColor,
   setInsetPadding,
+  setImage,
+  images,
+  selectImage
 }: {
   insetColor: string;
   insetPadding: number;
   setInsetColor: (input: string) => void;
   setInsetPadding: (input: number) => void;
+  setImage: React.Dispatch<React.SetStateAction<string[]>>
+  images: string[]
+  selectImage: string
 }) => {
   const { toast } = useToast();
   const imageRef = React.useRef<HTMLImageElement | null>(null);
@@ -38,11 +44,17 @@ export const ClipboardImage = ({
   }, [setInsetColor, setInsetPadding]);
 
   React.useEffect(() => {
+    if (imageRef.current && selectImage) {
+      const currentImage = imageRef.current;
+      currentImage.src = selectImage;
+    }
     if (imageRef.current) {
       const currentImage = imageRef.current;
       currentImage.onclick = async () => {
         const result = await pasteImage(currentImage);
         if (result === "SUCCESS") {
+          // Adds the images to the preview panel
+          images.length < 10 && setImage((prev) => [currentImage.src, ...prev])
           toast({
             title: (
               <span className="flex items-center gap-2">
@@ -64,7 +76,7 @@ export const ClipboardImage = ({
           });
       };
     }
-  }, [toast]);
+  }, [toast, setImage, selectImage, images.length]);
 
   return (
     <Image

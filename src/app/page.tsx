@@ -3,6 +3,7 @@
 import * as React from "react";
 import { ClipboardImage } from "@components/ClipboardImage";
 import { ActionPanel } from "@components/ActionsPanel";
+import { PreviewPanel } from "@components/PreviewPanel";
 import { defaultSettings } from "@config/defaults";
 import { cn } from "@utils/cn";
 import { useSettings } from "@hooks/useSettings";
@@ -18,6 +19,8 @@ import Link from "next/link";
 
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
+  const [images, setImages] = React.useState<string[]>([]);
+  const [selectImage, setSelectImage] = React.useState("")
   const {
     settings,
     setAspectRatio,
@@ -32,30 +35,43 @@ export default function Home() {
       <ToastProvider>
         <TooltipProviders>
           <section className="flex h-screen w-screen items-center gap-2 p-5">
-            <div className="m-9 h-fit w-full rounded-md shadow-3xl ring-8 ring-slate-900/50">
-              <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
-                <div
-                  ref={clipboardRef}
-                  style={{
-                    padding: `${settings.padding}%`,
-                  }}
-                  className={`${cn(
-                    "max-w-6xl max-h-[648px] grid place-items-center",
-                    settings.padding === 0 && "[&>img]:rounded-none",
-                    settings.aspectRatio,
-                    settings.aspectRatio === "aspect-[3/4]" && "h-fit",
-                    settings.aspectRatio === "aspect-video" && "w-full",
-                    settings.backgroundColor
-                  )}`}
-                >
-                  <ClipboardImage
-                    insetColor={settings.insetColor}
-                    insetPadding={settings.insetPadding}
-                    setInsetColor={setInsetColor}
-                    setInsetPadding={setInsetPadding}
-                  />
+            {/* Editing box container */}
+            <div className="m-9 grid h-fit w-full gap-8">
+              {/* Editing panel */}
+              <div className="h-fit w-full rounded-md shadow-3xl ring-8 ring-slate-900/50">
+                <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
+                  <div
+                     ref={clipboardRef}
+                      style={{
+                      padding: `${settings.padding}%`,
+                    }}
+                    className={`${cn(
+                      "max-w-6xl max-h-[648px] grid place-items-center",
+                      settings.padding === 0 && "[&>img]:rounded-none",
+                      settings.aspectRatio,
+                      settings.aspectRatio === "aspect-[3/4]" && "h-fit",
+                      settings.aspectRatio === "aspect-video" && "w-full",
+                      settings.backgroundColor
+                    )}`}
+                  >
+                    <ClipboardImage
+                      insetColor={settings.insetColor}
+                      insetPadding={settings.insetPadding}
+                      setInsetColor={setInsetColor}
+                      setInsetPadding={setInsetPadding}
+                      setImage={setImages}
+                      images={images}
+                      selectImage={selectImage}
+                    />
+                  </div>
                 </div>
               </div>
+              {/* Preview panel */}
+              <PreviewPanel
+                setImages={setImages}
+                setSelectImage={setSelectImage}
+                images={images}
+              />
             </div>
             <div className="flex h-full min-w-[340px] flex-col justify-between gap-1">
               <div className="flex items-center justify-between gap-2 rounded-md bg-slate-900/90 p-5 py-3 text-slate-100 shadow-3xl">
