@@ -48,7 +48,7 @@ const RadioGroupItemCustom = React.forwardRef<
     <RadioGroupPrimitive.Item
       ref={ref}
       className={cn(
-        "h-14 rounded-md ring-offset-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-100/25 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>*]:data-[state=unchecked]:hidden [&>*]:text-white/50 grid place-items-center",
+        "h-14 rounded-md ring-offset-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-100/25 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&_svg]:data-[state=unchecked]:text-transparent [&_svg]:text-white/50 grid place-items-center p-1.5 gap-1",
         className
       )}
       {...props}

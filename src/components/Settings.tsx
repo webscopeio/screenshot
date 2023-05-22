@@ -16,6 +16,7 @@ import {
 } from "./ui/RadioGroup";
 import { Slider } from "./ui/Slider";
 import { Tooltip } from "./ui/Tooltip";
+import { cn } from "@utils/cn";
 
 const backgroundColors = [
   {
@@ -94,36 +95,72 @@ export const Settings = ({
       </header>
       <div className="space-y-3">
         <Label>
+          {" "}
           <span>Aspect Ratio</span>
           <Tooltip content={<p>Width and height ratio</p>} side="top">
             <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
           </Tooltip>
         </Label>
         <RadioGroup
+          aria-label="Aspect Ratios"
+          className="grid grid-cols-3 gap-2"
           value={settings.aspectRatio}
-          onValueChange={(value) => setAspectRatio(value as AspectRatio)}
+          onValueChange={(value: string) =>
+            setAspectRatio(value as AspectRatio)
+          }
         >
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem
-              value={SUPPORTED_ASPECT_RATIOS.VIDEO}
-              id={SUPPORTED_ASPECT_RATIOS.VIDEO}
-            />
-            <Label htmlFor={SUPPORTED_ASPECT_RATIOS.VIDEO}>16:9</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem
-              value={SUPPORTED_ASPECT_RATIOS.PHONE}
-              id={SUPPORTED_ASPECT_RATIOS.PHONE}
-            />
-            <Label htmlFor={SUPPORTED_ASPECT_RATIOS.PHONE}>3:4</Label>
-          </div>
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem
-              value={SUPPORTED_ASPECT_RATIOS.AUTO}
-              id={SUPPORTED_ASPECT_RATIOS.AUTO}
-            />
-            <Label htmlFor={SUPPORTED_ASPECT_RATIOS.AUTO}>Auto</Label>
-          </div>
+          <RadioGroupItemCustom
+            aria-label={SUPPORTED_ASPECT_RATIOS.VIDEO}
+            className={"border border-slate-100/10 bg-transparent"}
+            value={SUPPORTED_ASPECT_RATIOS.VIDEO}
+          >
+            <div
+              className={cn(
+                "grid h-full place-content-center rounded-sm border border-dashed border-slate-500",
+                SUPPORTED_ASPECT_RATIOS.VIDEO
+              )}
+            >
+              <Check aria-hidden={true} className="h-3 w-3" />
+            </div>
+            <p className="text-xs font-semibold leading-[0] text-slate-200">
+              16:9
+            </p>
+          </RadioGroupItemCustom>
+          <RadioGroupItemCustom
+            aria-label={SUPPORTED_ASPECT_RATIOS.PHONE}
+            className={"border border-slate-100/10 bg-transparent"}
+            value={SUPPORTED_ASPECT_RATIOS.PHONE}
+          >
+            <div
+              className={cn(
+                "grid h-full place-content-center rounded-sm border border-dashed border-slate-500",
+                SUPPORTED_ASPECT_RATIOS.PHONE
+              )}
+            >
+              <Check aria-hidden={true} className="h-3 w-3" />
+            </div>
+            <p className="text-xs font-semibold leading-[0] text-slate-200">
+              3:4
+            </p>
+          </RadioGroupItemCustom>
+          <RadioGroupItemCustom
+            aria-label={SUPPORTED_ASPECT_RATIOS.AUTO}
+            className={"border border-slate-100/10 bg-transparent"}
+            value={SUPPORTED_ASPECT_RATIOS.AUTO}
+          >
+            <div
+              className={cn(
+                "grid h-full place-content-center rounded-sm border border-dashed border-slate-500",
+                SUPPORTED_ASPECT_RATIOS.AUTO,
+                SUPPORTED_ASPECT_RATIOS.AUTO && "w-[50%]"
+              )}
+            >
+              <Check aria-hidden={true} className="h-3 w-3" />
+            </div>
+            <p className="text-xs font-semibold leading-[0] text-slate-200">
+              Auto
+            </p>
+          </RadioGroupItemCustom>
         </RadioGroup>
       </div>
       <div>
