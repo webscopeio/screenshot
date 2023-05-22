@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} relative bg-gradient-to-br from-indigo-900 from-10% via-purple-900 via-30% to-pink-900 to-90%`}
+        className={`${inter.className} relative bg-gradient-to-br from-indigo-800 from-10% via-purple-800 via-30% to-pink-800 to-90%`}
       >
         <main className="grid h-screen w-screen place-content-center px-8">
           <Noise />
