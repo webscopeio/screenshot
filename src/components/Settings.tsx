@@ -181,12 +181,14 @@ export const Settings = ({
           <Input
             className="w-16"
             type="number"
-            placeholder="4"
+            placeholder="100"
             min={50}
             max={150}
             value={settings.scale}
             onChange={(e) => {
               let value = parseInt(e.target.value);
+              value = value > 150 ? 150 : value;
+              value = value < 50 ? 50 : value;
               setScale(value);
             }}
           />
