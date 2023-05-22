@@ -9,7 +9,7 @@ export type AspectRatio =
 
 export type Settings = {
   aspectRatio: AspectRatio;
-  padding: number;
+  scale: number;
   insetColor: string;
   insetPadding: number;
   backgroundColor: string;
@@ -17,7 +17,7 @@ export type Settings = {
 
 export const defaultSettings: Settings = {
   aspectRatio: "aspect-video",
-  padding: 4,
+  scale: 100,
   insetColor: "#000000",
   insetPadding: 0,
   backgroundColor:

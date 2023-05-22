@@ -9,11 +9,13 @@ import { suggestedSettings } from "@config/defaults";
 
 export const ClipboardImage = ({
   insetColor,
+  scale,
   insetPadding,
   setInsetColor,
   setInsetPadding,
 }: {
   insetColor: string;
+  scale: number;
   insetPadding: number;
   setInsetColor: (input: string) => void;
   setInsetPadding: (input: number) => void;
@@ -77,6 +79,7 @@ export const ClipboardImage = ({
       style={{
         padding: `${insetPadding}%`,
         background: insetPadding ? insetColor : "transparent",
+        scale: `${(scale)/100}`
       }}
     />
   );

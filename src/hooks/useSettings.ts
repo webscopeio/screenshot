@@ -7,8 +7,8 @@ type SettingActions =
       value: Settings["aspectRatio"];
     }
   | {
-      type: "SET_PADDING";
-      value: Settings["padding"];
+      type: "SET_SCALE";
+      value: Settings["scale"];
     }
   | {
       type: "SET_INSET_COLOR";
@@ -33,10 +33,10 @@ const settingsReducer = (
         ...prevState,
         aspectRatio: value,
       };
-    case "SET_PADDING":
+    case "SET_SCALE":
       return {
         ...prevState,
-        padding: value,
+        scale: value,
       };
     case "SET_INSET_COLOR":
       return {
@@ -66,8 +66,8 @@ export const useSettings = (defaultSettings: Settings) => {
     settings,
     setAspectRatio: (value: Settings["aspectRatio"]) =>
       dispatch({ type: "SET_ASPECT_RATIO", value }),
-    setPadding: (value: Settings["padding"]) =>
-      dispatch({ type: "SET_PADDING", value }),
+    setScale: (value: Settings["scale"]) =>
+      dispatch({ type: "SET_SCALE", value }),
     setInsetColor: (value: Settings["insetColor"]) =>
       dispatch({ type: "SET_INSET_COLOR", value }),
     setInsetPadding: (value: Settings["insetPadding"]) =>

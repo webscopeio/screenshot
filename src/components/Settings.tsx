@@ -55,21 +55,21 @@ const backgroundColors = [
 export const Settings = ({
   settings,
   setAspectRatio,
-  setPadding,
+  setScale,
   setInsetColor,
   setInsetPadding,
   setBackgroundColor,
 }: {
   settings: SettingsType;
   setAspectRatio: (v: SettingsType["aspectRatio"]) => void;
-  setPadding: (v: SettingsType["padding"]) => void;
+  setScale: (v: SettingsType["scale"]) => void;
   setInsetColor: (v: SettingsType["insetColor"]) => void;
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
 }) => {
   const handleReset = () => {
     setAspectRatio(defaultSettings.aspectRatio);
-    setPadding(defaultSettings.padding);
+    setScale(defaultSettings.scale);
     setInsetPadding(suggestedSettings.insetPadding);
   };
 
@@ -160,10 +160,10 @@ export const Settings = ({
         </RadioGroup>
       </div>
       <div>
-        <Label htmlFor="padding">
-          <span>Padding</span>{" "}
+        <Label htmlFor="scale">
+          <span>Scale</span>{" "}
           <Tooltip
-            content={<p>Space between the image and frame</p>}
+            content={<p>The scale of the image</p>}
             side="top"
           >
             <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
@@ -171,24 +171,23 @@ export const Settings = ({
         </Label>
         <div className="flex items-center gap-x-2">
           <Slider
-            id="padding"
-            onValueChange={(value) => setPadding(value[0])}
-            value={[settings.padding]}
-            max={10}
+            id="scale"
+            onValueChange={(value) => setScale(value[0])}
+            value={[settings.scale]}
+            max={150}
+            min={50}
             step={1}
           />
           <Input
             className="w-16"
             type="number"
             placeholder="4"
-            min={0}
-            max={10}
-            value={settings.padding}
+            min={50}
+            max={150}
+            value={settings.scale}
             onChange={(e) => {
               let value = parseInt(e.target.value);
-              value = value > 10 ? 10 : value;
-              value = value < 0 ? 0 : value;
-              setPadding(value);
+              setScale(value);
             }}
           />
         </div>

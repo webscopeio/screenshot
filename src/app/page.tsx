@@ -22,7 +22,7 @@ export default function Home() {
   const {
     settings,
     setAspectRatio,
-    setPadding,
+    setScale,
     setInsetColor,
     setInsetPadding,
     setBackgroundColor,
@@ -38,11 +38,10 @@ export default function Home() {
                 <div
                   ref={clipboardRef}
                   style={{
-                    padding: `${settings.padding}%`,
+                    padding: `4%`,
                   }}
                   className={`${cn(
                     "max-w-6xl max-h-[648px] grid place-items-center",
-                    settings.padding === 0 && "[&>img]:rounded-none",
                     settings.aspectRatio,
                     settings.aspectRatio === "aspect-[3/4]" && "h-fit",
                     settings.aspectRatio === "aspect-video" && "w-full",
@@ -51,6 +50,7 @@ export default function Home() {
                 >
                   <ClipboardImage
                     insetColor={settings.insetColor}
+                    scale={settings.scale}
                     insetPadding={settings.insetPadding}
                     setInsetColor={setInsetColor}
                     setInsetPadding={setInsetPadding}
@@ -73,7 +73,7 @@ export default function Home() {
                 <Settings
                   settings={settings}
                   setAspectRatio={setAspectRatio}
-                  setPadding={setPadding}
+                  setScale={setScale}
                   setInsetColor={setInsetColor}
                   setInsetPadding={setInsetPadding}
                   setBackgroundColor={setBackgroundColor}
