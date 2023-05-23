@@ -73,6 +73,7 @@ export const Settings = ({
 }) => {
   const handleReset = () => {
     setAspectRatio(defaultSettings.aspectRatio);
+    setScale(defaultSettings.scale);
     setPositionX(defaultSettings.positionX);
     setPositionY(defaultSettings.positionY);
     setInsetPadding(suggestedSettings.insetPadding);
@@ -174,7 +175,7 @@ export const Settings = ({
             <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
           </Tooltip>
         </Label>
-        <div className="flex items-center gap-x-2">
+        <div className="flex items-center gap-x-2 mb-2">
           <Slider
             id="scale"
             onValueChange={(value) => setScale(value[0])}
@@ -198,25 +199,54 @@ export const Settings = ({
             }}
           />
         </div>
-        <div className="flex items-center gap-x-2">
+        <div className="flex items-center gap-x-2 mb-2">
           <Label htmlFor="slider-position-x">X</Label>
           <Slider
-          id="slider-position-x"
+            id="slider-position-x"
             onValueChange={(value) => setPositionX(value[0])}
             value={[settings.positionX]}
             max={100}
             min={-100}
             step={1}
           />
+          <Input
+            className="w-20"
+            type="number"
+            placeholder="0"
+            min={-100}
+            max={100}
+            value={settings.positionX}
+            onChange={(e) => {
+              let value = parseInt(e.target.value);
+              value = value > 100 ? 100 : value;
+              value = value < -100 ? -100 : value;
+              setPositionX(value);
+            }}
+          />
         </div>
         <div className="flex items-center gap-x-2">
-          <p>Y</p>
+          <Label htmlFor="slider-position-y">Y</Label>
           <Slider
+            id="slider-position-y"
             onValueChange={(value) => setPositionY(-value[0])}
             value={[-settings.positionY]}
-            max={50}
-            min={-50}
+            max={100}
+            min={-100}
             step={1}
+          />
+          <Input
+            className="w-20"
+            type="number"
+            placeholder="0"
+            min={-100}
+            max={100}
+            value={settings.positionY}
+            onChange={(e) => {
+              let value = parseInt(e.target.value);
+              value = value > 100 ? 100 : value;
+              value = value < -100 ? -100 : value;
+              setPositionY(value);
+            }}
           />
         </div>
       </div>

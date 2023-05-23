@@ -39,11 +39,8 @@ export default function Home() {
               <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
                 <div
                   ref={clipboardRef}
-                  style={{
-                    overflow:"hidden"
-                  }}
                   className={`${cn(
-                    "max-w-6xl max-h-[648px] grid place-items-center p-[4%]",
+                    "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
                     settings.aspectRatio,
                     settings.aspectRatio === "aspect-[3/4]" && "h-fit",
                     settings.aspectRatio === "aspect-video" && "w-full",
