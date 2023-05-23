@@ -56,6 +56,8 @@ export const Settings = ({
   settings,
   setAspectRatio,
   setScale,
+  setPositionX,
+  setPositionY,
   setInsetColor,
   setInsetPadding,
   setBackgroundColor,
@@ -63,13 +65,16 @@ export const Settings = ({
   settings: SettingsType;
   setAspectRatio: (v: SettingsType["aspectRatio"]) => void;
   setScale: (v: SettingsType["scale"]) => void;
+  setPositionX: (v: SettingsType["positionX"]) => void;
+  setPositionY: (v: SettingsType["positionY"]) => void;
   setInsetColor: (v: SettingsType["insetColor"]) => void;
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
 }) => {
   const handleReset = () => {
     setAspectRatio(defaultSettings.aspectRatio);
-    setScale(defaultSettings.scale);
+    setPositionX(defaultSettings.positionX);
+    setPositionY(defaultSettings.positionY);
     setInsetPadding(suggestedSettings.insetPadding);
   };
 
@@ -161,9 +166,9 @@ export const Settings = ({
       </div>
       <div>
         <Label htmlFor="scale">
-          <span>Scale</span>{" "}
+          <span>Scale and position</span>{" "}
           <Tooltip
-            content={<p>The scale of the image</p>}
+            content={<p>The scale and position of the image</p>}
             side="top"
           >
             <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
@@ -191,6 +196,26 @@ export const Settings = ({
               value = value < 50 ? 50 : value;
               setScale(value);
             }}
+          />
+        </div>
+        <div className="flex items-center gap-x-2">
+          <p>X</p>
+          <Slider
+            onValueChange={(value) => setPositionX(value[0])}
+            value={[settings.positionX]}
+            max={50}
+            min={-50}
+            step={1}
+          />
+        </div>
+        <div className="flex items-center gap-x-2">
+          <p>Y</p>
+          <Slider
+            onValueChange={(value) => setPositionY(-value[0])}
+            value={[-settings.positionY]}
+            max={50}
+            min={-50}
+            step={1}
           />
         </div>
       </div>
