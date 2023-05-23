@@ -199,7 +199,7 @@ export const Settings = ({
           />
         </div>
         <div className="flex items-center gap-x-2">
-          <p>X</p>
+          <Label htmlFor="slider-position-x">X</Label>
           <Slider
             onValueChange={(value) => setPositionX(value[0])}
             value={[settings.positionX]}
