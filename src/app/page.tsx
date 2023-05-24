@@ -65,7 +65,7 @@ export default function Home() {
                 <header className="w-[150px] text-slate-200">
                   <Logo />
                 </header>
-                <Link href="https://github.com/ekqt/screenshot" tabIndex={-1}>
+                <Link href="https://usescreenshot.app/github" tabIndex={-1}>
                   <Button variant="ghost" className="px-2">
                     <GithubIcon className="h-6 w-6 stroke-[1.75px]" />
                   </Button>
