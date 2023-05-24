@@ -6,7 +6,7 @@ import { ActionPanel } from "@components/ActionsPanel";
 import { defaultSettings } from "@config/defaults";
 import { cn } from "@utils/cn";
 import { useSettings } from "@hooks/useSettings";
-import { Settings } from "@components/Settings";
+import { Settings } from "@components/settings/Settings";
 
 import { LoadProvider } from "@components/providers/LoadProvider";
 import { ToastProvider } from "@components/providers/ToastProvider";
@@ -65,7 +65,7 @@ export default function Home() {
                 <header className="w-[150px] text-slate-200">
                   <Logo />
                 </header>
-                <Link href="https://github.com/ekqt/screenshot">
+                <Link href="https://github.com/ekqt/screenshot" tabIndex={-1}>
                   <Button variant="ghost" className="px-2">
                     <GithubIcon className="h-6 w-6 stroke-[1.75px]" />
                   </Button>
