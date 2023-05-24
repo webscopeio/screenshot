@@ -6,9 +6,18 @@ type SettingActions =
       type: "SET_ASPECT_RATIO";
       value: Settings["aspectRatio"];
     }
+  |
+    {
+      type: "SET_SCALE";
+      value: Settings["scale"];
+    }
   | {
-      type: "SET_PADDING";
-      value: Settings["padding"];
+      type: "SET_POSITIONX";
+      value: Settings["positionX"];
+    }
+  | {
+    type: "SET_POSITIONY";
+    value: Settings["positionY"];
     }
   | {
       type: "SET_INSET_COLOR";
@@ -33,10 +42,20 @@ const settingsReducer = (
         ...prevState,
         aspectRatio: value,
       };
-    case "SET_PADDING":
+    case "SET_SCALE":
       return {
         ...prevState,
-        padding: value,
+        scale: value,
+      };
+    case "SET_POSITIONX":
+      return {
+        ...prevState,
+        positionX: value,
+      };
+    case "SET_POSITIONY":
+      return {
+        ...prevState,
+        positionY: value,
       };
     case "SET_INSET_COLOR":
       return {
@@ -66,8 +85,12 @@ export const useSettings = (defaultSettings: Settings) => {
     settings,
     setAspectRatio: (value: Settings["aspectRatio"]) =>
       dispatch({ type: "SET_ASPECT_RATIO", value }),
-    setPadding: (value: Settings["padding"]) =>
-      dispatch({ type: "SET_PADDING", value }),
+    setScale: (value: Settings["scale"]) =>
+      dispatch({ type: "SET_SCALE", value }),
+    setPositionX: (value: Settings["positionX"]) =>
+      dispatch({ type: "SET_POSITIONX", value }),
+    setPositionY: (value: Settings["positionY"]) =>
+      dispatch({ type: "SET_POSITIONY", value }),
     setInsetColor: (value: Settings["insetColor"]) =>
       dispatch({ type: "SET_INSET_COLOR", value }),
     setInsetPadding: (value: Settings["insetPadding"]) =>

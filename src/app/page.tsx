@@ -22,7 +22,9 @@ export default function Home() {
   const {
     settings,
     setAspectRatio,
-    setPadding,
+    setScale,
+    setPositionX,
+    setPositionY,
     setInsetColor,
     setInsetPadding,
     setBackgroundColor,
@@ -37,12 +39,8 @@ export default function Home() {
               <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
                 <div
                   ref={clipboardRef}
-                  style={{
-                    padding: `${settings.padding}%`,
-                  }}
                   className={`${cn(
-                    "max-w-6xl max-h-[648px] grid place-items-center",
-                    settings.padding === 0 && "[&>img]:rounded-none",
+                    "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
                     settings.aspectRatio,
                     settings.aspectRatio === "aspect-[3/4]" && "h-fit",
                     settings.aspectRatio === "aspect-video" && "w-full",
@@ -51,6 +49,9 @@ export default function Home() {
                 >
                   <ClipboardImage
                     insetColor={settings.insetColor}
+                    scale={settings.scale}
+                    positionX={settings.positionX}
+                    positionY={settings.positionY}
                     insetPadding={settings.insetPadding}
                     setInsetColor={setInsetColor}
                     setInsetPadding={setInsetPadding}
@@ -73,7 +74,9 @@ export default function Home() {
                 <Settings
                   settings={settings}
                   setAspectRatio={setAspectRatio}
-                  setPadding={setPadding}
+                  setScale={setScale}
+                  setPositionX={setPositionX}
+                  setPositionY={setPositionY}
                   setInsetColor={setInsetColor}
                   setInsetPadding={setInsetPadding}
                   setBackgroundColor={setBackgroundColor}
