@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const baseMetadata: Metadata = {
-  metadataBase: new URL("https://screenshot-ekqt.vercel.app/"),
+  metadataBase: new URL("https://usescreenshot.app/"),
   title: "Screenshot",
   description: "Build engaging screenshots faster",
   icons: {
@@ -18,7 +18,7 @@ export const baseMetadata: Metadata = {
     title: "Screenshot",
     description: "Build engaging screenshots faster",
     images: ["/home.png"],
-    url: "https://screenshot-ekqt.vercel.app/",
+    url: "https://usescreenshot.app/",
     siteName: "Screenshot",
     locale: "en-US",
     type: "website",
