@@ -43,6 +43,7 @@ export default function Home() {
                     "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
                     settings.aspectRatio,
                     settings.aspectRatio === "aspect-[3/4]" && "h-fit",
+                    settings.aspectRatio === "aspect-square" && "h-fit",
                     settings.aspectRatio === "aspect-video" && "w-full",
                     settings.backgroundColor
                   )}`}

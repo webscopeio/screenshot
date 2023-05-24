@@ -97,7 +97,6 @@ export const Settings = ({
       </header>
       <div className="space-y-3">
         <Label>
-          {" "}
           <span>Aspect Ratio</span>
           <Tooltip content={<p>Width and height ratio</p>} side="top">
             <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
