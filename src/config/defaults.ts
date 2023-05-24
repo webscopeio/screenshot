@@ -1,6 +1,7 @@
 export const SUPPORTED_ASPECT_RATIOS = {
   VIDEO: "aspect-video",
   PHONE: "aspect-[3/4]",
+  SQUARE: "aspect-square",
   AUTO: "aspect-auto",
 } as const;
 
@@ -11,7 +12,7 @@ export type Settings = {
   aspectRatio: AspectRatio;
   scale: number;
   positionX: number;
-  positionY:number;
+  positionY: number;
   insetColor: string;
   insetPadding: number;
   backgroundColor: string;

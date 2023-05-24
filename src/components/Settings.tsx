@@ -146,6 +146,23 @@ export const Settings = ({
             </p>
           </RadioGroupItemCustom>
           <RadioGroupItemCustom
+            aria-label={SUPPORTED_ASPECT_RATIOS.SQUARE}
+            className={"border border-slate-100/10 bg-transparent"}
+            value={SUPPORTED_ASPECT_RATIOS.SQUARE}
+          >
+            <div
+              className={cn(
+                "grid h-full place-content-center rounded-sm border border-dashed border-slate-500",
+                SUPPORTED_ASPECT_RATIOS.SQUARE
+              )}
+            >
+              <Check aria-hidden={true} className="h-3 w-3" />
+            </div>
+            <p className="text-xs font-semibold leading-[0] text-slate-200">
+              1:1
+            </p>
+          </RadioGroupItemCustom>
+          <RadioGroupItemCustom
             aria-label={SUPPORTED_ASPECT_RATIOS.AUTO}
             className={"border border-slate-100/10 bg-transparent"}
             value={SUPPORTED_ASPECT_RATIOS.AUTO}
@@ -167,7 +184,7 @@ export const Settings = ({
       </div>
       <div>
         <Label htmlFor="scale">
-          <span>Scale and position</span>{" "}
+          <span>Scale and position</span>
           <Tooltip
             content={<p>The scale and position of the image</p>}
             side="top"
@@ -175,79 +192,81 @@ export const Settings = ({
             <Info className="h-4 w-4 cursor-help stroke-slate-200/90" />
           </Tooltip>
         </Label>
-        <div className="flex items-center gap-x-2 mb-2">
-          <Slider
-            id="scale"
-            onValueChange={(value) => setScale(value[0])}
-            value={[settings.scale]}
-            max={150}
-            min={50}
-            step={1}
-          />
-          <Input
-            className="w-16"
-            type="number"
-            placeholder="100"
-            min={50}
-            max={150}
-            value={settings.scale}
-            onChange={(e) => {
-              let value = parseInt(e.target.value);
-              value = value > 150 ? 150 : value;
-              value = value < 50 ? 50 : value;
-              setScale(value);
-            }}
-          />
-        </div>
-        <div className="flex items-center gap-x-2 mb-2">
-          <Label htmlFor="slider-position-x">X</Label>
-          <Slider
-            id="slider-position-x"
-            onValueChange={(value) => setPositionX(value[0])}
-            value={[settings.positionX]}
-            max={100}
-            min={-100}
-            step={1}
-          />
-          <Input
-            className="w-20"
-            type="number"
-            placeholder="0"
-            min={-100}
-            max={100}
-            value={settings.positionX}
-            onChange={(e) => {
-              let value = parseInt(e.target.value);
-              value = value > 100 ? 100 : value;
-              value = value < -100 ? -100 : value;
-              setPositionX(value);
-            }}
-          />
-        </div>
-        <div className="flex items-center gap-x-2">
-          <Label htmlFor="slider-position-y">Y</Label>
-          <Slider
-            id="slider-position-y"
-            onValueChange={(value) => setPositionY(-value[0])}
-            value={[-settings.positionY]}
-            max={100}
-            min={-100}
-            step={1}
-          />
-          <Input
-            className="w-20"
-            type="number"
-            placeholder="0"
-            min={-100}
-            max={100}
-            value={settings.positionY}
-            onChange={(e) => {
-              let value = parseInt(e.target.value);
-              value = value > 100 ? 100 : value;
-              value = value < -100 ? -100 : value;
-              setPositionY(value);
-            }}
-          />
+        <div className="space-y-2">
+          <div className="flex items-center gap-x-2">
+            <Slider
+              id="scale"
+              onValueChange={(value) => setScale(value[0])}
+              value={[settings.scale]}
+              max={150}
+              min={50}
+              step={1}
+            />
+            <Input
+              className="w-20"
+              type="number"
+              placeholder="100"
+              min={50}
+              max={150}
+              value={settings.scale}
+              onChange={(e) => {
+                let value = parseInt(e.target.value);
+                value = value > 150 ? 150 : value;
+                value = value < 50 ? 50 : value;
+                setScale(value);
+              }}
+            />
+          </div>
+          <div className="flex items-center gap-x-2">
+            <Label htmlFor="slider-position-x">X</Label>
+            <Slider
+              id="slider-position-x"
+              onValueChange={(value) => setPositionX(value[0])}
+              value={[settings.positionX]}
+              max={100}
+              min={-100}
+              step={1}
+            />
+            <Input
+              className="w-20"
+              type="number"
+              placeholder="0"
+              min={-100}
+              max={100}
+              value={settings.positionX}
+              onChange={(e) => {
+                let value = parseInt(e.target.value);
+                value = value > 100 ? 100 : value;
+                value = value < -100 ? -100 : value;
+                setPositionX(value);
+              }}
+            />
+          </div>
+          <div className="flex items-center gap-x-2">
+            <Label htmlFor="slider-position-y">Y</Label>
+            <Slider
+              id="slider-position-y"
+              onValueChange={(value) => setPositionY(-value[0])}
+              value={[-settings.positionY]}
+              max={100}
+              min={-100}
+              step={1}
+            />
+            <Input
+              className="w-20"
+              type="number"
+              placeholder="0"
+              min={-100}
+              max={100}
+              value={settings.positionY}
+              onChange={(e) => {
+                let value = parseInt(e.target.value);
+                value = value > 100 ? 100 : value;
+                value = value < -100 ? -100 : value;
+                setPositionY(value);
+              }}
+            />
+          </div>
         </div>
       </div>
       <div className="space-y-3">
