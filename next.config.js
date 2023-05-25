@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: "/github",
-        destination: "https://github.com/iamhectorsosa/screenshot",
+        destination: "https://github.com/webscopeio/screenshot",
         permanent: true,
       },
     ];
