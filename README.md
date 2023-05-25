@@ -42,15 +42,23 @@
 
 ## Description
 
-Screenshot is an open-source tool that provides users with granular controls to frame their screenshots and offers options to customize settings such as aspect ratio, padding, inset color, inset padding, and frame background.
+Screenshot is an open-source tool that provides users with granular controls to frame their screenshots and build engaging content faster.
 
-## How to use
+![Build engaging screenshots faster](https://usescreenshot.app/teasers/Slide-0.png)
 
-To use Screenshot, (a) visit [usescreenshot.app/](https://usescreenshot.app/), (b) click on the frame to paste your clipboard's image and then (c) adjust the settings as needed.
+## How does it work?
+
+To use Screenshot, go to [usescreenshot.app](https://usescreenshot.app), (1.) click on the frame to paste your clipboard's image, and then (2.) adjust the settings as needed.
+
+![Frame your screenshot using simple settings](https://usescreenshot.app/teasers/Slide-1.png)
+
+We are actively working to improve and add more settings to Screenshot. Our goal is to provide a **simple but powerful set of controls** that can adjust to your needs.
+
+![Try our selection of color gradients](https://usescreenshot.app/teasers/Slide-2.png)
 
 ## Installation
 
-This web-application is built with React, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and styled with Tailwind CSS and Radix UI components.
+Screenshot is a web-application being built with React in TypeScript, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and styled with [TailwindCSS](https://tailwindcss.com/) and [Radix UI](https://www.radix-ui.com/) components heavily inspired by [ui.shadcn.com](https://ui.shadcn.com/).
 
 To install and run locally, follow these steps:
 
@@ -87,9 +95,19 @@ turbo run dev
 turbo run dev --no-daemon
 ```
 
+## Share your feedback
+
+If you encounter an issue or would like to suggest a new feature, please feel free to reach out using GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github).
+
 ## Contributing
 
-Want to contribute? That's great news! Issues, PRs and Discussions are welcomed!
+![A great opportunity to join OSS](https://usescreenshot.app/teasers/Slide-3.png)
+
+Contributing to Screenshot is **a great opportunity to join OSS**. Specially at this early pre-release stage, we are actively looking to engage with users and developers to learn more together about Screenshot. Issues, Pull requests, and Discussions are welcomed!
+
+If you find Screenshot helpful, we'd appreciate giving it a Star in GitHub. For more information about our project visit: GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github)
+
+**Fun fact**: All of the screenshots used here have been created using [usescreenshot.app](https://usescreenshot.app), with the exception of the text.
 
 ### Report an issue
 
