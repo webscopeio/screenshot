@@ -31,16 +31,9 @@ export default function Home() {
     setBackgroundColor,
   } = useSettings(defaultSettings);
 
-  /** History Panel Shared State Setup **
-   *
-   * The "setImagesHistoryUrl" useState hook holds a blob URL array to
-   * manage the history of clipboard pastes.
-   * Sample data: ["blob:http://localhost:3000/73c51e5e...", "..."]
-   *
-   * The "setSelectedImageUrl" useState hook holds the blob URL of the
-   * current selected image from the history panel
-   * Sample data: "blob:http://localhost:3000/73c51e5e..."
-   */
+  // TODO: Move this to a custom hook
+  // imagesHistoryUrl = ["blob:http://localhost:3000/73c51e5e...", "..."]
+  // selectedImageUrl = "blob:http://localhost:3000/73c51e5e..."
   const [imagesHistoryUrl, setImagesHistoryUrl] = React.useState<string[]>([]);
   const [selectedImageUrl, setSelectedImageUrl] = React.useState("")
 
@@ -76,6 +69,7 @@ export default function Home() {
                       selectedImageUrl={selectedImageUrl}
                       imagesHistoryUrl={imagesHistoryUrl}
                       setImagesHistoryUrl={setImagesHistoryUrl}
+                      setSelectedImageUrl={setSelectedImageUrl}
                     />
                   </div>
                 </div>

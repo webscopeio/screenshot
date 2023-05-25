@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import placeholder from "../app/placeholder.svg";
 
 export const HistoryPanel = ({
   imagesHistoryUrl,
@@ -18,7 +19,35 @@ export const HistoryPanel = ({
 
   const handleDeleteFromHistory = (url: string) => {
     // Filter out the URL to delete the image selected from the panel
-    setImagesHistoryUrl((prevUrl) => prevUrl.filter((value) => value !== url))
+    setImagesHistoryUrl((prevUrl) => {
+      // Length has to be subtracted by one to stay accurate
+      // because the last operation is going to remove one item
+      if ((prevUrl.length - 1) === 0) {
+        // If the length is zero, then no images are left. Set the default placeholder.
+        setSelectedImageUrl(placeholder.src);
+        return []
+      }
+
+      return (
+        prevUrl.filter((value, index) => {
+
+          // If we match the current image being deleted with the one being displayed
+          // And there are more than one images remaining in history then...
+          if (value === url && (prevUrl.length - 1) > 0) {
+            // Check if we have entries on the positive side
+            prevUrl[index + 1] ? (
+              // If there are, change the current image to the next positive index
+              setSelectedImageUrl((prevUrl[index + 1]))
+            ) : (
+              // Else, change the current image to the next negative index
+              setSelectedImageUrl((prevUrl[index - 1]))
+            );
+          }
+
+          return (value !== url)
+        })
+      );
+    });
   }
 
   return (
