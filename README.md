@@ -107,7 +107,7 @@ Contributing to Screenshot is **a great opportunity to join OSS**. Specially at 
 
 Issues, Pull requests, and Discussions are welcomed! For more information about our project visit: GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github)
 
-If you find Screenshot helpful, we'd appreciate giving it a Star in GitHub.
+If you find Screenshot helpful, we'd appreciate giving it a [Star in GitHub](https://github.com/iamhectorsosa/screenshot/stargazers).
 
 **Fun fact**: All of the screenshots used here have been created using [usescreenshot.app](https://usescreenshot.app), with the exception of the text.
 
