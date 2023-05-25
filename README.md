@@ -103,9 +103,11 @@ If you encounter an issue or would like to suggest a new feature, please feel fr
 
 ![A great opportunity to join OSS](https://usescreenshot.app/teasers/Slide-3.png)
 
-Contributing to Screenshot is **a great opportunity to join OSS**. Specially at this early pre-release stage, we are actively looking to engage with users and developers to learn more together about Screenshot. Issues, Pull requests, and Discussions are welcomed!
+Contributing to Screenshot is **a great opportunity to join OSS**. Specially at this early pre-release stage, we are actively looking to engage with users and developers to learn more together about Screenshot.
 
-If you find Screenshot helpful, we'd appreciate giving it a Star in GitHub. For more information about our project visit: GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github)
+Issues, Pull requests, and Discussions are welcomed! For more information about our project visit: GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github)
+
+If you find Screenshot helpful, we'd appreciate giving it a Star in GitHub.
 
 **Fun fact**: All of the screenshots used here have been created using [usescreenshot.app](https://usescreenshot.app), with the exception of the text.
 
