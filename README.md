@@ -97,7 +97,7 @@ turbo run dev --no-daemon
 
 ## Share your feedback
 
-If you encounter an issue or would like to suggest a new feature, please feel free to reach out using GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github).
+If you encounter an issue or would like to suggest a new feature, please feel free to reach out using our GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github).
 
 ## Contributing
 
