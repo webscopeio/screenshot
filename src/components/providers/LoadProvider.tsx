@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { useOS } from "@hooks/useOS";
 import { useTimeout } from "@hooks/useTimeout";

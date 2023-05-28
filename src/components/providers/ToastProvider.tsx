@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { useToast } from "@hooks/useToast";
 import {
   ToastProvider as ToastWrapper,
   Toast,
@@ -10,6 +9,7 @@ import {
   ToastDescription,
   ToastClose,
 } from "../ui/Toast";
+import { useToast } from "@hooks/useToast";
 
 export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

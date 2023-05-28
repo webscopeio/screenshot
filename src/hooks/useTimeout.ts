@@ -8,8 +8,8 @@ import { useRef, useCallback } from "react";
  * @param delay - The time, in milliseconds before executing the function
  * @returns Methods to `call` and `cancel` the timeout
  */
-export const useTimeout = (callback: Function, delay: number) => {
-  const callbackRef = useRef<Function | null>(null);
+export const useTimeout = (callback: () => void, delay: number) => {
+  const callbackRef = useRef<typeof callback | null>(null);
   const timeoutIdRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   if (!callbackRef.current) {

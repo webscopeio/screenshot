@@ -1,8 +1,7 @@
-import { RadioGroup, RadioGroupItemCustom } from "@components/ui/RadioGroup";
-import { Settings, defaultSettings } from "@config/defaults";
 import { Check } from "lucide-react";
 import { LabelTooltip } from "./LabelTooltip";
-import { cn } from "@utils/cn";
+import { RadioGroup, RadioGroupItemCustom } from "@components/ui/RadioGroup";
+import { Settings, defaultSettings } from "@config/defaults";
 import { Checkbox } from "@components/ui/Checkbox";
 
 const backgroundColors = [

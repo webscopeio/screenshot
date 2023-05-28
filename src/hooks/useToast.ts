@@ -1,5 +1,5 @@
-import { ToastProps } from "@components/ui/Toast";
 import * as React from "react";
+import { ToastProps } from "@components/ui/Toast";
 
 const TOAST_LIMIT = 1;
 const TOAST_REMOVE_DELAY = 2000;
@@ -132,7 +132,7 @@ function dispatch(action: Action) {
   });
 }
 
-interface Toast extends Omit<ToasterToast, "id"> {}
+type Toast = Omit<ToasterToast, "id">;
 
 function toast({ ...props }: Toast) {
   const id = genId();
