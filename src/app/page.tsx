@@ -5,6 +5,7 @@ import { GithubIcon } from "lucide-react";
 import Link from "next/link";
 import { ClipboardImage } from "@components/ClipboardImage";
 import { ActionPanel } from "@components/ActionsPanel";
+import { HistoryPanel } from "@components/HistoryPanel";
 import { defaultSettings } from "@config/defaults";
 import { cn } from "@utils/cn";
 import { useSettings } from "@hooks/useSettings";
@@ -30,36 +31,57 @@ export default function Home() {
     setBackgroundColor,
   } = useSettings(defaultSettings);
 
+  // TODO: Move this to a custom hook
+  // imagesHistoryUrl = ["blob:http://localhost:3000/73c51e5e...", "..."]
+  // selectedImageUrl = "blob:http://localhost:3000/73c51e5e..."
+  const [imagesHistoryUrl, setImagesHistoryUrl] = React.useState<string[]>([]);
+  const [selectedImageUrl, setSelectedImageUrl] = React.useState("")
+
   return (
     <LoadProvider>
       <ToastProvider>
         <TooltipProviders>
           <section className="flex h-screen w-screen items-center gap-2 p-5">
-            <div className="m-9 h-fit w-full rounded-md shadow-3xl ring-8 ring-slate-900/50">
-              <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
-                <div
-                  ref={clipboardRef}
-                  className={`${cn(
-                    "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
-                    settings.aspectRatio,
-                    settings.aspectRatio === "aspect-[3/4]" && "h-fit",
-                    settings.aspectRatio === "aspect-square" && "h-fit",
-                    settings.aspectRatio === "aspect-video" && "w-full",
-                    settings.backgroundColor
-                  )}`}
-                >
-                  <ClipboardImage
-                    insetColor={settings.insetColor}
-                    scale={settings.scale}
-                    positionX={settings.positionX}
-                    positionY={settings.positionY}
-                    insetPadding={settings.insetPadding}
-                    setInsetColor={setInsetColor}
-                    setInsetPadding={setInsetPadding}
-                  />
+            {/* Editing container */}
+            <div className="m-9 grid h-fit w-full gap-8">
+              {/* Clipboard image panel */}
+              <div className="h-fit w-full rounded-md shadow-3xl ring-8 ring-slate-900/50">
+                <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
+                  <div
+                    ref={clipboardRef}
+                    className={`${cn(
+                      "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
+                      settings.aspectRatio,
+                      settings.aspectRatio === "aspect-[3/4]" && "h-fit",
+                      settings.aspectRatio === "aspect-square" && "h-fit",
+                      settings.aspectRatio === "aspect-video" && "w-full",
+                      settings.backgroundColor
+                    )}`}
+                  >
+                    <ClipboardImage
+                      insetColor={settings.insetColor}
+                      scale={settings.scale}
+                      positionX={settings.positionX}
+                      positionY={settings.positionY}
+                      insetPadding={settings.insetPadding}
+                      setInsetColor={setInsetColor}
+                      setInsetPadding={setInsetPadding}
+                      selectedImageUrl={selectedImageUrl}
+                      imagesHistoryUrl={imagesHistoryUrl}
+                      setImagesHistoryUrl={setImagesHistoryUrl}
+                      setSelectedImageUrl={setSelectedImageUrl}
+                    />
+                  </div>
                 </div>
               </div>
+              {/* Clipboard images history panel */}
+              <HistoryPanel
+                setImagesHistoryUrl={setImagesHistoryUrl}
+                setSelectedImageUrl={setSelectedImageUrl}
+                imagesHistoryUrl={imagesHistoryUrl}
+              />
             </div>
+            {/* Sidebar container */}
             <div className="flex h-full min-w-[340px] flex-col justify-between gap-1">
               <div className="flex items-center justify-between gap-2 rounded-md bg-slate-900/90 p-5 py-3 text-slate-100 shadow-3xl">
                 <header className="w-[150px] text-slate-200">
