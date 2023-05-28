@@ -1,7 +1,8 @@
 import { Check } from "lucide-react";
 import { LabelTooltip } from "./LabelTooltip";
 import { RadioGroup, RadioGroupItemCustom } from "@components/ui/RadioGroup";
-import { Settings } from "@config/defaults";
+import { Settings, defaultSettings } from "@config/defaults";
+import { Checkbox } from "@components/ui/Checkbox";
 
 const backgroundColors = [
   {
@@ -50,9 +51,23 @@ export const Background = ({
 }) => {
   return (
     <div className="mt-3 space-y-3">
-      <LabelTooltip tooltip="Quickly toggle using your arrow keys">
-        Background
-      </LabelTooltip>
+      <div className="flex items-center gap-2">
+        <Checkbox
+          id="background"
+          checked={settings.backgroundColor !== "bg-transparent"}
+          onCheckedChange={(checked: boolean) =>
+            !checked
+              ? setBackgroundColor("bg-transparent")
+              : setBackgroundColor(defaultSettings.backgroundColor)
+          }
+        />
+        <LabelTooltip
+          htmlFor="background"
+          tooltip="Quickly toggle using your arrow keys"
+        >
+          Background
+        </LabelTooltip>
+      </div>
       <RadioGroup
         aria-label="Background Colors"
         className="grid grid-cols-3 gap-2"
