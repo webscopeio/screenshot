@@ -1,6 +1,6 @@
+import { Info } from "lucide-react";
 import { Label } from "@components/ui/Label";
 import { Tooltip } from "@components/ui/Tooltip";
-import { Info } from "lucide-react";
 
 export const LabelTooltip = ({
   children,

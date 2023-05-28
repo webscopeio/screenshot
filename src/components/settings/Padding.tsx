@@ -1,7 +1,7 @@
+import { LabelTooltip } from "./LabelTooltip";
 import { Input } from "@components/ui/Input";
 import { Slider } from "@components/ui/Slider";
 import { Settings } from "@config/defaults";
-import { LabelTooltip } from "./LabelTooltip";
 
 export const Padding = ({
   settings,
@@ -36,12 +36,7 @@ export const Padding = ({
             min={0}
             max={10}
             value={settings.insetPadding}
-            onChange={(e) => {
-              let value = parseInt(e.target.value);
-              value = value > 10 ? 10 : value;
-              value = value < 0 ? 0 : value;
-              setInsetPadding(value);
-            }}
+            onChange={(e) => setInsetPadding(parseInt(e.target.value))}
           />
         </div>
       </div>

@@ -20,6 +20,7 @@ export const useClipboard = () => {
         .then(() => {
           return CopyState.SUCCESS;
         })
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         .catch((_error) => {
           return CopyState.ERROR;
         });

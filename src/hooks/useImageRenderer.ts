@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useTimeout } from "@hooks/useTimeout";
 import { toBlob, toPng } from "html-to-image";
 import { useClipboard } from "./useClipboard";
+import { useTimeout } from "@hooks/useTimeout";
 import { IMAGE_EXPORT_SCALE } from "@config/defaults";
 
 export const ImageRendererState = {

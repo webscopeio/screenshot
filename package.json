@@ -36,6 +36,14 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@webscopeio/eslint-config": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-tailwindcss": "^3.12.0"
   }
 }

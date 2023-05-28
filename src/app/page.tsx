@@ -1,6 +1,8 @@
 "use client";
 
 import * as React from "react";
+import { GithubIcon } from "lucide-react";
+import Link from "next/link";
 import { ClipboardImage } from "@components/ClipboardImage";
 import { ActionPanel } from "@components/ActionsPanel";
 import { defaultSettings } from "@config/defaults";
@@ -12,9 +14,7 @@ import { LoadProvider } from "@components/providers/LoadProvider";
 import { ToastProvider } from "@components/providers/ToastProvider";
 import { TooltipProviders } from "@components/providers/TooltipProvider";
 
-import { GithubIcon } from "lucide-react";
 import { Button } from "@components/ui/Button";
-import Link from "next/link";
 import { Logo } from "@components/Logo";
 
 export default function Home() {

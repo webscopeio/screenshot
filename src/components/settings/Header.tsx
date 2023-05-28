@@ -1,7 +1,7 @@
+import { RotateCcw } from "lucide-react";
 import { Button } from "@components/ui/Button";
 import { Tooltip } from "@components/ui/Tooltip";
 import { Settings, defaultSettings, suggestedSettings } from "@config/defaults";
-import { RotateCcw } from "lucide-react";
 
 export const Header = ({
   setAspectRatio,

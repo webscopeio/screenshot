@@ -1,10 +1,10 @@
 import * as React from "react";
 import Image from "next/image";
+import { Check, XCircle } from "lucide-react";
 import placeholder from "../app/placeholder.svg";
 import { getBackgroundColor, rgbToHex } from "@utils/color";
 import { pasteImage } from "@utils/clipboard";
 import { useToast } from "@hooks/useToast";
-import { Check, XCircle } from "lucide-react";
 import { suggestedSettings } from "@config/defaults";
 
 export const ClipboardImage = ({
@@ -83,7 +83,7 @@ export const ClipboardImage = ({
       style={{
         padding: `${insetPadding}%`,
         background: insetPadding ? insetColor : "transparent",
-        scale: `${(scale)/100}`,
+        scale: `${(scale) / 100}`,
         transform: `translate(${positionX}%, ${positionY}%)`
       }}
     />

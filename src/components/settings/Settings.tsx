@@ -1,9 +1,9 @@
-import { Settings as SettingsType } from "@config/defaults";
 import { AspectRatio } from "./AspectRatio";
 import { ScalePosition } from "./ScalePosition";
 import { Padding } from "./Padding";
 import { Background } from "./Background";
 import { Header } from "./Header";
+import { Settings as SettingsType } from "@config/defaults";
 
 export const Settings = ({
   settings,

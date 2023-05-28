@@ -1,8 +1,8 @@
+import { LabelTooltip } from "./LabelTooltip";
 import { Input } from "@components/ui/Input";
 import { Label } from "@components/ui/Label";
 import { Slider } from "@components/ui/Slider";
 import { Settings } from "@config/defaults";
-import { LabelTooltip } from "./LabelTooltip";
 
 export const ScalePosition = ({
   settings,
@@ -32,12 +32,7 @@ export const ScalePosition = ({
           min={50}
           max={150}
           value={settings.scale}
-          onChange={(e) => {
-            let value = parseInt(e.target.value);
-            value = value > 150 ? 150 : value;
-            value = value < 50 ? 50 : value;
-            setScale(value);
-          }}
+          onChange={(e) => setScale(parseInt(e.target.value))}
         />
       </div>
       <div className="space-y-4">

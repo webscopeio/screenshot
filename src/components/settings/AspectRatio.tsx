@@ -1,3 +1,5 @@
+import { Check } from "lucide-react";
+import { LabelTooltip } from "./LabelTooltip";
 import { RadioGroup, RadioGroupItemCustom } from "@components/ui/RadioGroup";
 import {
   AspectRatio as AspectRatioType,
@@ -5,8 +7,6 @@ import {
   Settings,
 } from "@config/defaults";
 import { cn } from "@utils/cn";
-import { Check } from "lucide-react";
-import { LabelTooltip } from "./LabelTooltip";
 
 const aspectRatios: { label: string; type: AspectRatioType }[] = [
   {
