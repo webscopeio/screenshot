@@ -6,8 +6,7 @@ type SettingActions =
       type: "SET_ASPECT_RATIO";
       value: Settings["aspectRatio"];
     }
-  |
-    {
+  | {
       type: "SET_SCALE";
       value: Settings["scale"];
     }
@@ -16,8 +15,8 @@ type SettingActions =
       value: Settings["positionX"];
     }
   | {
-    type: "SET_POSITIONY";
-    value: Settings["positionY"];
+      type: "SET_POSITIONY";
+      value: Settings["positionY"];
     }
   | {
       type: "SET_INSET_COLOR";
@@ -30,6 +29,10 @@ type SettingActions =
   | {
       type: "SET_BACKGROUND_COLOR";
       value: Settings["backgroundColor"];
+    }
+  | {
+      type: "SET_BACKGROUND_IMAGE";
+      value: Settings["backgroundImage"];
     };
 
 const settingsReducer = (
@@ -73,6 +76,12 @@ const settingsReducer = (
         backgroundColor: value,
       };
     }
+    case "SET_BACKGROUND_IMAGE": {
+      return {
+        ...prevState,
+        backgroundImage: value,
+      };
+    }
   }
 };
 
@@ -97,5 +106,7 @@ export const useSettings = (defaultSettings: Settings) => {
       dispatch({ type: "SET_INSET_PADDING", value }),
     setBackgroundColor: (value: Settings["backgroundColor"]) =>
       dispatch({ type: "SET_BACKGROUND_COLOR", value }),
+    setBackgroundImage: (value: Settings["backgroundImage"]) =>
+      dispatch({ type: "SET_BACKGROUND_IMAGE", value }),
   };
 };

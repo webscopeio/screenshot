@@ -16,6 +16,7 @@ export type Settings = {
   insetColor: string;
   insetPadding: number;
   backgroundColor: string;
+  backgroundImage?: string;
 };
 
 export const defaultSettings: Settings = {
