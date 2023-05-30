@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-checkbox": "^1.0.3",
     "@radix-ui/react-label": "^2.0.1",
     "@radix-ui/react-radio-group": "^1.1.2",
@@ -37,8 +38,8 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@webscopeio/eslint-config": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@webscopeio/eslint-config": "^2.0.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jest": "^27.2.1",

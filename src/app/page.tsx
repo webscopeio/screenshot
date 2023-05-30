@@ -28,7 +28,7 @@ export default function Home() {
     setInsetColor,
     setInsetPadding,
     setBackgroundColor,
-    setBackgroundImage
+    setBackgroundImage,
   } = useSettings(defaultSettings);
 
   return (
@@ -36,38 +36,36 @@ export default function Home() {
       <ToastProvider>
         <TooltipProviders>
           <section className="flex h-screen w-screen items-center gap-2 p-5">
-            <div className="m-9 h-fit w-full rounded-md shadow-3xl ring-8 ring-slate-900/50">
-              <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
-                <div
-                  ref={clipboardRef}
-                  style={settings.backgroundColor === "bg-transparent" && settings.backgroundImage ? {
-                    backgroundImage: `url(${settings.backgroundImage})`,
-                    backgroundRepeat: "no-repeat",
-                    backgroundPosition: "center",
-                    backgroundSize: "100% 100%",
-                  } : undefined}
-                  className={`${cn(
-                    "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
-                    settings.aspectRatio,
-                    settings.aspectRatio === "aspect-[3/4]" && "h-fit",
-                    settings.aspectRatio === "aspect-square" && "h-fit",
-                    settings.aspectRatio === "aspect-video" && "w-full",
-                    settings.backgroundColor,
-                  )}`}
-                >
-                  <ClipboardImage
-                    insetColor={settings.insetColor}
-                    scale={settings.scale}
-                    positionX={settings.positionX}
-                    positionY={settings.positionY}
-                    insetPadding={settings.insetPadding}
-                    setInsetColor={setInsetColor}
-                    setInsetPadding={setInsetPadding}
-                  />
-                </div>
+            <div className="grid h-fit w-full max-w-[1200px] place-items-center rounded-md p-9 shadow-3xl">
+              <div
+                ref={clipboardRef}
+                style={settings.backgroundColor === "bg-transparent" && settings.backgroundImage ? {
+                  backgroundImage: `url(${settings.backgroundImage})`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "100% 100%",
+                } : undefined}
+                className={`${cn(
+                  "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
+                  settings.aspectRatio,
+                  settings.aspectRatio === "aspect-[3/4]" && "h-fit",
+                  settings.aspectRatio === "aspect-square" && "h-fit",
+                  settings.aspectRatio === "aspect-video" && "w-full",
+                  settings.backgroundColor,
+                )}`}
+              >
+                <ClipboardImage
+                  insetColor={settings.insetColor}
+                  scale={settings.scale}
+                  positionX={settings.positionX}
+                  positionY={settings.positionY}
+                  insetPadding={settings.insetPadding}
+                  setInsetColor={setInsetColor}
+                  setInsetPadding={setInsetPadding}
+                />
               </div>
             </div>
-            <div className="flex h-full min-w-[340px] flex-col justify-between gap-1">
+            <div className="flex h-full min-w-[324px] flex-col justify-between gap-1.5">
               <div className="flex items-center justify-between gap-2 rounded-md bg-slate-900/90 p-5 py-3 text-slate-100 shadow-3xl">
                 <header className="w-[150px] text-slate-200">
                   <Logo />

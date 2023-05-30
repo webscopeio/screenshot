@@ -5,6 +5,7 @@ import { Background } from "./Background";
 import { Header } from "./Header";
 import { BackgroundImage } from "./BackgroundImage";
 import { Settings as SettingsType } from "@config/defaults";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@components/ui/Accordion";
 
 export const Settings = ({
   settings,
@@ -15,7 +16,7 @@ export const Settings = ({
   setInsetColor,
   setInsetPadding,
   setBackgroundColor,
-  setBackgroundImage
+  setBackgroundImage,
 }: {
   settings: SettingsType;
   setAspectRatio: (v: SettingsType["aspectRatio"]) => void;
@@ -28,7 +29,7 @@ export const Settings = ({
   setBackgroundImage: (v: SettingsType['backgroundImage']) => void;
 }) => {
   return (
-    <div className="flex flex-col gap-y-3">
+    <div className="flex flex-col">
       <Header
         setAspectRatio={setAspectRatio}
         setScale={setScale}
@@ -37,20 +38,32 @@ export const Settings = ({
         setInsetPadding={setInsetPadding}
         setBackgroundColor={setBackgroundColor}
       />
-      <AspectRatio settings={settings} setAspectRatio={setAspectRatio} />
-      <ScalePosition
-        settings={settings}
-        setScale={setScale}
-        setPositionX={setPositionX}
-        setPositionY={setPositionY}
-      />
-      <Padding
-        settings={settings}
-        setInsetColor={setInsetColor}
-        setInsetPadding={setInsetPadding}
-      />
-      <BackgroundImage setBackgroundImage={setBackgroundImage} setBackgroundColor={setBackgroundColor} />
-      <Background settings={settings} setBackgroundColor={setBackgroundColor} />
+      <Accordion defaultValue="size" type="single" collapsible>
+        <AccordionItem value="size">
+          <AccordionTrigger>Size</AccordionTrigger>
+          <AccordionContent>
+            <AspectRatio settings={settings} setAspectRatio={setAspectRatio} />
+            <ScalePosition
+              settings={settings}
+              setScale={setScale}
+              setPositionX={setPositionX}
+              setPositionY={setPositionY}
+            />
+            <Padding
+              settings={settings}
+              setInsetColor={setInsetColor}
+              setInsetPadding={setInsetPadding}
+            />
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="background">
+          <AccordionTrigger>Background</AccordionTrigger>
+          <AccordionContent>
+            <BackgroundImage settings={settings} setBackgroundImage={setBackgroundImage} setBackgroundColor={setBackgroundColor} />
+            <Background settings={settings} setBackgroundColor={setBackgroundColor} />
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   );
 };
