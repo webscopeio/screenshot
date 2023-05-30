@@ -71,7 +71,7 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
-              <div className="flex h-full flex-col justify-between overflow-scroll rounded-md bg-slate-900/90 p-5 pb-4 pt-3 text-slate-100 shadow-3xl">
+              <div className="flex h-full flex-col justify-between gap-y-4 overflow-y-scroll rounded-md bg-slate-900/90 p-5 pb-4 pt-3 text-slate-100 shadow-3xl [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-thumb]:bg-slate-700 [&::-webkit-scrollbar-track]:rounded-r-md [&::-webkit-scrollbar-track]:border [&::-webkit-scrollbar-track]:border-transparent [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar]:w-2.5">
                 <Settings
                   settings={settings}
                   setAspectRatio={setAspectRatio}
