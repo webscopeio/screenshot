@@ -28,6 +28,7 @@ export default function Home() {
     setInsetColor,
     setInsetPadding,
     setBackgroundColor,
+    setBackgroundImage
   } = useSettings(defaultSettings);
 
   return (
@@ -39,13 +40,19 @@ export default function Home() {
               <div className="grid w-full place-items-center rounded-md bg-[#020617] bg-[length:15px_15px] p-12 [background-image:radial-gradient(#64748b_0.75px,_transparent_0)]">
                 <div
                   ref={clipboardRef}
+                  style={settings.backgroundColor === "bg-transparent" && settings.backgroundImage ? {
+                    backgroundImage: `url(${settings.backgroundImage})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center",
+                    backgroundSize: "100% 100%",
+                  } : undefined}
                   className={`${cn(
                     "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
                     settings.aspectRatio,
                     settings.aspectRatio === "aspect-[3/4]" && "h-fit",
                     settings.aspectRatio === "aspect-square" && "h-fit",
                     settings.aspectRatio === "aspect-video" && "w-full",
-                    settings.backgroundColor
+                    settings.backgroundColor,
                   )}`}
                 >
                   <ClipboardImage
@@ -81,6 +88,7 @@ export default function Home() {
                   setInsetColor={setInsetColor}
                   setInsetPadding={setInsetPadding}
                   setBackgroundColor={setBackgroundColor}
+                  setBackgroundImage={setBackgroundImage}
                 />
                 <ActionPanel clipboardRef={clipboardRef} />
               </div>

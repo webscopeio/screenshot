@@ -3,6 +3,7 @@ import { ScalePosition } from "./ScalePosition";
 import { Padding } from "./Padding";
 import { Background } from "./Background";
 import { Header } from "./Header";
+import { BackgroundImage } from "./BackgroundImage";
 import { Settings as SettingsType } from "@config/defaults";
 
 export const Settings = ({
@@ -14,6 +15,7 @@ export const Settings = ({
   setInsetColor,
   setInsetPadding,
   setBackgroundColor,
+  setBackgroundImage
 }: {
   settings: SettingsType;
   setAspectRatio: (v: SettingsType["aspectRatio"]) => void;
@@ -23,6 +25,7 @@ export const Settings = ({
   setInsetColor: (v: SettingsType["insetColor"]) => void;
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
+  setBackgroundImage: (v: SettingsType['backgroundImage']) => void;
 }) => {
   return (
     <div className="flex flex-col gap-y-3">
@@ -46,6 +49,7 @@ export const Settings = ({
         setInsetColor={setInsetColor}
         setInsetPadding={setInsetPadding}
       />
+      <BackgroundImage setBackgroundImage={setBackgroundImage} setBackgroundColor={setBackgroundColor} />
       <Background settings={settings} setBackgroundColor={setBackgroundColor} />
     </div>
   );
