@@ -35,7 +35,7 @@ export const AspectRatio = ({
   setAspectRatio: (v: Settings["aspectRatio"]) => void;
 }) => {
   return (
-    <section className="-mt-2 space-y-2">
+    <section className="mt-1 space-y-2">
       <LabelTooltip tooltip="Width and height ratio">Aspect Ratio</LabelTooltip>
       <RadioGroup
         aria-label="Aspect Ratios"
