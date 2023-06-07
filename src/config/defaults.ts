@@ -17,22 +17,22 @@ export type Settings = {
   insetPadding: number;
   backgroundColor: string;
   backgroundImage?: string;
+  upscale: string;
 };
 
 export const defaultSettings: Settings = {
   aspectRatio: "aspect-video",
-  scale: 100,
+  scale: 90,
   positionX: 0,
   positionY: 0,
   insetColor: "#000000",
   insetPadding: 0,
   backgroundColor:
     "bg-gradient-to-br from-indigo-700 from-10% via-purple-600 via-30% to-pink-600 to-90% saturate-[125%]",
+  upscale: "2",
 };
 
 export const suggestedSettings: Settings = {
   ...defaultSettings,
   insetPadding: 1,
 };
-
-export const IMAGE_EXPORT_SCALE = 2;

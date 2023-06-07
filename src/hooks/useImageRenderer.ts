@@ -2,7 +2,7 @@ import { useState } from "react";
 import { toBlob, toPng } from "html-to-image";
 import { useClipboard } from "./useClipboard";
 import { useTimeout } from "@hooks/useTimeout";
-import { IMAGE_EXPORT_SCALE } from "@config/defaults";
+import { type Settings } from "@config/defaults";
 
 export const ImageRendererState = {
   READY: "READY",
@@ -26,9 +26,9 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
     timeout.call();
   }
 
-  function copy(node: HTMLDivElement) {
+  function copy(node: HTMLDivElement, settings: Settings) {
     const style = {
-      transform: `scale(${IMAGE_EXPORT_SCALE})`,
+      transform: `scale(${settings.upscale})`,
       "transform-origin": "top left",
       width: node.offsetWidth + "px",
       height: node.offsetHeight + "px",
@@ -38,8 +38,8 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
 
     try {
       toBlob(node, {
-        height: node.offsetHeight * IMAGE_EXPORT_SCALE,
-        width: node.offsetWidth * IMAGE_EXPORT_SCALE,
+        width: node.offsetWidth * parseInt(settings.upscale),
+        height: node.offsetHeight * parseInt(settings.upscale),
         style,
       })
         .then(async (blob) => {
@@ -59,9 +59,9 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
     }
   }
 
-  function download(node: HTMLDivElement) {
+  function download(node: HTMLDivElement, settings: Settings) {
     const style = {
-      transform: `scale(${IMAGE_EXPORT_SCALE})`,
+      transform: `scale(${settings.upscale})`,
       "transform-origin": "top left",
       width: node.offsetWidth + "px",
       height: node.offsetHeight + "px",
@@ -71,8 +71,8 @@ export const useImageRenderer = ({ delay = 2000 } = {}) => {
 
     try {
       toPng(node, {
-        height: node.offsetHeight * IMAGE_EXPORT_SCALE,
-        width: node.offsetWidth * IMAGE_EXPORT_SCALE,
+        width: node.offsetWidth * parseInt(settings.upscale),
+        height: node.offsetHeight * parseInt(settings.upscale),
         style,
       })
         .then((toDataURL) => {

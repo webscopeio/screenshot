@@ -10,6 +10,7 @@ export const Header = ({
   setPositionY,
   setInsetPadding,
   setBackgroundColor,
+  setUpscale,
 }: {
   setAspectRatio: (v: Settings["aspectRatio"]) => void;
   setScale: (v: Settings["scale"]) => void;
@@ -17,6 +18,7 @@ export const Header = ({
   setPositionY: (v: Settings["positionY"]) => void;
   setInsetPadding: (v: Settings["insetPadding"]) => void;
   setBackgroundColor: (v: Settings["backgroundColor"]) => void;
+  setUpscale: (v: Settings["upscale"]) => void;
 }) => {
   const handleReset = () => {
     setAspectRatio(defaultSettings.aspectRatio);
@@ -25,6 +27,7 @@ export const Header = ({
     setPositionY(defaultSettings.positionY);
     setInsetPadding(suggestedSettings.insetPadding);
     setBackgroundColor(defaultSettings.backgroundColor);
+    setUpscale(defaultSettings.upscale);
   };
 
   return (

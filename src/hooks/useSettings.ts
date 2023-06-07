@@ -33,6 +33,10 @@ type SettingActions =
   | {
       type: "SET_BACKGROUND_IMAGE";
       value: Settings["backgroundImage"];
+    }
+  | {
+      type: "SET_UPSCALE";
+      value: Settings["upscale"];
     };
 
 const settingsReducer = (
@@ -82,6 +86,12 @@ const settingsReducer = (
         backgroundImage: value,
       };
     }
+    case "SET_UPSCALE": {
+      return {
+        ...prevState,
+        upscale: value,
+      };
+    }
   }
 };
 
@@ -108,5 +118,7 @@ export const useSettings = (defaultSettings: Settings) => {
       dispatch({ type: "SET_BACKGROUND_COLOR", value }),
     setBackgroundImage: (value: Settings["backgroundImage"]) =>
       dispatch({ type: "SET_BACKGROUND_IMAGE", value }),
+    setUpscale: (value: Settings["upscale"]) =>
+      dispatch({ type: "SET_UPSCALE", value }),
   };
 };

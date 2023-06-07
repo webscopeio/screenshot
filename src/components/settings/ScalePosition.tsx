@@ -22,7 +22,7 @@ export const ScalePosition = ({
           htmlFor="scale"
           tooltip="The scale and position of the image"
         >
-          Scale and position
+          Scale and Position
         </LabelTooltip>
         <Input
           id="scale"

@@ -29,29 +29,35 @@ export default function Home() {
     setInsetPadding,
     setBackgroundColor,
     setBackgroundImage,
+    setUpscale,
   } = useSettings(defaultSettings);
 
   return (
     <LoadProvider>
       <ToastProvider>
         <TooltipProviders>
-          <section className="flex h-screen w-screen items-center gap-2 p-5">
-            <div className="grid h-fit w-full max-w-[1200px] place-items-center rounded-md p-9 shadow-3xl">
+          <section className="grid h-screen w-screen grid-cols-[1fr_auto] place-items-center gap-2 p-5">
+            <div className="grid h-fit w-full max-w-[1200px] place-items-center rounded-md shadow-3xl">
               <div
                 ref={clipboardRef}
-                style={settings.backgroundColor === "bg-transparent" && settings.backgroundImage ? {
-                  backgroundImage: `url(${settings.backgroundImage})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundSize: "100% 100%",
-                } : undefined}
+                style={
+                  settings.backgroundColor === "bg-transparent" &&
+                  settings.backgroundImage
+                    ? {
+                        backgroundImage: `url(${settings.backgroundImage})`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        backgroundSize: "100% 100%",
+                      }
+                    : undefined
+                }
                 className={`${cn(
                   "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
                   settings.aspectRatio,
                   settings.aspectRatio === "aspect-[3/4]" && "h-fit",
                   settings.aspectRatio === "aspect-square" && "h-fit",
                   settings.aspectRatio === "aspect-video" && "w-full",
-                  settings.backgroundColor,
+                  settings.backgroundColor
                 )}`}
               >
                 <ClipboardImage
@@ -65,7 +71,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="flex h-full min-w-[324px] flex-col justify-between gap-1.5">
+            <div className="flex h-full w-[324px] flex-col justify-between gap-1.5">
               <div className="flex items-center justify-between gap-2 rounded-md bg-slate-900/90 p-5 py-3 text-slate-100 shadow-3xl">
                 <header className="w-[150px] text-slate-200">
                   <Logo />
@@ -87,8 +93,9 @@ export default function Home() {
                   setInsetPadding={setInsetPadding}
                   setBackgroundColor={setBackgroundColor}
                   setBackgroundImage={setBackgroundImage}
+                  setUpscale={setUpscale}
                 />
-                <ActionPanel clipboardRef={clipboardRef} />
+                <ActionPanel settings={settings} clipboardRef={clipboardRef} />
               </div>
             </div>
           </section>
