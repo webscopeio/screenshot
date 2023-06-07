@@ -17,7 +17,6 @@ export type Settings = {
   insetPadding: number;
   backgroundColor: string;
   backgroundImage?: string;
-  width: number;
   upscale: string;
 };
 
@@ -30,7 +29,6 @@ export const defaultSettings: Settings = {
   insetPadding: 0,
   backgroundColor:
     "bg-gradient-to-br from-indigo-700 from-10% via-purple-600 via-30% to-pink-600 to-90% saturate-[125%]",
-  width: 800,
   upscale: "2",
 };
 

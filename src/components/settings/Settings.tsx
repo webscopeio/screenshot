@@ -4,7 +4,7 @@ import { Padding } from "./Padding";
 import { Background } from "./Background";
 import { Header } from "./Header";
 import { BackgroundImage } from "./BackgroundImage";
-import { WidthScale } from "./WidthScale";
+import { Upscale } from "./Upscale";
 import { Settings as SettingsType } from "@config/defaults";
 import {
   Accordion,
@@ -23,7 +23,6 @@ export const Settings = ({
   setInsetPadding,
   setBackgroundColor,
   setBackgroundImage,
-  setWidth,
   setUpscale,
 }: {
   settings: SettingsType;
@@ -35,7 +34,6 @@ export const Settings = ({
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
   setBackgroundImage: (v: SettingsType["backgroundImage"]) => void;
-  setWidth: (v: SettingsType["width"]) => void;
   setUpscale: (v: SettingsType["upscale"]) => void;
 }) => {
   return (
@@ -47,7 +45,6 @@ export const Settings = ({
         setPositionY={setPositionY}
         setInsetPadding={setInsetPadding}
         setBackgroundColor={setBackgroundColor}
-        setWidth={setWidth}
         setUpscale={setUpscale}
       />
       <Accordion defaultValue="size" type="single" collapsible>
@@ -85,11 +82,7 @@ export const Settings = ({
         <AccordionItem value="export">
           <AccordionTrigger>Export</AccordionTrigger>
           <AccordionContent>
-            <WidthScale
-              settings={settings}
-              setWidth={setWidth}
-              setUpscale={setUpscale}
-            />
+            <Upscale settings={settings} setUpscale={setUpscale} />
           </AccordionContent>
         </AccordionItem>
       </Accordion>

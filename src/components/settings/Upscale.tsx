@@ -1,43 +1,22 @@
 import * as React from "react";
 import { Check } from "lucide-react";
 import { LabelTooltip } from "./LabelTooltip";
-import { Input } from "@components/ui/Input";
 import { RadioGroup, RadioGroupItemCustom } from "@components/ui/RadioGroup";
 import { Settings } from "@config/defaults";
 import { cn } from "@utils/cn";
 
-export const WidthScale = ({
+export const Upscale = ({
   settings,
-  setWidth,
   setUpscale,
 }: {
   settings: Settings;
-  setWidth: (v: Settings["width"]) => void;
   setUpscale: (v: Settings["upscale"]) => void;
 }) => {
   return (
     <div className="mt-1 space-y-3">
-      <div className="flex items-center justify-between">
-        <LabelTooltip
-          htmlFor="resolution"
-          tooltip="Export resolution scale based on base width (px)"
-        >
-          Width and Scale
-        </LabelTooltip>
-        <div className="flex items-center gap-1.5">
-          <Input
-            id="resolution"
-            className="w-[72px]"
-            type="number"
-            placeholder="800"
-            min={800}
-            max={2560}
-            value={settings.width}
-            onChange={(e) => setWidth(parseInt(e.target.value))}
-          />
-          <span>px</span>
-        </div>
-      </div>
+      <LabelTooltip htmlFor="resolution" tooltip="Export resolution scale">
+        Upscale
+      </LabelTooltip>
       <RadioGroup
         aria-label="Export Scale"
         className="grid grid-cols-3 gap-2"

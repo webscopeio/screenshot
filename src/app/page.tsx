@@ -29,7 +29,6 @@ export default function Home() {
     setInsetPadding,
     setBackgroundColor,
     setBackgroundImage,
-    setWidth,
     setUpscale,
   } = useSettings(defaultSettings);
 
@@ -38,12 +37,7 @@ export default function Home() {
       <ToastProvider>
         <TooltipProviders>
           <section className="grid h-screen w-screen grid-cols-[1fr_auto] place-items-center gap-2 p-5">
-            <div
-              className="grid place-items-center rounded-md shadow-3xl"
-              style={{
-                width: settings.width,
-              }}
-            >
+            <div className="grid h-fit w-full max-w-[1200px] place-items-center rounded-md shadow-3xl">
               <div
                 ref={clipboardRef}
                 style={
@@ -99,7 +93,6 @@ export default function Home() {
                   setInsetPadding={setInsetPadding}
                   setBackgroundColor={setBackgroundColor}
                   setBackgroundImage={setBackgroundImage}
-                  setWidth={setWidth}
                   setUpscale={setUpscale}
                 />
                 <ActionPanel settings={settings} clipboardRef={clipboardRef} />
