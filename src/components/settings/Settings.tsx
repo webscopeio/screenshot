@@ -4,6 +4,7 @@ import { Padding } from "./Padding";
 import { Background } from "./Background";
 import { Header } from "./Header";
 import { BackgroundImage } from "./BackgroundImage";
+import { WidthScale } from "./WidthScale";
 import { Settings as SettingsType } from "@config/defaults";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@components/ui/Accordion";
 
@@ -17,6 +18,8 @@ export const Settings = ({
   setInsetPadding,
   setBackgroundColor,
   setBackgroundImage,
+  setWidth,
+  setUpscale
 }: {
   settings: SettingsType;
   setAspectRatio: (v: SettingsType["aspectRatio"]) => void;
@@ -27,6 +30,8 @@ export const Settings = ({
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
   setBackgroundImage: (v: SettingsType['backgroundImage']) => void;
+  setWidth: (v: SettingsType['width']) => void;
+  setUpscale: (v: SettingsType['upscale']) => void;
 }) => {
   return (
     <div className="flex flex-col">
@@ -37,6 +42,9 @@ export const Settings = ({
         setPositionY={setPositionY}
         setInsetPadding={setInsetPadding}
         setBackgroundColor={setBackgroundColor}
+        setWidth={setWidth}
+        setUpscale={setUpscale}
+
       />
       <Accordion defaultValue="size" type="single" collapsible>
         <AccordionItem value="size">
@@ -61,6 +69,15 @@ export const Settings = ({
           <AccordionContent>
             <BackgroundImage settings={settings} setBackgroundImage={setBackgroundImage} setBackgroundColor={setBackgroundColor} />
             <Background settings={settings} setBackgroundColor={setBackgroundColor} />
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="export">
+          <AccordionTrigger>Export</AccordionTrigger>
+          <AccordionContent>
+            <WidthScale settings={settings}
+              setWidth={setWidth}
+              setUpscale={setUpscale}
+            />
           </AccordionContent>
         </AccordionItem>
       </Accordion>

@@ -8,37 +8,37 @@ const backgroundColors = [
   {
     name: "Indigo Pink",
     className:
-      "bg-gradient-to-br from-indigo-700 from-10% via-purple-600 via-30% to-pink-600 to-90% saturate-[125%]",
+      "bg-gradient-to-br from-indigo-700 from-10% via-purple-600 via-30% to-pink-600 to-90% saturate-[115%]",
   },
   {
     name: "Orange Hibiscus",
     className:
-      "bg-gradient-to-br from-fuchsia-700 from-0% to-orange-600 to-100% saturate-[125%]",
+      "bg-gradient-to-br from-fuchsia-700 from-0% to-orange-600 to-100% saturate-[115%]",
   },
   {
     name: "Purple Blast",
     className:
-      "bg-gradient-to-tl from-fuchsia-500 from-0% to-blue-500 to-100% saturate-[125%]",
+      "bg-gradient-to-tl from-fuchsia-500 from-0% to-blue-500 to-100% saturate-[115%]",
   },
   {
     name: "Summer Breeze",
     className:
-      "bg-gradient-to-br from-yellow-400 from-0% to-pink-500 to-100% saturate-[125%]",
+      "bg-gradient-to-br from-yellow-400 from-0% to-pink-500 to-100% saturate-[115%]",
   },
   {
     name: "Carribean Sea",
     className:
-      "bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% saturate-[125%]",
+      "bg-gradient-to-br from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% saturate-[115%]",
   },
   {
     name: "Rose Gold",
     className:
-      "bg-gradient-to-tl from-rose-900 from-0% via-pink-500 via-50% to-rose-700 to-100% saturate-[125%]",
+      "bg-gradient-to-tl from-rose-900 from-0% via-pink-500 via-50% to-rose-700 to-100% saturate-[115%]",
   },
   {
     name: "Intense Blues",
     className:
-      "bg-gradient-to-br from-[#6e01e9] from-0% via-[#3358ff] via-45% to-[#022D9B] to-100% saturate-[125%]",
+      "bg-gradient-to-br from-[#6e01e9] from-0% via-[#3358ff] via-45% to-[#022D9B] to-100% saturate-[115%]",
   },
 ];
 
