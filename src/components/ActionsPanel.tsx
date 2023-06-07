@@ -7,7 +7,7 @@ import { useImageRenderer } from "@hooks/useImageRenderer";
 import { Settings } from "@config/defaults";
 
 export const ActionPanel: React.FC<{
-  settings: Settings
+  settings: Settings;
   clipboardRef: React.MutableRefObject<HTMLDivElement | null>;
 }> = ({ settings, clipboardRef }) => {
   const clipboard = useImageRenderer();
@@ -27,7 +27,8 @@ export const ActionPanel: React.FC<{
       <ActionButton
         state={download.state}
         onClick={() =>
-          clipboardRef.current && download.download(clipboardRef.current, settings)
+          clipboardRef.current &&
+          download.download(clipboardRef.current, settings)
         }
         icon={<Download className="h-5 w-5" />}
       >

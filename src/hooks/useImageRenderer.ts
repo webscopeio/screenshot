@@ -5,10 +5,10 @@ import { useTimeout } from "@hooks/useTimeout";
 import { type Settings } from "@config/defaults";
 
 export const ImageRendererState = {
-	READY: "READY",
-	SUCCESS: "SUCCESS",
-	ERROR: "ERROR",
-	LOADING: "LOADING",
+  READY: "READY",
+  SUCCESS: "SUCCESS",
+  ERROR: "ERROR",
+  LOADING: "LOADING",
 } as const;
 
 /**
@@ -17,78 +17,78 @@ export const ImageRendererState = {
  * @returns Method to `copy`, `download` and `state` for the clipboard
  */
 export const useImageRenderer = ({ delay = 2000 } = {}) => {
-	const [state, setState] = useState<keyof typeof ImageRendererState>("READY");
-	const clipboard = useClipboard();
-	const timeout = useTimeout(() => setState("READY"), delay);
+  const [state, setState] = useState<keyof typeof ImageRendererState>("READY");
+  const clipboard = useClipboard();
+  const timeout = useTimeout(() => setState("READY"), delay);
 
-	function handleImageRendererState(result: keyof typeof ImageRendererState) {
-		setState(result);
-		timeout.call();
-	}
+  function handleImageRendererState(result: keyof typeof ImageRendererState) {
+    setState(result);
+    timeout.call();
+  }
 
-	function copy(node: HTMLDivElement, settings: Settings) {
-		const style = {
-			transform: `scale(${settings.upscale})`,
-			"transform-origin": "top left",
-			width: node.offsetWidth + "px",
-			height: node.offsetHeight + "px",
-		};
+  function copy(node: HTMLDivElement, settings: Settings) {
+    const style = {
+      transform: `scale(${settings.upscale})`,
+      "transform-origin": "top left",
+      width: node.offsetWidth + "px",
+      height: node.offsetHeight + "px",
+    };
 
-		handleImageRendererState("LOADING");
+    handleImageRendererState("LOADING");
 
-		try {
-			toBlob(node, {
-				width: node.offsetWidth * parseInt(settings.upscale),
-				height: node.offsetHeight * parseInt(settings.upscale),
-				style,
-			})
-				.then(async (blob) => {
-					if (!blob) {
-						handleImageRendererState("ERROR");
-						return;
-					}
-					const data = new ClipboardItem({ "image/png": blob });
-					const clipboardState = await clipboard.copy(data);
-					handleImageRendererState(clipboardState);
-				})
-				.catch((error) => {
-					error instanceof Error && handleImageRendererState("ERROR");
-				});
-		} catch (error) {
-			error instanceof Error && handleImageRendererState("ERROR");
-		}
-	}
+    try {
+      toBlob(node, {
+        width: node.offsetWidth * parseInt(settings.upscale),
+        height: node.offsetHeight * parseInt(settings.upscale),
+        style,
+      })
+        .then(async (blob) => {
+          if (!blob) {
+            handleImageRendererState("ERROR");
+            return;
+          }
+          const data = new ClipboardItem({ "image/png": blob });
+          const clipboardState = await clipboard.copy(data);
+          handleImageRendererState(clipboardState);
+        })
+        .catch((error) => {
+          error instanceof Error && handleImageRendererState("ERROR");
+        });
+    } catch (error) {
+      error instanceof Error && handleImageRendererState("ERROR");
+    }
+  }
 
-	function download(node: HTMLDivElement, settings: Settings) {
-		const style = {
-			transform: `scale(${settings.upscale})`,
-			"transform-origin": "top left",
-			width: node.offsetWidth + "px",
-			height: node.offsetHeight + "px",
-		};
+  function download(node: HTMLDivElement, settings: Settings) {
+    const style = {
+      transform: `scale(${settings.upscale})`,
+      "transform-origin": "top left",
+      width: node.offsetWidth + "px",
+      height: node.offsetHeight + "px",
+    };
 
-		handleImageRendererState("LOADING");
+    handleImageRendererState("LOADING");
 
-		try {
-			toPng(node, {
-				width: node.offsetWidth * parseInt(settings.upscale),
-				height: node.offsetHeight * parseInt(settings.upscale),
-				style,
-			})
-				.then((toDataURL) => {
-					const link = document.createElement("a");
-					link.download = "download.png";
-					link.href = toDataURL;
-					link.click();
-					handleImageRendererState("SUCCESS");
-				})
-				.catch((error) => {
-					error instanceof Error && handleImageRendererState("ERROR");
-				});
-		} catch (error) {
-			error instanceof Error && handleImageRendererState("ERROR");
-		}
-	}
+    try {
+      toPng(node, {
+        width: node.offsetWidth * parseInt(settings.upscale),
+        height: node.offsetHeight * parseInt(settings.upscale),
+        style,
+      })
+        .then((toDataURL) => {
+          const link = document.createElement("a");
+          link.download = "download.png";
+          link.href = toDataURL;
+          link.click();
+          handleImageRendererState("SUCCESS");
+        })
+        .catch((error) => {
+          error instanceof Error && handleImageRendererState("ERROR");
+        });
+    } catch (error) {
+      error instanceof Error && handleImageRendererState("ERROR");
+    }
+  }
 
-	return { copy, download, state };
+  return { copy, download, state };
 };

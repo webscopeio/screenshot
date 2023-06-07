@@ -30,7 +30,7 @@ export default function Home() {
     setBackgroundColor,
     setBackgroundImage,
     setWidth,
-    setUpscale
+    setUpscale,
   } = useSettings(defaultSettings);
 
   return (
@@ -38,25 +38,32 @@ export default function Home() {
       <ToastProvider>
         <TooltipProviders>
           <section className="grid h-screen w-screen grid-cols-[1fr_auto] place-items-center gap-2 p-5">
-            <div className="grid place-items-center rounded-md shadow-3xl"
+            <div
+              className="grid place-items-center rounded-md shadow-3xl"
               style={{
-                width: settings.width
-              }}>
+                width: settings.width,
+              }}
+            >
               <div
                 ref={clipboardRef}
-                style={settings.backgroundColor === "bg-transparent" && settings.backgroundImage ? {
-                  backgroundImage: `url(${settings.backgroundImage})`,
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                  backgroundSize: "100% 100%",
-                } : undefined}
+                style={
+                  settings.backgroundColor === "bg-transparent" &&
+                  settings.backgroundImage
+                    ? {
+                        backgroundImage: `url(${settings.backgroundImage})`,
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        backgroundSize: "100% 100%",
+                      }
+                    : undefined
+                }
                 className={`${cn(
                   "max-w-6xl max-h-[648px] grid place-items-center p-[4%] overflow-hidden",
                   settings.aspectRatio,
                   settings.aspectRatio === "aspect-[3/4]" && "h-fit",
                   settings.aspectRatio === "aspect-square" && "h-fit",
                   settings.aspectRatio === "aspect-video" && "w-full",
-                  settings.backgroundColor,
+                  settings.backgroundColor
                 )}`}
               >
                 <ClipboardImage

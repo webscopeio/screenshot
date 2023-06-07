@@ -9,11 +9,11 @@ import { cn } from "@utils/cn";
 export const WidthScale = ({
   settings,
   setWidth,
-  setUpscale
+  setUpscale,
 }: {
   settings: Settings;
-  setWidth: (v: Settings['width']) => void;
-  setUpscale: (v: Settings['upscale']) => void;
+  setWidth: (v: Settings["width"]) => void;
+  setUpscale: (v: Settings["upscale"]) => void;
 }) => {
   return (
     <div className="mt-1 space-y-3">
@@ -42,9 +42,7 @@ export const WidthScale = ({
         aria-label="Export Scale"
         className="grid grid-cols-3 gap-2"
         value={`${settings.upscale}`}
-        onValueChange={(value: string) =>
-          setUpscale(value)
-        }
+        onValueChange={(value: string) => setUpscale(value)}
       >
         <RadioGroupItemCustom
           aria-label="1x"
@@ -60,9 +58,7 @@ export const WidthScale = ({
           >
             <Check aria-hidden={true} className="h-3 w-3" />
           </div>
-          <p className="text-xs font-semibold leading-[0] text-slate-200">
-            1x
-          </p>
+          <p className="text-xs font-semibold leading-[0] text-slate-200">1x</p>
         </RadioGroupItemCustom>
         <RadioGroupItemCustom
           aria-label="1.5x"
@@ -96,9 +92,7 @@ export const WidthScale = ({
           >
             <Check aria-hidden={true} className="h-3 w-3" />
           </div>
-          <p className="text-xs font-semibold leading-[0] text-slate-200">
-            2x
-          </p>
+          <p className="text-xs font-semibold leading-[0] text-slate-200">2x</p>
         </RadioGroupItemCustom>
         <RadioGroupItemCustom
           aria-label="3x"
@@ -114,11 +108,9 @@ export const WidthScale = ({
           >
             <Check aria-hidden={true} className="h-3 w-3" />
           </div>
-          <p className="text-xs font-semibold leading-[0] text-slate-200">
-            3x
-          </p>
+          <p className="text-xs font-semibold leading-[0] text-slate-200">3x</p>
         </RadioGroupItemCustom>
       </RadioGroup>
     </div>
-  )
-}
+  );
+};

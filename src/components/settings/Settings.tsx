@@ -6,7 +6,12 @@ import { Header } from "./Header";
 import { BackgroundImage } from "./BackgroundImage";
 import { WidthScale } from "./WidthScale";
 import { Settings as SettingsType } from "@config/defaults";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@components/ui/Accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@components/ui/Accordion";
 
 export const Settings = ({
   settings,
@@ -19,7 +24,7 @@ export const Settings = ({
   setBackgroundColor,
   setBackgroundImage,
   setWidth,
-  setUpscale
+  setUpscale,
 }: {
   settings: SettingsType;
   setAspectRatio: (v: SettingsType["aspectRatio"]) => void;
@@ -29,9 +34,9 @@ export const Settings = ({
   setInsetColor: (v: SettingsType["insetColor"]) => void;
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
-  setBackgroundImage: (v: SettingsType['backgroundImage']) => void;
-  setWidth: (v: SettingsType['width']) => void;
-  setUpscale: (v: SettingsType['upscale']) => void;
+  setBackgroundImage: (v: SettingsType["backgroundImage"]) => void;
+  setWidth: (v: SettingsType["width"]) => void;
+  setUpscale: (v: SettingsType["upscale"]) => void;
 }) => {
   return (
     <div className="flex flex-col">
@@ -44,7 +49,6 @@ export const Settings = ({
         setBackgroundColor={setBackgroundColor}
         setWidth={setWidth}
         setUpscale={setUpscale}
-
       />
       <Accordion defaultValue="size" type="single" collapsible>
         <AccordionItem value="size">
@@ -67,14 +71,22 @@ export const Settings = ({
         <AccordionItem value="background">
           <AccordionTrigger>Background</AccordionTrigger>
           <AccordionContent>
-            <BackgroundImage settings={settings} setBackgroundImage={setBackgroundImage} setBackgroundColor={setBackgroundColor} />
-            <Background settings={settings} setBackgroundColor={setBackgroundColor} />
+            <BackgroundImage
+              settings={settings}
+              setBackgroundImage={setBackgroundImage}
+              setBackgroundColor={setBackgroundColor}
+            />
+            <Background
+              settings={settings}
+              setBackgroundColor={setBackgroundColor}
+            />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="export">
           <AccordionTrigger>Export</AccordionTrigger>
           <AccordionContent>
-            <WidthScale settings={settings}
+            <WidthScale
+              settings={settings}
               setWidth={setWidth}
               setUpscale={setUpscale}
             />
