@@ -6,6 +6,7 @@ import { getBackgroundColor, rgbToHex } from "@utils/color";
 import { pasteImage } from "@utils/clipboard";
 import { useToast } from "@hooks/useToast";
 import { suggestedSettings } from "@config/defaults";
+import { cn } from "@utils/cn";
 
 export const ClipboardImage = ({
   insetColor,
@@ -13,14 +14,16 @@ export const ClipboardImage = ({
   positionX,
   positionY,
   insetPadding,
+  enableShadows,
   setInsetColor,
   setInsetPadding,
 }: {
   insetColor: string;
-  scale: number,
-  positionX: number,
-  positionY: number,
+  scale: number;
+  positionX: number;
+  positionY: number;
   insetPadding: number;
+  enableShadows: boolean;
   setInsetColor: (input: string) => void;
   setInsetPadding: (input: number) => void;
 }) => {
@@ -78,13 +81,16 @@ export const ClipboardImage = ({
       ref={imageRef}
       alt="Image"
       quality={100}
-      className="max-h-full min-h-fit w-auto rounded-md object-contain shadow-2xl"
+      className={cn(
+        "max-h-full min-h-fit w-auto rounded-md object-contain",
+        enableShadows && "shadow-3xl"
+      )}
       priority={true}
       style={{
         padding: `${insetPadding}%`,
         background: insetPadding ? insetColor : "transparent",
-        scale: `${(scale) / 100}`,
-        transform: `translate(${positionX}%, ${positionY}%)`
+        scale: `${scale / 100}`,
+        transform: `translate(${positionX}%, ${positionY}%)`,
       }}
     />
   );

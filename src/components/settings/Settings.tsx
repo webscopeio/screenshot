@@ -5,6 +5,7 @@ import { Background } from "./Background";
 import { Header } from "./Header";
 import { BackgroundImage } from "./BackgroundImage";
 import { Upscale } from "./Upscale";
+import { Shadows } from "./Shadows";
 import { Settings as SettingsType } from "@config/defaults";
 import {
   Accordion,
@@ -21,6 +22,7 @@ export const Settings = ({
   setPositionY,
   setInsetColor,
   setInsetPadding,
+  toggleShadows,
   setBackgroundColor,
   setBackgroundImage,
   setUpscale,
@@ -32,6 +34,7 @@ export const Settings = ({
   setPositionY: (v: SettingsType["positionY"]) => void;
   setInsetColor: (v: SettingsType["insetColor"]) => void;
   setInsetPadding: (v: SettingsType["insetPadding"]) => void;
+  toggleShadows: (v: SettingsType["enableShadows"]) => void;
   setBackgroundColor: (v: SettingsType["backgroundColor"]) => void;
   setBackgroundImage: (v: SettingsType["backgroundImage"]) => void;
   setUpscale: (v: SettingsType["upscale"]) => void;
@@ -47,9 +50,9 @@ export const Settings = ({
         setBackgroundColor={setBackgroundColor}
         setUpscale={setUpscale}
       />
-      <Accordion defaultValue="size" type="single" collapsible>
-        <AccordionItem value="size">
-          <AccordionTrigger>Size</AccordionTrigger>
+      <Accordion defaultValue="layout" type="single" collapsible>
+        <AccordionItem value="layout">
+          <AccordionTrigger>Layout</AccordionTrigger>
           <AccordionContent>
             <AspectRatio settings={settings} setAspectRatio={setAspectRatio} />
             <ScalePosition
@@ -63,6 +66,7 @@ export const Settings = ({
               setInsetColor={setInsetColor}
               setInsetPadding={setInsetPadding}
             />
+            <Shadows toggleShadows={toggleShadows} />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="background">

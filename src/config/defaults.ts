@@ -15,6 +15,7 @@ export type Settings = {
   positionY: number;
   insetColor: string;
   insetPadding: number;
+  enableShadows: boolean;
   backgroundColor: string;
   backgroundImage?: string;
   upscale: string;
@@ -30,6 +31,7 @@ export const defaultSettings: Settings = {
   backgroundColor:
     "bg-gradient-to-br from-indigo-700 from-10% via-purple-600 via-30% to-pink-600 to-90% saturate-[125%]",
   upscale: "2",
+  enableShadows: true,
 };
 
 export const suggestedSettings: Settings = {
