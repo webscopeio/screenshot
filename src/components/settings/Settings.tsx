@@ -66,7 +66,7 @@ export const Settings = ({
               setInsetColor={setInsetColor}
               setInsetPadding={setInsetPadding}
             />
-            <Shadows toggleShadows={toggleShadows} />
+            <Shadows settings={settings} toggleShadows={toggleShadows} />
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="background">
