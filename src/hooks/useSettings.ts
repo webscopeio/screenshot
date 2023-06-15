@@ -27,6 +27,10 @@ type SettingActions =
       value: Settings["insetPadding"];
     }
   | {
+      type: "ENABLE_SHADOWS";
+      value: Settings["enableShadows"];
+    }
+  | {
       type: "SET_BACKGROUND_COLOR";
       value: Settings["backgroundColor"];
     }
@@ -74,6 +78,11 @@ const settingsReducer = (
         ...prevState,
         insetPadding: value,
       };
+    case "ENABLE_SHADOWS":
+      return {
+        ...prevState,
+        enableShadows: value,
+      };
     case "SET_BACKGROUND_COLOR": {
       return {
         ...prevState,
@@ -114,6 +123,8 @@ export const useSettings = (defaultSettings: Settings) => {
       dispatch({ type: "SET_INSET_COLOR", value }),
     setInsetPadding: (value: Settings["insetPadding"]) =>
       dispatch({ type: "SET_INSET_PADDING", value }),
+    toggleShadows: (value: Settings["enableShadows"]) =>
+      dispatch({ type: "ENABLE_SHADOWS", value }),
     setBackgroundColor: (value: Settings["backgroundColor"]) =>
       dispatch({ type: "SET_BACKGROUND_COLOR", value }),
     setBackgroundImage: (value: Settings["backgroundImage"]) =>

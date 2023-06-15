@@ -27,6 +27,7 @@ export default function Home() {
     setPositionY,
     setInsetColor,
     setInsetPadding,
+    toggleShadows,
     setBackgroundColor,
     setBackgroundImage,
     setUpscale,
@@ -66,6 +67,7 @@ export default function Home() {
                   positionX={settings.positionX}
                   positionY={settings.positionY}
                   insetPadding={settings.insetPadding}
+                  enableShadows={settings.enableShadows}
                   setInsetColor={setInsetColor}
                   setInsetPadding={setInsetPadding}
                 />
@@ -91,6 +93,7 @@ export default function Home() {
                   setPositionY={setPositionY}
                   setInsetColor={setInsetColor}
                   setInsetPadding={setInsetPadding}
+                  toggleShadows={toggleShadows}
                   setBackgroundColor={setBackgroundColor}
                   setBackgroundImage={setBackgroundImage}
                   setUpscale={setUpscale}
