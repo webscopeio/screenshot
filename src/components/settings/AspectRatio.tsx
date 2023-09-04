@@ -15,6 +15,10 @@ const aspectRatios: { label: string; type: AspectRatioType }[] = [
   },
   {
     label: "3:4",
+    type: SUPPORTED_ASPECT_RATIOS.PHONE_WIDE,
+  },
+  {
+    label: "9:16",
     type: SUPPORTED_ASPECT_RATIOS.PHONE,
   },
   {
