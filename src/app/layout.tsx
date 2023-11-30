@@ -1,6 +1,7 @@
 import { Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Providers } from "@/components/providers/Providers";
 
 const inter = Schibsted_Grotesk({
@@ -26,7 +27,9 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${inter.className} bg-black`}>
         <LayoutGrid />
-        <Providers>{children}</Providers>
+        <Suspense>
+          <Providers>{children}</Providers>
+        </Suspense>
       </body>
     </html>
   );
