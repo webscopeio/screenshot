@@ -1,7 +1,6 @@
 import { Schibsted_Grotesk } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Providers } from "@/components/providers/Providers";
 import { Toaster } from "@/components/providers/Toaster";
 
@@ -26,15 +25,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-black`}>
-        <LayoutGrid />
-        <Suspense>
-          <Providers>
-            {children}
-            <Toaster />
-          </Providers>
-        </Suspense>
-      </body>
+      <Providers>
+        <body className={`${inter.className} bg-black`}>
+          <LayoutGrid />
+          {children}
+          <Toaster />
+        </body>
+      </Providers>
     </html>
   );
 }
