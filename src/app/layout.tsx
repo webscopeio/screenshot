@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Providers } from "@/components/providers/Providers";
+import { Toaster } from "@/components/providers/Toaster";
 
 const inter = Schibsted_Grotesk({
   subsets: ["latin"],
@@ -25,12 +26,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} bg-black`}>
-        <LayoutGrid />
-        <Suspense>
-          <Providers>{children}</Providers>
-        </Suspense>
-      </body>
+      <Providers>
+        <body className={`${inter.className} bg-black`}>
+          <LayoutGrid />
+          <Suspense>
+            {children}
+            <Toaster />
+          </Suspense>
+        </body>
+      </Providers>
     </html>
   );
 }
