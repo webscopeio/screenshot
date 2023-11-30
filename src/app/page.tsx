@@ -1,110 +1,72 @@
 "use client";
 
 import * as React from "react";
-import { GithubIcon } from "lucide-react";
-import Link from "next/link";
-import { ClipboardImage } from "@components/ClipboardImage";
-import { ActionPanel } from "@components/ActionsPanel";
-import { defaultSettings } from "@config/defaults";
-import { cn } from "@utils/cn";
-import { useSettings } from "@hooks/useSettings";
-import { Settings } from "@components/settings/Settings";
-
-import { LoadProvider } from "@components/providers/LoadProvider";
-import { ToastProvider } from "@components/providers/ToastProvider";
-import { TooltipProviders } from "@components/providers/TooltipProvider";
-
-import { Button } from "@components/ui/Button";
-import { Logo } from "@components/Logo";
+import Particles from "react-particles";
+import { loadConfettiPreset } from "tsparticles-preset-confetti";
+import { Container } from "tsparticles-engine";
+import { ActionsPanel } from "@/components/ActionsPanel";
+import { MainPanel } from "@/components/MainPanel";
+import { SettingsPanel } from "@/components/SettingsPanel";
 
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
-  const {
-    settings,
-    setAspectRatio,
-    setScale,
-    setPositionX,
-    setPositionY,
-    setInsetColor,
-    setInsetPadding,
-    toggleShadows,
-    setBackgroundColor,
-    setBackgroundImage,
-    setUpscale,
-  } = useSettings(defaultSettings);
+  const backgroundFileRef = React.useRef<HTMLInputElement | null>(null);
+  const particlesRef = React.useRef<Container | null>(null);
 
   return (
-    <LoadProvider>
-      <ToastProvider>
-        <TooltipProviders>
-          <section className="grid h-screen w-screen grid-cols-[1fr_auto] place-items-center gap-2 p-5">
-            <div className="grid h-fit w-full max-w-[1200px] place-items-center rounded-md shadow-3xl">
-              <div
-                ref={clipboardRef}
-                style={
-                  settings.backgroundColor === "bg-transparent" &&
-                  settings.backgroundImage
-                    ? {
-                        backgroundImage: `url(${settings.backgroundImage})`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "center",
-                        backgroundSize: "100% 100%",
-                      }
-                    : undefined
-                }
-                className={`${cn(
-                  "max-w-6xl max-h-[648px] grid place-items-center overflow-hidden",
-                  settings.aspectRatio,
-                  settings.aspectRatio === "aspect-[9/16]" && "h-fit",
-                  settings.aspectRatio === "aspect-[3/4]" && "h-fit",
-                  settings.aspectRatio === "aspect-square" && "h-fit",
-                  settings.aspectRatio === "aspect-video" && "w-full",
-                  settings.backgroundColor
-                )}`}
-              >
-                <ClipboardImage
-                  insetColor={settings.insetColor}
-                  scale={settings.scale}
-                  positionX={settings.positionX}
-                  positionY={settings.positionY}
-                  insetPadding={settings.insetPadding}
-                  enableShadows={settings.enableShadows}
-                  setInsetColor={setInsetColor}
-                  setInsetPadding={setInsetPadding}
-                />
-              </div>
-            </div>
-            <div className="flex h-full w-[324px] flex-col justify-between gap-1.5">
-              <div className="flex items-center justify-between gap-2 rounded-md bg-slate-900/90 p-5 py-3 text-slate-100 shadow-3xl">
-                <header className="w-[150px] text-slate-200">
-                  <Logo />
-                </header>
-                <Link href="https://usescreenshot.app/github" tabIndex={-1}>
-                  <Button variant="ghost" className="px-2">
-                    <GithubIcon className="h-6 w-6 stroke-[1.75px]" />
-                  </Button>
-                </Link>
-              </div>
-              <div className="flex h-full flex-col justify-between gap-y-4 overflow-y-scroll rounded-md bg-slate-900/90 p-5 pb-4 pt-3 text-slate-100 shadow-3xl [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-thumb]:bg-slate-700 [&::-webkit-scrollbar-track]:rounded-r-md [&::-webkit-scrollbar-track]:border [&::-webkit-scrollbar-track]:border-transparent [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar]:w-2.5">
-                <Settings
-                  settings={settings}
-                  setAspectRatio={setAspectRatio}
-                  setScale={setScale}
-                  setPositionX={setPositionX}
-                  setPositionY={setPositionY}
-                  setInsetColor={setInsetColor}
-                  setInsetPadding={setInsetPadding}
-                  toggleShadows={toggleShadows}
-                  setBackgroundColor={setBackgroundColor}
-                  setBackgroundImage={setBackgroundImage}
-                  setUpscale={setUpscale}
-                />
-                <ActionPanel settings={settings} clipboardRef={clipboardRef} />
-              </div>
-            </div>
-          </section>
-        </TooltipProviders>
-      </ToastProvider>
-    </LoadProvider>
+    <main className="flex h-screen">
+      <Particles
+        className="absolute"
+        init={async (engine) => await loadConfettiPreset(engine)}
+        loaded={async (container) => {
+          if (container) {
+            particlesRef.current = container;
+          }
+        }}
+        options={{
+          autoPlay: false,
+          pauseOnBlur: false,
+          pauseOnOutsideViewport: false,
+          emitters: [
+            {
+              size: {
+                width: 100,
+                height: 50,
+              },
+              startCount: 650,
+              life: {
+                duration: 5,
+                count: 1,
+              },
+              position: {
+                x: 50,
+                y: 0,
+              },
+              particles: {
+                move: {
+                  direction: "bottom",
+                },
+              },
+            },
+          ],
+          preset: "confetti",
+        }}
+      />
+      <div className="flex-1 p-6 relative">
+        <div className="absolute -translate-x-1/2 left-[50%] top-6 z-50">
+          <ActionsPanel
+            particlesRef={particlesRef}
+            clipboardRef={clipboardRef}
+          />
+        </div>
+        <MainPanel
+          clipboardRef={clipboardRef}
+          backgroundFileRef={backgroundFileRef}
+        />
+      </div>
+      <div className="min-w-3xl h-full w-[calc(max(240px,_25%))] p-6 backdrop-blur bg-background/30 overflow-scroll hidden md:block">
+        <SettingsPanel backgroundFileRef={backgroundFileRef} />
+      </div>
+    </main>
   );
 }
