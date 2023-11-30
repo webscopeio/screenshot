@@ -2,62 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  scroll-behavior: smooth;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+@layer base {
+  .dark {
+    --background: 250 71% 4%;
+    --foreground: 250 31% 91%;
+
+    --muted: 250 47% 11%;
+    --muted-foreground: 250 16.3% 56.9%;
+
+    --accent: 250 34% 17%;
+    --accent-foreground: 250 40% 98%;
+
+    --popover: 250 71% 4%;
+    --popover-foreground: 250 20.2% 65.1%;
+
+    --border: 250 34% 17%;
+    --input: 250 34% 23%;
+
+    --card: 250 71% 4%;
+    --card-foreground: 250 31% 91%;
+
+    --primary: 250 40% 98%;
+    --primary-foreground: 250 47.4% 1.2%;
+
+    --secondary: 250 47.4% 14%;
+    --secondary-foreground: 250 40% 98%;
+
+    --destructive: 348 69% 19%;
+    --destructive-foreground: 348 40% 98%;
+
+    --ring: 250 34% 17%;
+
+    --radius: 0.5rem;
+  }
 }
 
-.lds-ellipsis {
-  display: inline-block;
-  position: relative;
-  width: 80px;
-  height: 20px;
-}
-.lds-ellipsis div {
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
-  @apply bg-slate-200 rounded-full h-3.5 w-3.5 absolute inset-0;
-}
-.lds-ellipsis div:nth-child(1) {
-  animation: lds-ellipsis1 0.6s infinite;
-  @apply left-2;
-}
-.lds-ellipsis div:nth-child(2) {
-  animation: lds-ellipsis2 0.6s infinite;
-  @apply left-2;
-}
-.lds-ellipsis div:nth-child(3) {
-  animation: lds-ellipsis2 0.6s infinite;
-  @apply left-8;
-}
-.lds-ellipsis div:nth-child(4) {
-  animation: lds-ellipsis3 0.6s infinite;
-  @apply left-14;
-}
-@keyframes lds-ellipsis1 {
-  0% {
-    transform: scale(0);
+@layer base {
+  * {
+    @apply border-border;
   }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-}
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

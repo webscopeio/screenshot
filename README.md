@@ -42,25 +42,32 @@
 
 ## Description
 
-Screenshot is an open-source tool that provides users with granular controls to frame their screenshots and build engaging content faster.
+Screenshot is an open-source tool to manage backgrounds and clipboard images to create screenshots with ease.
 
-![Build engaging screenshots faster](https://usescreenshot.app/teasers/Slide-0.png)
+## Keyboard Shortcuts
+
+Keyboard shortcuts have been enabled to make your workflow faster.
+
+| Action            | Shortcut          |
+| ----------------- | ----------------- |
+| Upload Background | ⌘ O               |
+| Delete Background | ⌘ shift backspace |
+| Paste Image       | ⌘ V               |
+| Delete Image      | ⌘ backspace       |
 
 ## How does it work?
 
-To use Screenshot, go to [usescreenshot.app](https://usescreenshot.app), (1.) click on the frame to paste your clipboard's image, and then (2.) adjust the settings as needed.
+To use Screenshot, go to [usescreenshot.app](https://usescreenshot.app), (1.) upload your background, (2.) paste your image and then (2.) adjust the settings as needed.
 
-![Frame your screenshot using simple settings](https://usescreenshot.app/teasers/Slide-1.png)
+![Frame your screenshot using simple settings](https://usescreenshot.app/teaser.png)
 
-We are actively working to improve and add more settings to Screenshot. Our goal is to provide a **simple but powerful set of controls** that can adjust to your needs.
-
-![Try our selection of color gradients](https://usescreenshot.app/teasers/Slide-2.png)
+**Current backgrounds and images are stored in your browser using IndexDB.**
 
 ## Installation
 
-Screenshot is a web-application being built with React in TypeScript, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and styled with [TailwindCSS](https://tailwindcss.com/) and [Radix UI](https://www.radix-ui.com/) components heavily inspired by [ui.shadcn.com](https://ui.shadcn.com/).
+Screenshot is a web-application being built with React in TypeScript, bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), and styled with [TailwindCSS](https://tailwindcss.com/) and [Radix UI](https://www.radix-ui.com/) + [ui.shadcn.com](https://ui.shadcn.com/) components.
 
-To install and run locally, follow these steps:
+To install and run locally, using `node@20.10.0` and `pnpm@8.11.0` follow these steps:
 
 1. Clone the repository
 
@@ -72,7 +79,7 @@ git clone https://github.com/webscopeio/screenshot.git
 
 ```bash
 cd screenshot
-npm instal
+pnpm i
 ```
 
 3. Start the development server, open your web browser and visit http://localhost:3000
@@ -80,19 +87,7 @@ npm instal
 - Using NPM:
 
 ```bash
-npm run dev
-```
-
-- Using Turbo:
-
-```bash
-turbo run dev
-```
-
-> Note: If you encounter a `Failed to Contact turbod` warning, this can be bypassed by running the command without the daemon process by passing the `--no-daemon` flag. More on this issue here: [Turbo Issues](https://github.com/vercel/turbo/issues/2034)
-
-```bash
-turbo run dev --no-daemon
+pnpm dev
 ```
 
 ## Share your feedback
@@ -101,15 +96,11 @@ If you encounter an issue or would like to suggest a new feature, please feel fr
 
 ## Contributing
 
-![A great opportunity to join OSS](https://usescreenshot.app/teasers/Slide-3.png)
-
 Contributing to Screenshot is **a great opportunity to join OSS**. Specially at this early pre-release stage, we are actively looking to engage with users and developers to learn more together about Screenshot.
 
 Issues, Pull requests, and Discussions are welcomed! For more information about our project visit: GitHub Repository at [usescreenshot.app/github](https://usescreenshot.app/github)
 
 If you find Screenshot helpful, we'd appreciate giving it a [Star in GitHub](https://github.com/webscopeio/screenshot/stargazers).
-
-**Fun fact**: All of the screenshots used here have been created using [usescreenshot.app](https://usescreenshot.app), with the exception of the text.
 
 ### Report an issue
 
