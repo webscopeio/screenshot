@@ -26,15 +26,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <Providers>
-        <body className={`${inter.className} bg-black`}>
-          <LayoutGrid />
-          <Suspense>
+      <body className={`${inter.className} bg-black`}>
+        <LayoutGrid />
+        <Suspense>
+          <Providers>
             {children}
             <Toaster />
-          </Suspense>
-        </body>
-      </Providers>
+          </Providers>
+        </Suspense>
+      </body>
     </html>
   );
 }
