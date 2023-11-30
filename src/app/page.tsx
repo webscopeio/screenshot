@@ -8,8 +8,6 @@ import { ActionsPanel } from "@/components/ActionsPanel";
 import { MainPanel } from "@/components/MainPanel";
 import { SettingsPanel } from "@/components/SettingsPanel";
 
-export const dynamic = "force-dynamic";
-
 export default function Home() {
   const clipboardRef = React.useRef<HTMLDivElement | null>(null);
   const backgroundFileRef = React.useRef<HTMLInputElement | null>(null);
