@@ -12,10 +12,14 @@ export const Providers: React.FC<React.PropsWithChildren> = ({ children }) => {
   const searchParams = useSearchParams();
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <SearchParamsProvider query={searchParams} router={router}>
-        {children}
-      </SearchParamsProvider>
-    </QueryClientProvider>
+    <SearchParamsProvider
+      query={searchParams.toString()}
+      router={{
+        push: (href) => router.push(href),
+        replace: (href) => router.replace(href),
+      }}
+    >
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </SearchParamsProvider>
   );
 };
