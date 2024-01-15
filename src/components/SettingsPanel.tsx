@@ -213,7 +213,7 @@ export const SettingsPanel: React.FC<{
                 <RefreshCcwIcon className="h-4 w-4 mr-2" />
                 Reset Settings
               </DropdownMenuItem>
-              <Link target="_blank" href="https://github.com">
+              <Link target="_blank" href="https://github.com/webscopeio/screenshot/issues">
                 <DropdownMenuItem>
                   <GithubIcon className="h-4 w-4 mr-2" />
                   Report Issues
