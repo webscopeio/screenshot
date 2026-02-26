@@ -28,7 +28,7 @@
     "html-to-image": "^1.11.11",
     "idb-keyval": "^6.2.1",
     "lucide-react": "^0.293.0",
-    "next": "14.0.3",
+    "next": "14.2.35",
     "react": "^18",
     "react-dom": "^18",
     "react-particles": "^2.12.2",
