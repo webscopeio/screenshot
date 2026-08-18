@@ -111,6 +111,43 @@ export const MainPanel: React.FC<{
     }
   }, [addImage, toast, autoCenter]);
 
+  const pasteImageFromEvent = React.useCallback(
+    async (event: ClipboardEvent) => {
+      if (
+        !event.clipboardData ||
+        !Array.from(event.clipboardData.items).some((item) =>
+          item.type.startsWith("image/")
+        )
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+      const res = await pasteImage({
+        center: autoCenter,
+        clipboardData: event.clipboardData ?? undefined,
+      });
+
+      if ("src" in res) {
+        addImage.mutate({
+          assetType: "image",
+          file: "clipboard",
+          src: res.src,
+          width: res.width,
+          height: res.height,
+        });
+      } else {
+        toast({ ...TOASTS.ADD_ASSET.ERROR, description: res.error });
+      }
+    },
+    [addImage, autoCenter, toast]
+  );
+
+  React.useEffect(() => {
+    document.addEventListener("paste", pasteImageFromEvent);
+    return () => document.removeEventListener("paste", pasteImageFromEvent);
+  }, [pasteImageFromEvent]);
+
   useHotkeys([
     [
       "mod+O",
@@ -120,7 +157,6 @@ export const MainPanel: React.FC<{
       "mod+Shift+Backspace",
       () => deleteBackground.mutate({ assetType: "background" }),
     ],
-    ["mod+V", getImageFromClipboard],
     ["mod+Backspace", () => deleteImage.mutate({ assetType: "image" })],
   ]);
 

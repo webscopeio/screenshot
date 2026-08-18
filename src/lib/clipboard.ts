@@ -1,8 +1,10 @@
 /* eslint-disable no-useless-catch */
 export const pasteImage = async ({
   center,
+  clipboardData,
 }: {
   center?: boolean;
+  clipboardData?: DataTransfer;
 }): Promise<
   | {
       src: string;
@@ -12,7 +14,12 @@ export const pasteImage = async ({
   | { error: string }
 > => {
   try {
-    const clipboardContents = await navigator.clipboard.read();
+    const clipboardContents = clipboardData
+      ? Array.from(clipboardData.items)
+          .filter((item) => item.type.startsWith("image/"))
+          .map((item) => item.getAsFile())
+          .filter((file): file is File => file !== null)
+      : await navigator.clipboard.read();
     const res = {
       src: "",
       height: 0,
@@ -20,11 +27,12 @@ export const pasteImage = async ({
     };
 
     for (const item of clipboardContents) {
-      if (!item.types.includes("image/png")) {
+      const blob = item instanceof Blob ? item : await item.getType("image/png");
+
+      if (!blob) {
         throw new Error("Clipboard contains non-image data.");
       }
 
-      const blob = await item.getType("image/png");
       const base64Src = await convertBlobToBase64(blob);
 
       const canvasData = await processImage(base64Src, center);
