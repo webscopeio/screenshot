@@ -176,6 +176,7 @@ export const MainPanel: React.FC<{
 
   const isPending =
     getImage.isLoading || addImage.isPending || deleteImage.isPending;
+  const hasAsset = Boolean(getBackground.data || getImage.data);
 
   return (
     <ContextMenu>
@@ -188,11 +189,13 @@ export const MainPanel: React.FC<{
             <Loader2Icon className="animate-spin h-12 w-12" />
           )}
 
-          {getBackground.data && (
+          {hasAsset && (
             <div
               ref={clipboardRef}
               style={{
-                backgroundImage: `url(${getBackground.data.src})`,
+                backgroundImage: getBackground.data
+                  ? `url(${getBackground.data.src})`
+                  : undefined,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "100% 100%",
                 backgroundPosition: "center",
@@ -240,7 +243,7 @@ export const MainPanel: React.FC<{
           )}
           {!getBackground.isLoading &&
             !isPending &&
-            (!getImage.data || !getBackground.data) && (
+            !hasAsset && (
               <div
                 className={cn(
                   "top-[50%] left-[50%] absolute p-6 -translate-x-[50%] -translate-y-[50%] flex w-[min(85%,_420px)] aspect-video items-center justify-center text-2xl font-medium rounded-md border-4 border-dashed text-center",
@@ -278,7 +281,6 @@ export const MainPanel: React.FC<{
         <ContextMenuSeparator />
         <ContextMenuItem
           inset
-          disabled={!getBackground.data}
           onClick={() => getImageFromClipboard()}
         >
           Paste Image
